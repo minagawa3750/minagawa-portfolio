@@ -1,0 +1,63 @@
+.signup_container {
+  padding-top: 20px;
+  background-color: #DDFFFF;
+}
+
+.user_icon {
+  text-align: center;
+}
+
+.sign_title {
+  text-align: center;
+}
+
+.sign_form {
+  margin: 2em auto;
+  padding: 1em;
+  width: 40%;
+  max-width: 100%;
+  border: 1px solid #ccc;
+  background-color: #FFFFFF;
+}@media screen and (max-width:800px) {
+  .sign_form {
+    width: 70%;
+  }
+}
+
+.sign_menu {
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: auto !important;
+  padding-bottom: 20px;
+}
+
+.signin_container {
+  padding-top: 80px;
+  height: 665px;
+  background-color: #DDFFFF;
+}
+
+.useredit_container {
+  padding-top: 30px;
+  padding-bottom: 20px;
+  background-color: #DDFFFF;
+
+}
+
+.useredit_title {
+  text-align: center;
+}
+
+.useredit_menu {
+  text-align: center;
+}
+
+.user_image {
+  border-radius: 50%;
+}
+
+.user_image_field {
+  box-sizing: border-box;
+}

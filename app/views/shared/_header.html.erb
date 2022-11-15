@@ -1,0 +1,28 @@
+<nav class="navbar navbar-expand-sm navbar-dark" style="background-color: #5D99FF;">
+  <%= link_to "SKI.com", root_path, class: "navbar-brand" %>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav4" aria-controls="navbarNav4" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav4">
+      <ul class="navbar-nav">
+        <% if user_signed_in? %>
+          <li class="nav-item active">
+            <%= link_to 'アカウント編集', edit_user_registration_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item active">
+            <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "nav-link" %>
+          </li>
+        <% else %>
+          <li class="nav-item active">
+            <%= link_to 'ゲストログイン', users_guest_sign_in_path, method: :post, class: "nav-link" %>
+          </li>
+          <li class="nav-item active">
+            <%= link_to "アカウント登録", new_user_registration_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item active">
+            <%= link_to "ログイン", new_user_session_path, class: "nav-link" %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+</nav>
