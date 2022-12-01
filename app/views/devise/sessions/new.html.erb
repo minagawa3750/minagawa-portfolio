@@ -12,20 +12,22 @@
         <%= f.label :password %>
         <%= f.password_field :password, autocomplete: 'current-password', class: 'form-control' %>
       </div>
-
-      <% if devise_mapping.rememberable? %>
-        <div class="form-group form-check">
-          <%= f.check_box :remember_me, class: 'form-check-input' %>
-          <%= f.label :remember_me, class: 'form-check-label' do %>
-            <%= resource.class.human_attribute_name('remember_me') %>
-          <% end %>
-        </div>
-      <% end %>
+      
+      <div class="form-check-container">
+        <% if devise_mapping.rememberable? %>
+          <div class="form-group form-check">
+            <%= f.check_box :remember_me, class: 'form-check-input' %>
+            <%= f.label :remember_me, class: 'form-check-label' do %>
+              <%= resource.class.human_attribute_name('remember_me') %>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
     </div>
 
     <div class="sign_menu">
       <div class="form-group">
-        <%= f.submit  t('.sign_in'), class: 'btn btn-primary' %>
+        <%= f.submit  t('.sign_in'), class: 'btn btn-info' %>
       </div>
       <%= render 'devise/shared/links' %>
     </div>

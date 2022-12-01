@@ -15,3 +15,5 @@ ActiveStorage.start()
 //= require jquery3
 //= require popper
 //= require bootstrap
+require("packs/jquery.raty")
+window.$ = window.jQuery = require('jquery');

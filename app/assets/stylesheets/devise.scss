@@ -1,14 +1,19 @@
 .signup_container {
   padding-top: 20px;
-  background-color: #DDFFFF;
+  background-color: #6A5ACD;
 }
 
-.user_icon {
+.sign_title, .useredit_title {
   text-align: center;
+  color: #FFFFFF;
 }
 
-.sign_title {
-  text-align: center;
+.profile_title, .devise_link_btn {
+  color: #FFFFFF;
+}
+
+.devise_link_btn:hover {
+  color: #FFFFFF !important;
 }
 
 .sign_form {
@@ -24,7 +29,7 @@
   }
 }
 
-.sign_menu {
+.sign_menu, .useredit_menu, .user_icon, .form-check-container {
   text-align: center;
 }
 
@@ -34,30 +39,32 @@
 }
 
 .signin_container {
-  padding-top: 80px;
-  height: 665px;
-  background-color: #DDFFFF;
+  padding-top: 90px;
+  background-color: #6A5ACD;
+  height: 87vh;
 }
 
 .useredit_container {
   padding-top: 30px;
   padding-bottom: 20px;
-  background-color: #DDFFFF;
-
-}
-
-.useredit_title {
-  text-align: center;
-}
-
-.useredit_menu {
-  text-align: center;
+  background-color: #6A5ACD;
 }
 
 .user_image {
   border-radius: 50%;
 }
 
-.user_image_field {
-  box-sizing: border-box;
+.alert-danger {
+  width: 40%;
+  margin: 2em auto;
+  text-align: left;
+}@media screen and (max-width:800px) {
+  .alert-danger {
+    width: 70%;
+  }
+}
+
+.alert-heading {
+  font-size: 1.0rem;
+  font-weight: bold;
 }

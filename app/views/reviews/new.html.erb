@@ -1,0 +1,8 @@
+<div class="new_review_field pt-5">
+
+<%= render 'form', {review: @review, ski_resort: @ski_resort} %>
+
+<div class="ski_resort_show_btn text-center mt-5">
+  <%= link_to 'スキー場詳細ページに戻る', ski_resort_path(@ski_resort.id), class:"btn btn-info text-center" %>
+</div>
+</div>

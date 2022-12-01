@@ -1,0 +1,27 @@
+.field_with_errors {
+  padding: 2px;
+  background-color: #CD5C5C;}
+
+#error_explanation {
+  margin: auto;
+  width: 450px;
+  border: 2px solid #CD5C5C;
+  padding: 7px 7px 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0; }
+
+#error_explanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px -7px 0;
+  background-color: #CD5C5C;
+  color: #fff; }
+
+#error_explanation ul li {
+  font-size: 12px;
+  list-style: square; }
+
+label {
+  display: block; }

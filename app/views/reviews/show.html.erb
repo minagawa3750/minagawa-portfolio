@@ -1,0 +1,56 @@
+<div class="review_box pt-5">
+  <div class="review_show_box pt-5">
+    <div class="text-center mb-3">
+      <h3 class="review_title">
+        レビュー詳細
+      </h3>
+    </div>
+
+    <div class="container">
+      <div class= "row justify-content-center ml-3 mb-2">
+        <div class="col-lg-3">
+          <strong>タイトル</strong>
+        </div>
+        <div class= "col-lg-5 mb-2">
+          <%= @review.title %>
+        </div>
+      </div>
+
+      <div class= "row justify-content-center ml-3 mb-4">
+        <div class="col-lg-3">
+          <strong>評価</strong>
+        </div>
+        <div class= "col-lg-5">
+          <div id="star-rate-<%= @review.id %>"></div>
+        </div>
+      </div>
+    
+      <div class= "row justify-content-center ml-3 mb-2">
+        <div class="col-lg-3">
+          <strong>レビュー内容</strong>
+        </div>
+        <div class= "col-lg-5 mb-2">
+          <%= @review.comment %>
+        </div>
+      </div>
+
+      <div class=" posts-content mt-5 text-center">
+        <p class="mb-3">投稿者：<%= @review.user.name %> | 投稿日：<%= @review.created_at.to_s(:datetime_jp) %></p>
+      </div>
+    </div>
+  </div>
+
+  <%= render "reviews/btn" %>
+</div>
+
+<script>
+$('#star-rate-<%= @review.id %>').raty({
+  size: 36,
+  starOff: '<%= asset_path('star-off.png') %>',
+  starOn : '<%= asset_path('star-on.png') %>',
+  starHalf: '<%= asset_path('star-half.png') %>',
+  half: true,
+  readOnly: true,
+  score: <%= @review.rate %>,
+  });
+</script>

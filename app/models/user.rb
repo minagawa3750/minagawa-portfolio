@@ -3,7 +3,6 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  validates :name, presence: true
 
   def self.guest
     find_or_create_by!(email: 'aaa@aaa.com') do |user|
@@ -15,4 +14,7 @@ class User < ApplicationRecord
   
   mount_uploader :image, ImageUploader
   has_one_attached :image
+  validates :name, presence: true
+  has_many :ski_resorts
+  has_many :reviews
 end

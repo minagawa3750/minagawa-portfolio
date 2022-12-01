@@ -5,4 +5,7 @@ Rails.application.routes.draw do
     post 'users/guest_sign_in', to: 'users/sessions#guest_sign_in'
   end
   root 'top#index'
+  resources :ski_resorts do
+    resources :reviews
+  end
 end

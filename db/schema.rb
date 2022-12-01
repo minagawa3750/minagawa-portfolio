@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_11_10_054743) do
+ActiveRecord::Schema.define(version: 2022_11_30_023459) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -38,6 +38,37 @@ ActiveRecord::Schema.define(version: 2022_11_10_054743) do
     t.bigint "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "ski_resort_id"
+    t.string "title"
+    t.text "comment"
+    t.float "rate"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "ski_resorts", force: :cascade do |t|
+    t.string "resort_name"
+    t.string "address"
+    t.text "hp_url"
+    t.string "phone_number"
+    t.string "business_hours"
+    t.string "business_period"
+    t.string "snow_quality"
+    t.text "resort_feature"
+    t.string "ski_lift"
+    t.string "image"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "adult_price"
+    t.text "introduction"
+    t.string "kid_price"
+    t.string "senior_price"
+    t.float "latitude"
+    t.float "longitude"
   end
 
   create_table "users", force: :cascade do |t|

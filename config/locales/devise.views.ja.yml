@@ -28,7 +28,7 @@ ja:
         unlock_token: ロック解除用トークン
         updated_at: 更新日
     models:
-      user: ユーザー
+      user: アカウント
   devise:
     confirmations:
       confirmed: メールアドレスが確認できました。

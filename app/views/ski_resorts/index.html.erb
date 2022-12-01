@@ -1,0 +1,29 @@
+<div class="ski_resort_index_container">
+  <h1 class="my-3 ml-3">スキー場一覧</h1>
+  <div class="col-8  table-responsive">
+    <table class="table table-bordered table-striped" style="white-space: nowrap">
+      <thead>
+        <tr class="table-primary">
+          <th>ゲレンデ画像</th>
+          <th>ゲレンデ名</th>
+          <th>住所</th>
+          <th>電話番号</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @ski_resorts.each do |ski_resort| %>
+          <tr>
+            <td><%= image_tag ski_resort.image.url, :size => '300x200' %></td>
+            <td><%= link_to "#{ski_resort.resort_name}", ski_resort %></td>
+            <td><%= ski_resort.address %></td>
+            <td><%= ski_resort.phone_number %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+  <br>
+
+  <%= link_to 'スキー場登録ページ', new_ski_resort_path %>
+</div>

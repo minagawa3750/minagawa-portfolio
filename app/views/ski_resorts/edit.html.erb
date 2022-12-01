@@ -1,0 +1,85 @@
+<h1>Editing Ski Resort</h1>
+
+<%= form_with model: @ski_resort, local: true do |f| %>
+  <div class="ski_resort_registration_menu">
+    <div class="form-group">
+      <%= f.label :image %><br>
+      <%= f.file_field :image %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :resort_name %>
+      <%= f.text_field :resort_name, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :address %>
+      <%= f.text_field :address, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :hp_url %>
+      <%= f.text_area :hp_url, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :phone_number %>
+      <%= f.text_field :phone_number, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :business_hours %>
+      <%= f.text_field :business_hours, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :business_period %>
+      <%= f.text_field :business_period, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :adult_price %>
+      <%= f.text_field :adult_price, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :kid_price %>
+      <%= f.text_field :kid_price, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :senior_price %>
+      <%= f.text_field :senior_price, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :snow_quality %>
+      <%= f.text_field :snow_quality, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :resort_feature %>
+      <%= f.text_area :resort_feature, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :ski_lift %>
+      <%= f.text_field :ski_lift, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :introduction %>
+      <%= f.text_area :introduction, class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="ski_resort_registration_btn_menu">
+    <div class="form-group">
+      <%= f.submit nil, class: 'btn btn-info' %>
+    </div>
+    <%= link_to 'ページに戻る', ski_resorts_path, class: 'ski_resort_back_btn' %>
+  </div>
+<% end %>
+
+<%= link_to 'Show', @ski_resort %> |
+<%= link_to 'Back', ski_resorts_path %>

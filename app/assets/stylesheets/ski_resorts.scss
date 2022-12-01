@@ -1,0 +1,84 @@
+.ski_resort_registration_container {
+  background-color: #336699;
+}
+
+.ski_resort_show_container {
+  padding-top: 40px;
+  background-color: #336699;
+}
+
+.ski_resort_registration_menu {
+  margin: 2em auto;
+  padding: 1em;
+  width: 40%;
+  max-width: 100%;
+  border: 1px solid #ccc;
+  background-color: #FFFFFF;
+  }@media screen and (max-width:800px) {
+    .ski_resort_registration_menu {
+      width: 70%;
+    }
+  }
+
+.ski_resort_registration_title, .ski_resort_back_btn, .ski_resort_registration_btn_menu {
+  text-align: center;
+}
+
+.ski_resort_back_btn, .ski_resort_registration_title {
+  color: #FFFFFF;
+} 
+  
+.ski_resort_back_btn:hover {
+  color: #FFFFFF !important;
+}
+
+td {
+  vertical-align: middle !important;
+}
+
+.ski_resort_show_main, .ski_resort_map {
+  text-align: center;
+  margin: auto;
+  padding: 1em;
+  width: 60%;
+  max-width: 100%;
+  border: 1px solid #ccc;
+  background-color: #FFFFFF;
+}@media screen and (max-width:800px) {
+  .ski_resort_registration_menu {
+   width: 70%;
+  }
+}
+
+.ski_resort_show_page {
+  margin: 2em auto;
+  padding: 1em;
+  width: 60%;
+  max-width: 100%;
+  border: 1px solid #ccc;
+  background-color: #FFFFFF;
+}@media screen and (max-width:800px) {
+  .ski_resort_registration_menu {
+   width: 70%;
+  }
+}
+
+.ski_resort_hp {
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.ski_resort_show_title {
+  color: #0000CC;
+  margin-bottom: 30px;
+  font-weight: bold;
+  text-align: center;
+}
+
+#map {
+  margin: auto;
+  height: 500px;
+  width: 80%;
+}
+
