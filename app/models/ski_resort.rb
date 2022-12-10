@@ -6,7 +6,6 @@ class SkiResort < ApplicationRecord
 
   validates :resort_name, presence: true
   validates :address, presence: true
-  validates :ski_lift, presence: true
   validates :hp_url, presence: true
   validates :phone_number, presence: true
   validates :business_hours, presence: true
@@ -15,6 +14,7 @@ class SkiResort < ApplicationRecord
   validates :kid_price, presence: true
   validates :senior_price, presence: true
   validates :snow_quality, presence: true
+  validates :ski_lift, presence: true
   validates :resort_feature, presence: true
   validates :introduction, presence: true
 end

@@ -1,33 +1,37 @@
-.new_review_box, .review_show_box, .new_review_box {
+.review_box, .review_show_box {
   margin: auto;
   padding: 1em;
   width: 60%;
   max-width: 100%;
   border: 1px solid #ccc;
-  background-color: #FFFFFF;
+  background-color: #fffafa;
 }@media screen and (max-width:800px) {
-  .ski_resort_registration_menu {
-   width: 70%;
+  .review_box, .review_show_box {
+   width: 90%;
   }
 }
 
-.review_box, .new_review_field {
-  background-color: #336699;
-  height: 87%;
+.review_title {
+  color: #19448e;
+}
+
+.edit_review_field, .new_review_field, .review_show_field {
+  background-color: #eaf4fc;
+  padding: 5vh 10vh;
 }
 
 .review_edit_btn {
-  color: #FFFFFF;
+  color: #19448e;
 }
 
 .review_edit_btn:hover {
-  color: #FFFFFF;
+  color: #19448e;
 }
 
 .review_delete_btn {
-  color: #FFFFFF;
+  color: #19448e;
 }
 
 .review_delete_btn:hover {
-  color: #FFFFFF;
+  color: #19448e;
 }

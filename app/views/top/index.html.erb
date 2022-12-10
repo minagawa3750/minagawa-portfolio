@@ -1,1 +1,73 @@
-<h1>Hello World</h1>
+<div class="top">
+  <div class="top_main d-flex align-items-center justify-content-center">
+    <div class="top_box text-center">
+      <h1 class="top_title text-white">スキーがスキ</h1>
+      <h1 class="top_title text-white">そのスキをシェアしよう</h1>
+      <h4 class="hp_title text-white">
+        SKI.com
+        <i class="fa-solid fa-person-skiing"></i>
+      </h4>
+    </div>
+  </div>
+  <div class="rank mt-4">
+    <h2 class="rank_title text-center mb-3">
+      <i class="fa-solid fa-ranking-star"></i>
+      レビューランキング
+    </h2>
+    <div class="container-fluid">
+      <div class="row justify-content-between">
+        <% @ranks.each.with_index(1) do |rank, i| %>
+          <div class="col-md-4">
+            <% case i when 1 %>
+              <span class="position-absolute fa-stack fa-lg" style='color: #daa520;'>
+              <span class="fa-solid fa-crown fa-stack-2x"></span>
+              <span class="fa fa-stack-1x"><%= i %></span>
+              </span>
+            <% when 2 %>
+              <span class="position-absolute fa-stack fa-lg" style='color: #c0c0c0;'>
+              <span class="fa-solid fa-crown fa-stack-2x"></span>
+              <span class="fa fa-stack-1x"><%= i %></span>
+              </span>
+            <% when 3 %>
+              <span class="position-absolute fa-stack fa-lg" style='color: #b87333;'>
+              <span class="fa-solid fa-crown fa-stack-2x"></span>
+              <span class="fa fa-stack-1x"><%= i %></span>
+              </span>
+            <% end %>            
+            <div class="rank_box">
+              <% if rank.image? %>
+                <%= link_to image_tag("#{rank.image.url}", :size => '400x800', class:"img-fluid"), ski_resort_path(rank) %>
+              <% else %>
+                <%= link_to image_tag('/assets/no_image.jpeg', :size => '300x400', class:"img-fluid"), ski_resort_path(rank) %>
+              <% end %>
+              <h4 class="mt-2 mb-3"><i class="fa-solid fa-mountain"></i><%= rank.resort_name %></h4>
+              <p>
+                <i class="fa-solid fa-magnifying-glass"></i>
+                平均評価：<%= rank.reviews.average(:rate) %>点
+                <span id="star-average-<%= rank.id %>"></span>
+              </p>
+              <script>
+              $('#star-average-<%= rank.id %>').raty({
+                starOff: '<%= asset_path('star-off.png') %>',
+                starOn : '<%= asset_path('star-on.png') %>',
+                starHalf: '<%= asset_path('star-half.png') %>',
+                half: true,
+                readOnly: true,
+                score: <%= rank.reviews.average(:rate) %>,
+              });
+              </script>
+              <p>
+                <i class="fa-sharp fa-solid fa-location-dot"></i>
+                <%= rank.address %>
+              </p>
+              <P>
+                <i class="fa-solid fa-mobile"></i>
+                <%= link_to "#{rank.phone_number}", "tel:" + rank.phone_number %>
+              </P>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

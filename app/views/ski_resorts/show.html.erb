@@ -1,110 +1,119 @@
 <div class="ski_resort_show_container pb-5">
   <div class="ski_resort_show">
     <div class="ski_resort_show_main">
-      <h3 class="ski_resort_show_title">
+      <h3 class="ski_resort_title">
+        <i class="fa-solid fa-mountain"></i>
         <%= @ski_resort.resort_name %>
       </h3>
-      <%= image_tag @ski_resort.image.url, :size => '600x400' %>
+      <div>
+        <p>
+          <strong>平均評価：<%= @ski_resort.reviews.average(:rate) %>点</strong> | 
+          <span id="star-average-<%= @ski_resort.id %>"></span>
+        </p>
+      </div>
+      <script>
+      $('#star-average-<%= @ski_resort.id %>').raty({
+        starOff: '<%= asset_path('star-off.png') %>',
+        starOn : '<%= asset_path('star-on.png') %>',
+        starHalf: '<%= asset_path('star-half.png') %>',
+        half: true,
+        readOnly: true,
+        score: <%= @ski_resort.reviews.average(:rate) %>,
+      });
+      </script>
+      <% if @ski_resort.image? %>
+        <%= image_tag @ski_resort.image.url, :size => '400x800', class:"img-fluid" %>
+      <% else %>
+        <%= image_tag ('/assets/no_image.jpeg'), :size => '300x800', class:"img-fluid" %>
+      <% end %>
     </div>
   </div>
-
   <div class="ski_resort_show_page">
-    <h3 class="ski_resort_show_title">
+    <h3 class="ski_resort_title">
       <i class="fa-solid fa-person-skiing"></i>
       スキー場情報
     </h3>
-
     <div class="container">
-      <div class= "row justify-content-center ml-3 mb-2">
-        <div class="col-lg-3">
+      <div class="row justify-content-end mb-2">
+        <div class="col-md-3">
           <i class="fa-sharp fa-solid fa-location-dot"></i>
           <strong>住所</strong>
         </div>
-        <div class= "col-lg-5">
+        <div class="col-md-7">
           <%= @ski_resort.address %>
         </div>
       </div>
-       
-      <div class= "row justify-content-center ml-3 mb-2">
-        <div class="col-lg-3">
-          <i class="fa-sharp fa-solid fa-phone"></i>
+      <div class="row justify-content-end mb-2">
+        <div class="col-md-3">
+          <i class="fa-solid fa-mobile"></i>
           <strong>電話番号</strong>
         </div>
-        <div class= "col-lg-5">
+        <div class="col-md-7">
           <%= link_to @ski_resort.phone_number, "tel:" + @ski_resort.phone_number %>
         </div>
-      </div>
-  
-      <div class= "row justify-content-center ml-3 mb-2">
-        <div class="col-lg-3">
+      </div> 
+      <div class="row justify-content-end mb-2">
+        <div class="col-md-3">
           <i class="fa-solid fa-clock"></i>
           <strong>営業時間</strong>
         </div>
-        <div class= "col-lg-5">
+        <div class="col-md-7">
           <%= @ski_resort.business_hours %>
         </div>
       </div>
-
-      <div class= "row justify-content-center ml-3 mb-2">
-        <div class="col-lg-3">
+      <div class="row justify-content-end mb-2">
+        <div class="col-md-3">
           <i class="fa-solid fa-calendar-days"></i>
           <strong>営業期間</strong>
         </div>
-        <div class= "col-lg-5">
+        <div class= "col-md-7">
           <%= @ski_resort.business_period %>
         </div>
       </div>
-
-      <div class= "row justify-content-center ml-3 mb-2">
-        <div class="col-lg-3">
+      <div class="row justify-content-end mb-2">
+        <div class="col-md-3">
           <i class="fa-solid fa-yen-sign"></i>
           <strong>料金(1日券)</strong>
         </div>
-        <div class= "col-lg-5">
-          大人/¥<%= @ski_resort.adult_price %>
-          子ども/¥<%= @ski_resort.kid_price %>
-          シニア(65歳以上)/¥<%= @ski_resort.senior_price %>
-        </div>
+        <ul class="list-unstyled col-md-7">
+          <li class="mb-1">おとな：<%= @ski_resort.adult_price %></li>
+          <li class="mb-1">こども：<%= @ski_resort.kid_price %></li>
+          <li class="mb-1">シニア(65歳以上)：<%= @ski_resort.senior_price %></li>
+        </ul>
       </div>
-
-      <div class= "row justify-content-center ml-3 mb-2">
-        <div class="col-lg-3">
+      <div class="row justify-content-end mb-2">
+        <div class="col-md-3">
           <i class="fa-solid fa-person-snowboarding"></i>
           <strong>リフト数</strong>
         </div>
-        <div class= "col-lg-5">
+        <div class="col-md-7">
           <%= @ski_resort.ski_lift %>
         </div>
       </div>
-
-      <div class= "row justify-content-center ml-3 mb-4">
-        <div class="col-lg-3">
+      <div class="row justify-content-end mb-4">
+        <div class="col-md-3">
           <i class="fa-solid fa-snowflake"></i>
           <strong>雪質</strong>
         </div>
-        <div class= "col-lg-5">
+        <div class= "col-md-7">
           <%= @ski_resort.snow_quality %>
         </div>
       </div>
-
-
-      <div class="row justify-content-center ml-3 mb-4">
-        <div class="col-lg-3">
+      <div class="row justify-content-end mb-4">
+        <div class="col-md-3">
           <i class="fa-solid fa-snowman"></i>
-          <strong>スキー場の特徴</strong><br>
+          <strong>特徴</strong><br>
         </div>
-        <div class="col-lg-5">
+        <div class="col-md-7">
           <%= safe_join(@ski_resort.resort_feature.split("\n"), tag(:br)) %>
         </div>
-      </div>
-      
-
-      <div class= "row justify-content-center ml-3">
-        <div class="col-lg-3">
+      </div>      
+      <div class="row justify-content-end">
+        <div class="col-md-3">
           <i class="fa-solid fa-hand-point-up"></i>
           <strong>ここがおすすめ</strong>
         </div>
-        <div class="col-lg-5">
+        <div class="col-md-7">
           <%= safe_join(@ski_resort.introduction.split("\n"), tag(:br)) %>
         </div>
       </div>
@@ -114,10 +123,13 @@
       </div>
     </div>
   </div>
-
-  <div class="ski_resort_map">
-    <h3>マップ</h3>
-    <div id="map">
+  <div class= "ski_resort_map">
+    <h3 class="ski_resort_title">
+      <i class="fa-solid fa-map"></i>
+      マップ
+    </h3>
+    <div class="gmap_wrapper">
+      <div id="map"></div>
     </div>
   </div>
   <script>
@@ -132,9 +144,9 @@
       });
     }
   </script>
-
-  <%= render "reviews/show_form", reviews: @reviews %>
-  <div class="new_review_box text-center">
-    <%= link_to"レビュー投稿はこちら", new_ski_resort_review_path(@ski_resort), class: "btn btn-success rounded-pill" %>
+  <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAP_API_KEY'] %>&callback=initMap" async defer></script>
+  <%= render "reviews/ski_resort_reviews_index", reviews: @reviews %>
+  <div class="review_box text-center">
+    <%= link_to"レビュー投稿はこちら", new_ski_resort_review_path(@ski_resort), class: "btn btn-info rounded-pill" %>
   </div>
 </div>

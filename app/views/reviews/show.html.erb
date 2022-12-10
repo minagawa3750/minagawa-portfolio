@@ -1,56 +1,83 @@
-<div class="review_box pt-5">
-  <div class="review_show_box pt-5">
-    <div class="text-center mb-3">
-      <h3 class="review_title">
-        レビュー詳細
-      </h3>
-    </div>
-
+<div class="review_show_field">
+  <h1 class="review_title text-center mb-5">レビュー詳細</h1>
+  <div class="review_show_box">
     <div class="container">
-      <div class= "row justify-content-center ml-3 mb-2">
-        <div class="col-lg-3">
+      <div class= "row justify-content-end mb-3">
+        <div class="col-md-3">
+          <i class="fa-solid fa-person-skiing"></i>
+          <strong>スキー場</strong>
+        </div>
+        <div class= "col-md-7">
+          <%= @ski_resort.resort_name %>
+        </div>
+      </div>
+
+      <div class= "row justify-content-end mb-3">
+        <div class="col-md-3">
+          <i class="fa-solid fa-pen"></i>
           <strong>タイトル</strong>
         </div>
-        <div class= "col-lg-5 mb-2">
+        <div class= "col-md-7">
           <%= @review.title %>
         </div>
       </div>
 
-      <div class= "row justify-content-center ml-3 mb-4">
-        <div class="col-lg-3">
+      <div class= "row justify-content-end mb-3">
+        <div class="col-md-3">
+          <i class="fa-solid fa-magnifying-glass"></i>
           <strong>評価</strong>
         </div>
-        <div class= "col-lg-5">
+        <div class= "col-md-7">
           <div id="star-rate-<%= @review.id %>"></div>
         </div>
+        <script>
+          $('#star-rate-<%= @review.id %>').raty ({
+            size: 36,
+            starOff: '<%= asset_path('star-off.png') %>',
+            starOn : '<%= asset_path('star-on.png') %>',
+            starHalf: '<%= asset_path('star-half.png') %>',
+            half: true,
+            readOnly: true,
+            score: <%= @review.rate %>,
+          });
+        </script>
       </div>
     
-      <div class= "row justify-content-center ml-3 mb-2">
+      <div class= "row justify-content-end mb-3">
         <div class="col-lg-3">
+          <i class="fa-solid fa-comment"></i>
           <strong>レビュー内容</strong>
         </div>
-        <div class= "col-lg-5 mb-2">
+        <div class= "col-md-7">
           <%= @review.comment %>
         </div>
       </div>
-
-      <div class=" posts-content mt-5 text-center">
-        <p class="mb-3">投稿者：<%= @review.user.name %> | 投稿日：<%= @review.created_at.to_s(:datetime_jp) %></p>
+       
+      <div class="mt-5 text-center">
+        <p>
+          <i class="fa-solid fa-user"></i>
+          <strong>投稿者</strong>
+        </p>
+        <% if @review.user.image? %>
+          <%= image_tag @review.user.image.url, :size => '100x100', class:"user_image" %>
+        <% else %>
+          <%= image_tag ('/assets/user_icon.jpeg'), :size => '100x100', class:"user_image" %>
+        <% end %>
+        <p class="text-secondary mt-1 mb-3"><strong><%= @review.user.name %></strong></p>
+        <p class="text-secondary"><strong>レビュー日：<%= @review.created_at.to_s(:datetime_jp) %></strong></p>
       </div>
-    </div>
+    </div> 
   </div>
 
-  <%= render "reviews/btn" %>
+  <div class="text-center mt-5">
+    <%= link_to 'スキー場詳細ページに戻る', ski_resort_path(@ski_resort.id), class:"btn btn-info text-center" %>
+  </div>
+  <% if @review.user == current_user %>
+    <div class="text-center mt-3">
+      <%= link_to 'レビューを編集する', edit_ski_resort_review_path(@review.ski_resort_id, @review.id), class:"review_edit_btn" %>
+    </div>
+    <div class="text-center mt-3">
+      <%= link_to 'レビューを削除する', ski_resort_review_url(@review.ski_resort_id, @review.id), method: :delete, data: { confirm: '削除します。よろしいですか。' }, class:"review_delete_btn" %>
+    </div>
+  <% end %>
 </div>
-
-<script>
-$('#star-rate-<%= @review.id %>').raty({
-  size: 36,
-  starOff: '<%= asset_path('star-off.png') %>',
-  starOn : '<%= asset_path('star-on.png') %>',
-  starHalf: '<%= asset_path('star-half.png') %>',
-  half: true,
-  readOnly: true,
-  score: <%= @review.rate %>,
-  });
-</script>

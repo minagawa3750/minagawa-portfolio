@@ -1,52 +1,19 @@
-<div class="review_box pt-4">
-  <div class="new_review_box">
-    <div class="container">
-    <%= form_with(model: [@ski_resort, @review]) do |f| %>
-      <% if @review.errors.any? %>
-        <div id="error_explanation">
-          <h2><%= pluralize(review.errors.count, "error") %> prohibited this review from being saved:</h2>
+<div class="edit_review_field">
+  <h1 class="review_title text-center mb-5">レビュー編集</h1>
 
-          <ul>
-            <% @review.errors.each do |error| %>
-              <li><%= error.full_message %></li>
-            <% end %>
-          </ul>
-        </div>
-     <% end %>
-     <div class="text-center mb-3">
-       <h3 class="review_title">
-         レビューを編集する
-       </h3>
-     </div>
-     <%= f.hidden_field :ski_resort_id, value: @ski_resort.id %>
-     <%= f.hidden_field :user_id, value: current_user.id %>
-       <div class="form-group row">
-         <%= f.label :title, class:'col-md-3 col-form-label' %>
-         <div class="col-md-9">
-           <%= f.text_field :title, class: "form-control" %>
-         </div>
-       </div>
-  
-       <div class="form-group row" id="star">
-          <%= f.label :rate, class:'col-md-3 col-form-label' %>
-          <%= f.hidden_field :rate, id: :review_star %>
-       </div>
+  <%= render 'reviews/form', {ski_resort: @ski_resort, review: @review } %>
 
-       <div class="form-group row">
-         <%= f.label :comment, '口コミ内容 ', class:'col-md-3 col-form-label' %>
-         <div class="col-md-9">
-           <%= f.text_area :comment, class: "form-control", rows: "8" %>
-         </div>
-       </div>
-  
-       <div class="form-group row justify-content-end">
-         <div class="col-md-9">
-           <%= f.submit '投稿する', class:"btn btn-info" %>
-         </div>
-       </div>
-     <% end %>
-   </div>
-  </div>
+  <script>
+  $('#star').raty({
+    size     : 36,
+    starOff:  '<%= asset_path('star-off.png') %>',
+    starOn : '<%= asset_path('star-on.png') %>',
+    starHalf: '<%= asset_path('star-half.png') %>',
+    score: <%= @review.rate %>,
+    scoreName: 'review[rate]',
+    half: true,
+  });
+  </script>
 
   <div class="ski_resort_show_btn text-center mt-5">
     <%= link_to 'スキー場詳細ページに戻る', ski_resort_path(@ski_resort.id), class:"btn btn-info" %>
@@ -57,16 +24,3 @@
     </div>
   <% end %>
 </div>
-
-<script>
-$('#star').raty({
-  size     : 36,
-  starOff:  '<%= asset_path('star-off.png') %>',
-  starOn : '<%= asset_path('star-on.png') %>',
-  starHalf: '<%= asset_path('star-half.png') %>',
-  scoreName: '@review[rate]',
-  half: true,
-});
-</script> 
-
-

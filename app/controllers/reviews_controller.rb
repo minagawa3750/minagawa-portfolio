@@ -3,8 +3,7 @@ class ReviewsController < ApplicationController
 
   # GET /reviews or /reviews.json
   def index
-    @reviews = Review.where(ski_resort_id:params[:ski_resort_id])
-    @ski_resort = SkiResort.find(params[:ski_resort_id])
+    @reviews = Review.where(user_id: current_user.id)
   end
 
   # GET /reviews/1 or /reviews/1.json
@@ -28,7 +27,7 @@ class ReviewsController < ApplicationController
 
     respond_to do |format|
       if @review.save
-        format.html { redirect_to ski_resort_url(@ski_resort), notice: "レビューを投稿しました" }
+        format.html { redirect_to ski_resort_review_url(@review.ski_resort_id, @review.id), notice: "レビューを投稿しました" }
         format.json { render :show, status: :created, location: @review }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -41,7 +40,7 @@ class ReviewsController < ApplicationController
   def update
     respond_to do |format|
       if @review.update(review_params)
-        format.html { redirect_to ski_resort_reviews_url, notice: "レビューを更新しました." }
+        format.html { redirect_to ski_resort_review_url(@review.ski_resort_id, @review.id), notice: "レビューを更新しました" }
         format.json { render :show, status: :ok, location: @review }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -55,7 +54,7 @@ class ReviewsController < ApplicationController
     @review.destroy
 
     respond_to do |format|
-      format.html { redirect_to ski_resort_reviews_url, notice: "レビューを削除しました." }
+      format.html { redirect_to ski_resort_url(@ski_resort), notice: "レビューを削除しました" }
       format.json { head :no_content }
     end
   end

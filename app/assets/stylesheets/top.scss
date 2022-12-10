@@ -1,3 +1,51 @@
-// Place all the styles related to the top controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+.top_main{
+  background-image: url("assets/top_background.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 650px;
+}
+
+.top_box {
+  background-color: rgba(175,238,238,0.5);
+  width: 70%;
+  padding: 20px 20px;
+}@media screen and (max-width:768px) {
+  .top_box {
+    width: 100%;
+  }
+}
+
+.rank_box {
+  margin: 2em auto;
+  padding: 1em;
+  width: 100%;
+  max-width: 95%;
+  border: 1px solid #ccc;
+  background-color: #fffafa;
+  color: #19448e;
+}@media (max-width: 800px) {
+  .rank_box {
+    width: 75%;
+  }
+}
+
+.rank_title {
+  color: #f39800;
+  font-weight: bold;
+  letter-spacing: 0.15em;
+}
+
+.fa-stack {
+  font-size: 3em;
+}@media (max-width: 768px) {
+  .fa-stack {
+  left: 60px;
+  }
+}
+.fa-stack-1x {
+  font-size: 0.8em;
+  font-family: monospace;
+  margin-top: 8px;
+  color: #fff;
+}

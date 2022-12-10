@@ -8,8 +8,6 @@ class SkiResortsController < ApplicationController
 
   # GET /ski_resorts/1 or /ski_resorts/1.json
   def show
-    @user = current_user
-    @review = Review.new
     @reviews = Review.where(ski_resort_id:params[:id])
   end
 
