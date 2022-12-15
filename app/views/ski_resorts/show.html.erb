@@ -22,9 +22,9 @@
       });
       </script>
       <% if @ski_resort.image? %>
-        <%= image_tag @ski_resort.image.url, :size => '400x800', class:"img-fluid" %>
+        <%= image_tag @ski_resort.image.url, alt: 'ゲレンデ画像', :size => '400x200', class: "img-fluid" %>
       <% else %>
-        <%= image_tag ('/assets/no_image.jpeg'), :size => '300x800', class:"img-fluid" %>
+        <%= image_tag ('/assets/no_image.jpeg'), alt: 'ゲレンデ画像', :size => '300x200', class: "img-fluid" %>
       <% end %>
     </div>
   </div>
@@ -39,7 +39,7 @@
           <i class="fa-sharp fa-solid fa-location-dot"></i>
           <strong>住所</strong>
         </div>
-        <div class="col-md-7">
+        <div class="col-md-7 col-lg-6">
           <%= @ski_resort.address %>
         </div>
       </div>
@@ -48,7 +48,7 @@
           <i class="fa-solid fa-mobile"></i>
           <strong>電話番号</strong>
         </div>
-        <div class="col-md-7">
+        <div class="col-md-7 col-lg-6">
           <%= link_to @ski_resort.phone_number, "tel:" + @ski_resort.phone_number %>
         </div>
       </div> 
@@ -57,8 +57,12 @@
           <i class="fa-solid fa-clock"></i>
           <strong>営業時間</strong>
         </div>
-        <div class="col-md-7">
-          <%= @ski_resort.business_hours %>
+        <div class="col-md-7 col-lg-6">
+          <% if @ski_resort.start_time? || @ski_resort.end_time? %>
+            <%= @ski_resort.start_time.to_s(:time_jp) %>〜<%= @ski_resort.end_time.to_s(:time_jp) %>
+          <% else %>
+            詳細分かり次第記載します
+          <% end %>
         </div>
       </div>
       <div class="row justify-content-end mb-2">
@@ -66,8 +70,25 @@
           <i class="fa-solid fa-calendar-days"></i>
           <strong>営業期間</strong>
         </div>
-        <div class= "col-md-7">
-          <%= @ski_resort.business_period %>
+        <div class="col-md-7 col-lg-6">
+          <% if @ski_resort.start_day? || @ski_resort.end_day? %>
+            <%= @ski_resort.start_day.to_s(:date_jp) %>〜<%= @ski_resort.end_day.to_s(:date_jp) %>
+          <% else %>
+            詳細分かり次第記載します
+          <% end %>
+        </div>
+      </div>
+      <div class="row justify-content-end mb-2">
+        <div class="col-md-3">
+          <i class="fa-solid fa-circle-info"></i>
+          <strong>営業備考</strong>
+        </div>
+        <div class="col-md-7 col-lg-6">
+          <% if @ski_resort.business_remarks? %>
+            <%= @ski_resort.business_remarks %>
+          <% else %>
+            -
+          <% end %>
         </div>
       </div>
       <div class="row justify-content-end mb-2">
@@ -75,10 +96,10 @@
           <i class="fa-solid fa-yen-sign"></i>
           <strong>料金(1日券)</strong>
         </div>
-        <ul class="list-unstyled col-md-7">
+        <ul class="list-unstyled col-md-7 col-lg-6">
           <li class="mb-1">おとな：<%= @ski_resort.adult_price %></li>
           <li class="mb-1">こども：<%= @ski_resort.kid_price %></li>
-          <li class="mb-1">シニア(65歳以上)：<%= @ski_resort.senior_price %></li>
+          <li>シニア：<%= @ski_resort.senior_price %></li>
         </ul>
       </div>
       <div class="row justify-content-end mb-2">
@@ -86,17 +107,35 @@
           <i class="fa-solid fa-person-snowboarding"></i>
           <strong>リフト数</strong>
         </div>
-        <div class="col-md-7">
+        <div class="col-md-7 col-lg-6">
           <%= @ski_resort.ski_lift %>
         </div>
       </div>
-      <div class="row justify-content-end mb-4">
+      <div class="row justify-content-end mb-2">
         <div class="col-md-3">
-          <i class="fa-solid fa-snowflake"></i>
-          <strong>雪質</strong>
+          <i class="fa-solid fa-road"></i>
+          <strong>コース数</strong>
         </div>
-        <div class= "col-md-7">
-          <%= @ski_resort.snow_quality %>
+        <div class="col-md-7 col-lg-6">
+          <%= @ski_resort.courses %>本
+        </div>
+      </div>
+      <div class="row justify-content-end mb-2">
+        <div class="col-md-3">
+          <i class="fa-solid fa-angle-up"></i>
+          <strong>最大傾斜</strong>
+        </div>
+        <div class="col-md-7 col-lg-6">
+          <%= @ski_resort.maximum_tilt %>度
+        </div>
+      </div>
+      <div class="row justify-content-end mb-2">
+        <div class="col-md-3">
+          <i class="fa-solid fa-mountain-sun"></i>
+          <strong>最大滑走距離</strong>
+        </div>
+        <div class="col-md-7 col-lg-6">
+          <%= @ski_resort.maximum_distance.to_s(:delimited) %>m
         </div>
       </div>
       <div class="row justify-content-end mb-4">
@@ -104,7 +143,7 @@
           <i class="fa-solid fa-snowman"></i>
           <strong>特徴</strong><br>
         </div>
-        <div class="col-md-7">
+        <div class="col-md-7 col-lg-6">
           <%= safe_join(@ski_resort.resort_feature.split("\n"), tag(:br)) %>
         </div>
       </div>      
@@ -113,7 +152,7 @@
           <i class="fa-solid fa-hand-point-up"></i>
           <strong>ここがおすすめ</strong>
         </div>
-        <div class="col-md-7">
+        <div class="col-md-7 col-lg-6">
           <%= safe_join(@ski_resort.introduction.split("\n"), tag(:br)) %>
         </div>
       </div>

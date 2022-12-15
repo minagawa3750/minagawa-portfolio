@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_11_30_023459) do
+ActiveRecord::Schema.define(version: 2022_12_15_052713) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -55,9 +55,8 @@ ActiveRecord::Schema.define(version: 2022_11_30_023459) do
     t.string "address"
     t.text "hp_url"
     t.string "phone_number"
-    t.string "business_hours"
+    t.string "business_remarks"
     t.string "business_period"
-    t.string "snow_quality"
     t.text "resort_feature"
     t.string "ski_lift"
     t.string "image"
@@ -69,6 +68,13 @@ ActiveRecord::Schema.define(version: 2022_11_30_023459) do
     t.string "senior_price"
     t.float "latitude"
     t.float "longitude"
+    t.integer "courses"
+    t.integer "maximum_tilt"
+    t.integer "maximum_distance"
+    t.date "start_day"
+    t.date "end_day"
+    t.time "start_time"
+    t.time "end_time"
   end
 
   create_table "users", force: :cascade do |t|

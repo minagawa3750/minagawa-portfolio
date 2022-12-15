@@ -19,8 +19,9 @@
 .rank_box {
   margin: 2em auto;
   padding: 1em;
-  width: 100%;
-  max-width: 95%;
+  width: 80%;
+  max-width: 100%;
+  height: 81%;
   border: 1px solid #ccc;
   background-color: #fffafa;
   color: #19448e;
@@ -38,14 +39,30 @@
 
 .fa-stack {
   font-size: 3em;
-}@media (max-width: 768px) {
-  .fa-stack {
+  position: absolute;
   left: 60px;
-  }
 }
 .fa-stack-1x {
   font-size: 0.8em;
   font-family: monospace;
   margin-top: 8px;
   color: #fff;
+}
+
+.ski_feature_field {
+  background-color: #777bce;
+}
+
+.feature_title {
+  letter-spacing: 0.15em;
+}
+
+.feature_link_btn:hover {
+  opacity: 0.5;
+  text-decoration: none;
+}
+
+.movie_title {
+  letter-spacing: 0.15em;
+  color: #0a84ff;
 }

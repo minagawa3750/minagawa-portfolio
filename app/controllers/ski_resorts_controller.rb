@@ -66,6 +66,6 @@ class SkiResortsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def ski_resort_params
-      params.require(:ski_resort).permit(:resort_name, :address, :longitude, :latitude, :hp_url, :phone_number, :business_hours, :business_period, :snow_quality, :resort_feature, :ski_lift, :image, :adult_price, :kid_price, :senior_price, :introduction)
+      params.require(:ski_resort).permit(:resort_name, :address, :longitude, :latitude, :hp_url, :phone_number, :start_time, :end_time, :start_day, :end_day, :business_remarks, :resort_feature, :ski_lift, :courses, :maximum_tilt, :maximum_distance, :image, :adult_price, :kid_price, :senior_price, :introduction)
     end
 end

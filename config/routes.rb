@@ -7,5 +7,8 @@ Rails.application.routes.draw do
   root 'top#index'
   resources :ski_resorts do
     resources :reviews
+    collection do
+      get 'search'
+    end
   end
 end

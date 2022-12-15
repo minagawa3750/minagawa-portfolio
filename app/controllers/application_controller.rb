@@ -1,5 +1,11 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :set_q
+
+  def set_q
+    @q = SkiResort.ransack(params[:q])
+    @results = @q.result
+  end
 
   protected
   def configure_permitted_parameters

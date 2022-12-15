@@ -1,5 +1,13 @@
 <nav class="navbar navbar-expand-sm navbar-dark sticky-top" style="background-color: #19448e;">  
   <h1 class="hp_title"><%= link_to "SKI.com", root_path, class: "navbar-brand" %></h1>
+  <%= search_form_for @q, url: search_ski_resorts_path do |f| %>
+    <div class="input-group">
+      <%= f.search_field :resort_name_or_address_or_resort_feature_or_introduction_cont, placeholder:"スキー場を検索", class:"form-control input-group-prepend" %>
+      <div class="input-group-append">
+        <%= f.submit '検索', class:"btn btn-info" %>
+      </div>
+    </div>
+  <% end %>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav4" aria-controls="navbarNav4" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>

@@ -1,0 +1,47 @@
+<div class="search_field">
+  <h2 class="text-center mt-3">
+    検索結果：<%= @results.count %>件
+  </h2>
+  <div class="container-fluid">
+    <div class="row">
+      <% @results.each do |result| %>
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="search_box">
+            <div class="search_img_field">
+              <% if result.image? %>
+                <%= link_to image_tag("#{result.image.url}", alt: 'ゲレンデ画像', :size => '300x300', class:"img-fluid"), ski_resort_path(result) %>
+              <% else %>
+                <%= link_to image_tag('/assets/no_image.jpeg', alt: 'ゲレンデ画像', :size => '230x200', class:"img-fluid"), ski_resort_path(result) %>
+              <% end %>
+            </div>
+            <h5 class="mt-3 mb-3"><i class="fa-solid fa-mountain"></i><%= result.resort_name %></h5>
+            <p>
+              <i class="fa-solid fa-magnifying-glass"></i>
+              平均評価：<%= result.reviews.average(:rate) %>点
+              <span id="star-average-<%= result.id %>"></span>
+            </p>
+            <script>
+            $('#star-average-<%= result.id %>').raty({
+              size     : 10,  
+              starOff: '<%= asset_path('star-off.png') %>',
+              starOn : '<%= asset_path('star-on.png') %>',
+              starHalf: '<%= asset_path('star-half.png') %>',
+              half: true,
+              readOnly: true,
+              score: <%= result.reviews.average(:rate) %>,
+            });
+            </script>
+            <p>
+              <i class="fa-sharp fa-solid fa-location-dot"></i>
+              <%= result.address %>
+            </p>
+            <p>
+              <i class="fa-solid fa-mobile"></i>
+              <%= link_to "#{result.phone_number}", "tel:" + result.phone_number %>
+            </p>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

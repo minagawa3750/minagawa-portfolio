@@ -9,9 +9,9 @@
           <div class="row justify-content-center">
             <div class="col-md-3 text-center">
               <% if review.user.image? %>
-                <%= image_tag review.user.image.url, :size => '100x100', class:"user_image" %>
+                <%= image_tag review.user.image.url, alt: 'ユーザー画像', :size => '100x100', class: "user_image" %>
               <% else %>
-                <%= image_tag ('/assets/user_icon.jpeg'), :size => '100x100', class:"user_image" %>
+                <%= image_tag ('/assets/user_icon.jpeg'), alt: 'ユーザー画像', :size => '100x100', class: "user_image" %>
               <% end %>
               <p class="review_user_name"><%= review.user.name %></p>
             </div>

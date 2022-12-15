@@ -1,22 +1,28 @@
 ja:
-   activerecord:
-     attributes:
-       ski_resort:
-         image: ゲレンデ画像
-         resort_name: ゲレンデ名
-         address: 住所
-         hp_url: ホームぺージ
-         phone_number: 電話番号
-         business_hours: 営業時間
-         business_period: 営業期間
-         snow_quality: 雪質
-         resort_feature: スキー場の特徴
-         ski_lift: リフト数
-         adult_price: 大人料金
-         kid_price: 子ども料金
-         senior_price: シニア料金
-         introduction: スキー場について
-       review:
-         title: タイトル
-         comment: 口コミ内容
-         rate: 評価
+  activerecord:
+    attributes:
+      ski_resort:
+        image: ゲレンデ画像
+        resort_name: ゲレンデ名
+        address: 住所
+        hp_url: ホームぺージ
+        phone_number: 電話番号
+        business_remarks: 営業備考
+        start_time: 営業開始時間
+        end_time: 営業終了時間
+        business_period: 営業期間
+        start_day: 営業開始日
+        end_day: 営業終了日
+        maximum_tilt: 最大傾斜
+        maximum_distance: 最大滑走距離
+        resort_feature: 特徴
+        ski_lift: リフト数
+        courses: コース数
+        adult_price: おとな料金
+        kid_price: こども料金
+        senior_price: シニア料金
+        introduction: ここがおすすめ
+      review:
+        title: タイトル
+        comment: 口コミ内容
+        rate: 評価

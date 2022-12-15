@@ -6,18 +6,24 @@
   border: 1px solid #ccc;
   background-color: #fffafa;
 }@media screen and (max-width:800px) {
-  .review_box, .review_show_box {
-   width: 90%;
+.review_box, .review_show_box {
+  width: 90%;
   }
 }
 
 .review_title {
   color: #19448e;
+  text-align: center;
 }
 
-.edit_review_field, .new_review_field, .review_show_field {
+.edit_review_field, .new_review_field{
   background-color: #eaf4fc;
-  padding: 5vh 10vh;
+  padding: 5em 0 8em;
+}
+
+.review_show_field {
+  background-color: #eaf4fc;
+  padding: 5em 0 4em;
 }
 
 .review_edit_btn {
