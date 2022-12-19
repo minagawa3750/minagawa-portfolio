@@ -81,8 +81,8 @@
       <div class="row">
         <div class="col-md-4">
           <%= link_to({controller: "ski_resorts", action: "search", q: { resort_feature_cont: '初心者におすすめ' }}, {class: "feature_link_btn"}) do %>
-            <div class="biginner_feature text-white">        
-              <h5 class="text-center">初心者におすすめ！</h5>
+            <div class="text-white">        
+              <h5 class="text-center font-weight-bold">初心者におすすめ</h5>
               <p>
                 初めてのゲレンデデビュー!でもスキー場はどこを選べばいいか分からない...<br>
                 そんなゲレンデデビューの方へおすすめのスキー場をまとめました！
@@ -92,8 +92,8 @@
         </div>
         <div class="col-md-4">
           <%= link_to({controller: "ski_resorts", action: "search", q: { resort_feature_cont: '旅行におすすめ'}}, {class: "feature_link_btn"}) do %>
-            <div class="travel_feature text-white">
-              <h5 class="text-center">旅行におすすめ！</h5>
+            <div class="text-white">
+              <h5 class="text-center font-weight-bold">旅行におすすめ</h5>
               <p>
                 スキー場には宿泊用にホテルが併設されているところや近くにホテル
                 があるスキー場もあります。<br>
@@ -105,11 +105,50 @@
         </div>
         <div class="col-md-4">
           <%= link_to({controller: "ski_resorts", action: "search", q: { resort_feature_cont: '日帰りにおすすめ'}}, {class: "feature_link_btn"}) do %>
-            <div class="day_trip_feature text-white">
-              <h5 class="text-center">日帰りにおすすめ！</h5>
+            <div class="text-white">
+              <h5 class="text-center font-weight-bold">日帰りにおすすめ</h5>
               <p>
                 連休はスキーに行きたい！でも週末は家でのんびりしたい...<br>
                 そんな方へ日帰りで行けるスキー場をまとめました！
+              </p>
+            </div>
+          <% end %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <%= link_to({controller: "ski_resorts", action: "search", q: { resort_feature_cont: '経験者におすすめ'}}, {class: "feature_link_btn"}) do %>
+            <div class="text-white">
+              <h5 class="text-center font-weight-bold">経験者におすすめ</h5>
+              <p>
+                難しいコースにチャレンジしたい！脱初心者をめざしたい！
+                そんな方のために経験者におすすめのコースをまとめました！
+                油断は禁物...。
+              </p>
+            </div>
+          <% end %>
+        </div>
+        <div class="col-md-4">
+          <%= link_to({controller: "ski_resorts", action: "search", q: { resort_feature_cont: '室内スキー場'}}, {class: "feature_link_btn"}) do %>
+            <div class="text-white">
+              <h5 class="text-center font-weight-bold">室内スキー場</h5>
+              <p>
+                ご存じでしたか❔スキーは室内でもできるんです。
+                駅近でレンタルサービスもあるので、仕事帰りや学校帰り
+                にふらっと行けちゃうんです。デビュー前に練習して差をつけたい！
+                日帰り遠出も予算が、、、そんな方におすすめです！
+              </p>
+            </div>
+          <% end %>
+        </div>
+        <div class="col-md-4">
+          <%= link_to({controller: "ski_resorts", action: "search", q: { resort_feature_cont: 'サマーゲレンデ'}}, {class: "feature_link_btn"}) do %>
+            <div class="text-white">
+              <h5 class="text-center font-weight-bold">夏にできるスキー場</h5>
+              <p>
+                さすがに夏にスキーは...できるんです！
+                芝やカービングマットを使用し雪上に近い感覚でスキー・スノボを楽しめます！
+                夏の定番キャンプと一緒に楽しめば充実度アップ！
               </p>
             </div>
           <% end %>
@@ -123,25 +162,25 @@
       おすすめ動画
     </h2>
     <div class="container">
-      <div class="row">
-        <div class="col-md-6 mt-2">
+      <div class="row mt-2">
+        <div class="col-md-6">
           <div class="embed-responsive embed-responsive-16by9">
             <iframe class="embed-responsive-item" src="https://youtube.com/embed/B8kJEgPqogo" allowfullscreen></iframe>
           </div>
         </div> 
-        <div class="col-md-6 mt-2"> 
+        <div class="col-md-6"> 
           <div class="embed-responsive embed-responsive-16by9">
             <iframe class="embed-responsive-item" src="https://youtube.com/embed/WW35Ipe7Yic" allowfullscreen></iframe>
           </div>
         </div>
       </div>
-      <div class="row">
-        <div class="col-md-6 mt-2"> 
+      <div class="row mt-2">
+        <div class="col-md-6"> 
           <div class="embed-responsive embed-responsive-16by9">
             <iframe class="embed-responsive-item" src="https://youtube.com/embed/eQFF6kkKXcw" allowfullscreen></iframe>
           </div>
         </div>
-        <div class="col-md-6 mt-2"> 
+        <div class="col-md-6"> 
           <div class="embed-responsive embed-responsive-16by9">
             <iframe class="embed-responsive-item" src="https://youtube.com/embed/_jeoQEnF3Eo" allowfullscreen></iframe>
           </div>
