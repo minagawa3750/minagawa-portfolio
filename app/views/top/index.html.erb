@@ -14,7 +14,7 @@
       <i class="fa-solid fa-ranking-star"></i>
       レビューランキング
     </h2>
-    <div class="container-fulid">
+    <div class="container">
       <div class="row">
         <% @ranks.each.with_index(1) do |rank, i| %>
           <div class="col-md-4">
@@ -79,7 +79,7 @@
     </h2>
     <div class="container">
       <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-4 mt-2">
           <%= link_to({controller: "ski_resorts", action: "search", q: { resort_feature_cont: '初心者におすすめ' }}, {class: "feature_link_btn"}) do %>
             <div class="text-white">        
               <h5 class="text-center font-weight-bold">初心者におすすめ</h5>
@@ -90,7 +90,7 @@
             </div>
           <% end %>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 mt-2">
           <%= link_to({controller: "ski_resorts", action: "search", q: { resort_feature_cont: '旅行におすすめ'}}, {class: "feature_link_btn"}) do %>
             <div class="text-white">
               <h5 class="text-center font-weight-bold">旅行におすすめ</h5>
@@ -103,7 +103,7 @@
             </div>
           <% end %>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 mt-2">
           <%= link_to({controller: "ski_resorts", action: "search", q: { resort_feature_cont: '日帰りにおすすめ'}}, {class: "feature_link_btn"}) do %>
             <div class="text-white">
               <h5 class="text-center font-weight-bold">日帰りにおすすめ</h5>
@@ -116,7 +116,7 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-4 mt-2">
           <%= link_to({controller: "ski_resorts", action: "search", q: { resort_feature_cont: '経験者におすすめ'}}, {class: "feature_link_btn"}) do %>
             <div class="text-white">
               <h5 class="text-center font-weight-bold">経験者におすすめ</h5>
@@ -128,7 +128,7 @@
             </div>
           <% end %>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 mt-2">
           <%= link_to({controller: "ski_resorts", action: "search", q: { resort_feature_cont: '室内スキー場'}}, {class: "feature_link_btn"}) do %>
             <div class="text-white">
               <h5 class="text-center font-weight-bold">室内スキー場</h5>
@@ -141,7 +141,7 @@
             </div>
           <% end %>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 mt-2">
           <%= link_to({controller: "ski_resorts", action: "search", q: { resort_feature_cont: 'サマーゲレンデ'}}, {class: "feature_link_btn"}) do %>
             <div class="text-white">
               <h5 class="text-center font-weight-bold">夏にできるスキー場</h5>
@@ -162,25 +162,25 @@
       おすすめ動画
     </h2>
     <div class="container">
-      <div class="row mt-2">
-        <div class="col-md-6">
+      <div class="row">
+        <div class="col-md-6 mt-4">
           <div class="embed-responsive embed-responsive-16by9">
             <iframe class="embed-responsive-item" src="https://youtube.com/embed/B8kJEgPqogo" allowfullscreen></iframe>
           </div>
         </div> 
-        <div class="col-md-6"> 
+        <div class="col-md-6 mt-4"> 
           <div class="embed-responsive embed-responsive-16by9">
             <iframe class="embed-responsive-item" src="https://youtube.com/embed/WW35Ipe7Yic" allowfullscreen></iframe>
           </div>
         </div>
       </div>
-      <div class="row mt-2">
-        <div class="col-md-6"> 
+      <div class="row">
+        <div class="col-md-6 mt-4"> 
           <div class="embed-responsive embed-responsive-16by9">
             <iframe class="embed-responsive-item" src="https://youtube.com/embed/eQFF6kkKXcw" allowfullscreen></iframe>
           </div>
         </div>
-        <div class="col-md-6"> 
+        <div class="col-md-6 mt-4"> 
           <div class="embed-responsive embed-responsive-16by9">
             <iframe class="embed-responsive-item" src="https://youtube.com/embed/_jeoQEnF3Eo" allowfullscreen></iframe>
           </div>

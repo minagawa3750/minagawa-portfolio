@@ -17,7 +17,7 @@
             </div>
             <div class="col-md-7 mb-3">
               <div class="post_info">
-                <p>投稿日：<%= review.created_at.to_s(:datetime_jp) %></p>
+                <p>投稿日：<%= review.created_at.to_s(:date2_jp) %></p>
                 <p class="mb-3">評価：<%= review.rate %>点 | <%= link_to "#{review.title}", ski_resort_review_path(review.ski_resort_id, review.id) %></p>   
                 <div id="star-rate-<%= review.id %>"></div>
               </div> 
