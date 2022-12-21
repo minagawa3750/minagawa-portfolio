@@ -38,6 +38,7 @@ gem 'gmaps4rails'
 gem 'dotenv-rails'
 gem 'geocoder'
 gem 'ransack'
+gem 'aws-sdk-s3', require: false
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -46,7 +47,6 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem 'pry-rails'
   gem 'rails-erd'
-  gem 'sqlite3', '~> 1.4'
 end
 
 group :development do
