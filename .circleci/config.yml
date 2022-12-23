@@ -15,7 +15,7 @@ jobs:
             - checkout
             - add_ssh_keys:
                 fingerprints:
-                    - 23:4c:51:6d:51:84:a8:89:44:8d:44:1d:f0:e0:d0:0b
+                    - db:f5:a7:bd:d9:90:1b:db:e6:8f:8a:f4:35:53:d1:95
             - run: ssh ${USER_NAME}@${HOST_NAME} 'cd /var/www/minagawa-portfolio && git pull'
 
 workflows:
