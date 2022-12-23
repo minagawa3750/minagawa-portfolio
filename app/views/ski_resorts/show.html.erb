@@ -24,7 +24,7 @@
       <% if @ski_resort.image? %>
         <%= image_tag @ski_resort.image.url, alt: 'ゲレンデ画像', :size => '400x200', class: "img-fluid" %>
       <% else %>
-        <%= image_tag ('/assets/no_image.jpeg'), alt: 'ゲレンデ画像', :size => '300x200', class: "img-fluid" %>
+        <%= image_tag asset_path('no_image.jpeg'), alt: 'ゲレンデ画像', :size => '300x200', class: "img-fluid" %>
       <% end %>
     </div>
   </div>

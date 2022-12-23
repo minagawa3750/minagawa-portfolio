@@ -4,7 +4,7 @@
     <% if @ski_resort.image? %>
       <%= image_tag @ski_resort.image.url, alt: 'ゲレンデ画像', :size => '400x200', class: "img-fluid" %>
     <% else %>
-      <%= image_tag ('/assets/no_image.jpeg'), alt: 'ゲレンデ画像', :size => '300x300', class: "img-fluid" %>
+      <%= image_tag asset_path('no_image.jpeg'), alt: 'ゲレンデ画像', :size => '300x300', class: "img-fluid" %>
     <% end %>
     <h5 class="mt-2">現在のスキー場画像</h5>
   </div>

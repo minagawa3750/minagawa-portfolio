@@ -57,7 +57,7 @@
         <% if @review.user.image? %>
           <%= image_tag @review.user.image.url, alt: 'ユーザー画像', :size => '100x100', class: "user_image" %>
         <% else %>
-          <%= image_tag ('/assets/user_icon.jpeg'), alt: 'ユーザー画像', :size => '100x100', class: "user_image" %>
+          <%= image_tag asset_path('user_icon.jpeg'), alt: 'ユーザー画像', :size => '100x100', class: "user_image" %>
         <% end %>
         <p class="text-secondary mt-1 mb-3"><strong><%= @review.user.name %></strong></p>
         <p class="text-secondary"><strong>レビュー日：<%= @review.created_at.to_s(:date2_jp) %></strong></p>
