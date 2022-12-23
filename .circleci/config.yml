@@ -10,7 +10,7 @@ jobs:
                 command: echo "CircleCI Test"
     deploy:
         machine:
-            image: cimg/ruby:2.7.6-node-browsers
+            image: ubuntu-2004:202201-02
         steps:
             - checkout
             - add_ssh_keys:
