@@ -1,31 +1,20 @@
 version: 2.1
+orbs:
+  ruby: circleci/ruby@0.1.2
 jobs:
-    build:
-        docker:
-            - image: alpine
-        steps:
-            - checkout
-            - run:
-                name: Echo Test
-                command: echo "CircleCI Test"
-    deploy:
-        machine:
-            image: ubuntu-2004:202201-02
-        steps:
-            - checkout
-            - add_ssh_keys:
-                fingerprints:
-                    - db:f5:a7:bd:d9:90:1b:db:e6:8f:8a:f4:35:53:d1:95
-            - run: ssh ${USER_NAME}@${HOST_NAME} 'cd /var/www/minagawa-portfolio && git pull'
-
+  deploy:
+    machine:
+      enabled: true
+    steps:
+      - add_ssh_keys:
+          fingerprints:
+            - db:f5:a7:bd:d9:90:1b:db:e6:8f:8a:f4:35:53:d1:95
+      - run: ssh -p $SSH_PORT $USER_NAME@$HOST_NAME "/var/www/minagawa-portfolio/deploy-me.sh"
 workflows:
-    version: 2
-    build_and_deploy:
-        jobs:
-            - build
-            - deploy:
-                requires:
-                    - build
-                filters:
-                    branches:
-                        only: ski-site
+  version: 2
+  deploy:
+    jobs:
+      - deploy:
+          filters:
+            branches:
+              only: ski-site
