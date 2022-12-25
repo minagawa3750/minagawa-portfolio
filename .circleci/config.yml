@@ -26,3 +26,6 @@ workflows:
             - deploy:
                 requires:
                     - build
+                filters:
+                    branches:
+                        only: ski-site
