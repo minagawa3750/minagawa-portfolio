@@ -5,7 +5,7 @@ jobs:
         - image: cimg/ruby:2.7.6
     steps:
         - checkout
-        - run: ruby --2.7.6
+        - run: ruby 2.7.6
   deploy:
     machine:
         image: ubuntu-2004:202201-02
