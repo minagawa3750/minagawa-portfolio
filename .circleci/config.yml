@@ -1,10 +1,16 @@
 version: 2.1
+orbs:
+  ruby: circleci/ruby@0.1.2
 jobs:
   build:
     docker:
-        - image: cimg/ruby:2.7.6
+      - image: cimg/ruby:2.7.6
     steps:
-        - checkout
+      - checkout
+      - run:
+        name: bundle Install
+        command: bundle install --path vendor/bundle
+
   deploy:
     machine:
         image: ubuntu-2004:202201-02
@@ -12,7 +18,7 @@ jobs:
       - checkout
       - add_ssh_keys:
           fingerprints:
-            - db:f5:a7:bd:d9:90:1b:db:e6:8f:8a:f4:35:53:d1:95
+            - ${FINGER_PRINTS}
       - run: ssh ${USER_NAME}@${HOST_NAME} "/var/www/minagawa-portfolio/deploy.sh"
 workflows:
   version: 2
