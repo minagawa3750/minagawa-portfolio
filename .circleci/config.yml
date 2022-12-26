@@ -2,7 +2,7 @@ version: 2.1
 jobs:
   build:
     docker:
-        - image: cimg/ruby:2.7.6-node-browsers
+        - image: cimg/ruby:2.7.6
     steps:
         - checkout
   deploy:
