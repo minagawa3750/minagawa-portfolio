@@ -1,6 +1,4 @@
 version: 2.1
-orbs:
-  ruby: circleci/ruby@0.1.2
 jobs:
   build:
     docker:
@@ -17,7 +15,7 @@ jobs:
       - checkout
       - add_ssh_keys:
           fingerprints:
-            - ${FINGER_PRINTS}
+            - db:f5:a7:bd:d9:90:1b:db:e6:8f:8a:f4:35:53:d1:95
       - run: ssh ${USER_NAME}@${HOST_NAME} "/var/www/minagawa-portfolio/deploy.sh"
 workflows:
   version: 2
