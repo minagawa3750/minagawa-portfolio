@@ -7,7 +7,7 @@ jobs:
       - image: cimg/ruby:2.7.6
     steps:
       - checkout
-      - ruby/install-deps
+      - ruby/install-deps:
           bundler-version: 2.3.24
 
   deploy:
