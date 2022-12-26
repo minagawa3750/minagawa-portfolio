@@ -8,10 +8,11 @@ jobs:
     steps:
       - checkout
       - ruby/install-deps
+          bundler-version: 2.3.24
 
   deploy:
     machine:
-        image: cimg/ruby:2.7.6
+        image: ubuntu-2004:202201-02
     steps:
       - checkout
       - add_ssh_keys:
