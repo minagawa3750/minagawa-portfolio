@@ -4,8 +4,9 @@ orbs:
 jobs:
   deploy:
     machine:
-      enabled: true
+        image: ubuntu-2004:202201-02
     steps:
+      - checkout
       - add_ssh_keys:
           fingerprints:
             - ${FINGER_PRINTS}
