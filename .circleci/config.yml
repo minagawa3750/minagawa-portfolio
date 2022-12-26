@@ -2,10 +2,9 @@ version: 2.1
 jobs:
   build:
     docker:
-        - image: cimg/ruby:2.7.6
+        - image: cimg/ruby:2.7.6-node-browsers
     steps:
         - checkout
-        - run: ruby 2.7.6
   deploy:
     machine:
         image: ubuntu-2004:202201-02
