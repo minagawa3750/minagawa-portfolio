@@ -16,7 +16,7 @@ jobs:
             - add_ssh_keys:
                 fingerprints:
                   - ${FINGER_PRINTS}
-            - run: ssh ${USER_NAME}@${HOST_NAME} 'cd /var/www/minagawa-portfolio && git pull origin ski-site && bundle install --path vendor/bundle --without test development && bundle exec rails assets:precompile RAILS_ENV=production'
+            - run: ssh ${USER_NAME}@${HOST_NAME} 'cd /var/www/minagawa-portfolio && git pull origin ski-site && bundle install && bundle exec rails assets:precompile RAILS_ENV=production'
 
 workflows:
     version: 2
