@@ -1,0 +1,30 @@
+version: 2.1
+orbs:
+  ruby: circleci/ruby@1.1.2
+jobs:
+  build:
+    docker:
+      - image: cimg/ruby:2.7.6
+    steps:
+      - checkout
+      - ruby/install-deps:
+          bundler-version: 2.3.24
+
+  deploy:
+    machine:
+        image: ubuntu-2004:202201-02
+    steps:
+      - checkout
+      - add_ssh_keys:
+          fingerprints:
+            - ${FINGER_PRINTS}
+      - run: ssh ${USER_NAME}@${HOST_NAME} "/var/www/minagawa-portfolio/deploy.sh"
+      
+workflows:
+  version: 2
+  build_and_deploy:
+      jobs:
+        - build
+        - deploy:
+            requires:
+                  - build

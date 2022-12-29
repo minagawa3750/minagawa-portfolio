@@ -1,0 +1,36 @@
+html, body { 
+  height: 100%;
+}
+
+body{
+  font-family: 'Noto Sans JP', sans-serif !important;
+}
+
+.hp_title {
+  font-weight: bold;
+  letter-spacing: 0.05em;
+}
+
+footer {
+  height: 80px;
+  color : #FFFFFF;
+  padding-top: 25px;
+  background-color: #19448e;
+  width: 100%;
+  position: sticky;
+  top: 100vh;
+}
+
+.notice {
+  background-color: #6666FF;
+  color: #FFFFFF;
+  text-align: center;
+}
+
+.alert {
+  background-color: #CD5C5C;
+  color: #FFFFFF;
+  text-align: center;
+  margin-bottom: auto !important;
+  padding: 0 !important;
+}
