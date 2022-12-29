@@ -1,5 +1,5 @@
 class SkiResort < ApplicationRecord
-  mount_uploader :image, ImageUploader
+  has_one_attached :resort_image
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
   has_many :reviews

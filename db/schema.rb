@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_12_15_052713) do
+ActiveRecord::Schema.define(version: 2022_12_29_135429) do
 
   create_table "active_storage_attachments", charset: "utf8mb3", force: :cascade do |t|
     t.string "name", null: false
@@ -41,13 +41,15 @@ ActiveRecord::Schema.define(version: 2022_12_15_052713) do
   end
 
   create_table "reviews", charset: "utf8mb3", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "ski_resort_id"
     t.string "title"
     t.text "comment"
     t.float "rate"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id", null: false
+    t.bigint "ski_resort_id", null: false
+    t.index ["ski_resort_id"], name: "index_reviews_on_ski_resort_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
   create_table "ski_resorts", charset: "utf8mb3", force: :cascade do |t|
@@ -56,10 +58,8 @@ ActiveRecord::Schema.define(version: 2022_12_15_052713) do
     t.text "hp_url"
     t.string "phone_number"
     t.string "business_remarks"
-    t.string "business_period"
     t.text "resort_feature"
     t.string "ski_lift"
-    t.string "image"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "adult_price"
@@ -86,11 +86,12 @@ ActiveRecord::Schema.define(version: 2022_12_15_052713) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "name"
-    t.string "image"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "reviews", "ski_resorts"
+  add_foreign_key "reviews", "users"
 end

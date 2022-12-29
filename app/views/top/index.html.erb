@@ -36,10 +36,10 @@
             <% end %>            
             <div class="rank_box pb-5">
               <div class="img_field">
-                <% if rank.image? %>
-                  <%= link_to image_tag("#{rank.image.url}", alt: 'ゲレンデ画像', :size => '500x500', class:"img-fluid"), ski_resort_path(rank) %>
+                <% if rank.resort_image.attached? %>
+                  <%= link_to image_tag(rank.resort_image.variant(resize:'400x400'), alt: 'ゲレンデ画像', class:"img-fluid"), ski_resort_path(rank) %>
                 <% else %>
-                  <%= link_to image_tag('/assets/no_image.jpeg', alt: 'ゲレンデ画像', :size => '200x200', class:"img-fluid"), ski_resort_path(rank) %>
+                  <%= link_to image_tag(asset_path('no_image.jpeg'), alt: 'ゲレンデ画像', :size => '300x300', class:"img-fluid"), ski_resort_path(rank) %>
                 <% end %>
               </div>
               <h4 class="mt-3 mb-3"><i class="fa-solid fa-mountain"></i><%= rank.resort_name %></h4>

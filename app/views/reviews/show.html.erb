@@ -54,8 +54,8 @@
           <i class="fa-solid fa-user"></i>
           <strong>投稿者</strong>
         </p>
-        <% if @review.user.image? %>
-          <%= image_tag @review.user.image.url, alt: 'ユーザー画像', :size => '100x100', class: "user_image" %>
+        <% if @review.user.image.attached? %>
+          <%= image_tag @review.user.image, alt: 'ユーザー画像', :size => '100x100', class: "user_image" %>
         <% else %>
           <%= image_tag asset_path('user_icon.jpeg'), alt: 'ユーザー画像', :size => '100x100', class: "user_image" %>
         <% end %>

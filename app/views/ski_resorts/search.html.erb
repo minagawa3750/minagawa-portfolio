@@ -8,10 +8,10 @@
         <div class="col-sm-6 col-md-3">
           <div class="search_box">
             <div class="search_img_field">
-              <% if result.image? %>
-                <%= link_to image_tag("#{result.image.url}", alt: 'ゲレンデ画像', :size => '300x300', class:"img-fluid"), ski_resort_path(result) %>
+              <% if result.resort_image.attached? %>
+                <%= link_to image_tag(result.resort_image.variant(resize:'300x300'), alt: 'ゲレンデ画像', class:"img-fluid"), ski_resort_path(result) %>
               <% else %>
-                <%= link_to image_tag('/assets/no_image.jpeg', alt: 'ゲレンデ画像', :size => '230x200', class:"img-fluid"), ski_resort_path(result) %>
+                <%= link_to image_tag(asset_path('no_image.jpeg'), alt: 'ゲレンデ画像', :size => '200x200', class:"img-fluid"), ski_resort_path(result) %>
               <% end %>
             </div>
             <h5 class="mt-3 mb-3"><i class="fa-solid fa-mountain"></i><%= result.resort_name %></h5>

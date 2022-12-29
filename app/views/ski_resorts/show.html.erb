@@ -21,10 +21,10 @@
         score: <%= @ski_resort.reviews.average(:rate) %>,
       });
       </script>
-      <% if @ski_resort.image? %>
-        <%= image_tag @ski_resort.image.url, alt: 'ゲレンデ画像', :size => '400x200', class: "img-fluid" %>
+      <% if @ski_resort.resort_image.attached? %>
+        <%= image_tag @ski_resort.resort_image.variant(resize:'400x400'), alt: 'ゲレンデ画像', class: "img-fluid" %>
       <% else %>
-        <%= image_tag asset_path('no_image.jpeg'), alt: 'ゲレンデ画像', :size => '300x200', class: "img-fluid" %>
+        <%= image_tag asset_path('no_image.jpeg'), alt: 'ゲレンデ画像', :size => '300x300', class: "img-fluid" %>
       <% end %>
     </div>
   </div>

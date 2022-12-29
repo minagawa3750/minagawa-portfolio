@@ -10,12 +10,12 @@
       </ul>
     </div>
   <% end %>
+  <div class="form-group text-center">
+    <i class="fa-solid fa-mountain fa-5x mb-1" style="color: #0088a2;"></i>
+    <%= f.label :resort_image, style: "display: none;" %><br>
+    <%= f.file_field :resort_image, id: "file-input" %>
+  </div>
   <div class="ski_resort_registration_menu">
-    <div class="form-group">
-      <%= f.label :image %><br>
-      <%= f.file_field :image %>
-    </div>
-
     <div class="form-group">
       <%= f.label :resort_name %>
       <%= f.text_field :resort_name, class: 'form-control' %>

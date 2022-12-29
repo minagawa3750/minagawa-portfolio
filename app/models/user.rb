@@ -12,7 +12,6 @@ class User < ApplicationRecord
     end
   end
   
-  mount_uploader :image, ImageUploader
   has_one_attached :image
   validates :name, presence: true
   has_many :ski_resorts
