@@ -4,5 +4,5 @@ class Review < ApplicationRecord
 
   validates :title, presence: true
   validates :rate, presence: true
-  validates :comment, presence: true  
+  validates :comment, presence: true
 end

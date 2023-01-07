@@ -1,0 +1,41 @@
+<div class="ski_resort_index_container">
+  <h1 class="ski_resort_title my-3 ml-3">気になるリスト</h1>
+  <% if @interest_resort.present? %>
+    <div class="col-8  table-responsive" style="margin: auto;">
+      <table class="table table-bordered table-striped" style="white-space: nowrap;">
+        <thead>
+          <tr class="table-primary">
+            <th>ゲレンデ画像</th>
+            <th>ゲレンデ名</th>
+            <th>住所</th>
+            <th>電話番号</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @interest_resort.each do |ski_resort| %>
+            <tr>
+              <td>
+              <% if ski_resort.resort_image.attached? %>
+                <%= link_to image_tag(ski_resort.resort_image.variant(resize:'300x300'), alt: 'ゲレンデ画像', class:"img-fluid"), ski_resort_path(ski_resort) %>
+              <% else %>
+                <%= link_to image_tag(asset_path('no_image.jpeg'), alt: 'ゲレンデ画像', :size => '300x300', class:"img-fluid"), ski_resort_path(ski_resort) %>
+              <% end %>
+              </td>
+              <td><%= ski_resort.resort_name %></td>
+              <td><%= ski_resort.address %></td>
+              <td><%= ski_resort.phone_number %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  <% else %>
+    <h5 class="text-center mt-5">
+      気になるリストにまだスキー場はありません。
+    </h5>
+  <% end %>
+  <div class="text-center mt-3 mb-3">
+    <h4><%= link_to "トップページに戻る", root_path, class:"root_btn" %></h4>
+  </div>
+</div>

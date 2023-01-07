@@ -2,7 +2,6 @@
   <% if review.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(review.errors.count, "件") %> の入力が不正です。</h2>
-
       <ul>
         <% review.errors.each do |error| %>
           <li><%= error.full_message %></li>
@@ -43,7 +42,7 @@
       </div>
   
       <div class="text-center">
-        <%= f.submit '投稿する', class:"btn btn-info" %>
+        <%= f.submit '投稿する', class:"btn btn-info rounded-pill round-pill" %>
       </div>
     </div>
   </div>

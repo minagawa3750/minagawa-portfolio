@@ -1,14 +1,10 @@
 .review_box, .review_show_box {
   margin: auto;
   padding: 1em;
-  width: 60%;
+  width: 80%;
   max-width: 100%;
   border: 1px solid #ccc;
   background-color: #fffafa;
-}@media screen and (max-width:800px) {
-.review_box, .review_show_box {
-  width: 90%;
-  }
 }
 
 .review_title {
@@ -16,28 +12,26 @@
   text-align: center;
 }
 
-.edit_review_field, .new_review_field{
+.edit_review_field, .new_review_field, .review_show_field{
   background-color: #eaf4fc;
-  padding: 5em 0 7em;
+  padding: 5em 0 8em;
 }
 
-.review_show_field {
-  background-color: #eaf4fc;
-  padding: 5em 0 9em;
+.comment_box {
+  padding: 0.5em 1em;
+  margin: 2em 0;
+  color: #2c2c2f;
+}
+.comment_box p {
+  margin: 0; 
+  padding: 0;
 }
 
-.review_edit_btn {
-  color: #19448e;
+.comment_title {
+  border-bottom: solid 2px black;
+  font-weight: bold;
 }
 
-.review_edit_btn:hover {
-  color: #19448e;
-}
-
-.review_delete_btn {
-  color: #19448e;
-}
-
-.review_delete_btn:hover {
+.review_edit_btn, .review_delete_btn, .review_edit_btn:hover, .review_delete_btn:hover {
   color: #19448e;
 }

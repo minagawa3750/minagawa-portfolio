@@ -9,12 +9,12 @@
       </h4>
     </div>
   </div>
-  <div class="rank mt-4">
+  <div class="rank_field mt-4">
     <h2 class="rank_title text-center mb-3">
-      <i class="fa-solid fa-ranking-star"></i>
+      <i class="fa-solid fa-ranking-star" style="color: #f39800;"></i>
       レビューランキング
     </h2>
-    <div class="container-fluid">
+    <div class="container">
       <div class="row">
         <% @ranks.each.with_index(1) do |rank, i| %>
           <div class="col-md-4">
@@ -72,16 +72,16 @@
       </div>
     </div>
   </div>
-  <div class="ski_feature_field pt-4">
-    <h2 class="feature_title text-center text-white mb-4">
-      <i class="fa-solid fa-snowflake"></i>
+  <div class="ski_feature_field pt-4 pb-5">
+    <h2 class="feature_title text-center mb-4">
+      <i class="fa-solid fa-snowflake" style="color: #a9ceec;"></i>
       スキー場特集
     </h2>
     <div class="container">
       <div class="row">
         <div class="col-md-4 mt-2">
           <%= link_to({controller: "ski_resorts", action: "search", q: { resort_feature_cont: '初心者におすすめ' }}, {class: "feature_link_btn"}) do %>
-            <div class="text-white">        
+            <div class="resort_feture_box">        
               <h5 class="text-center font-weight-bold">初心者におすすめ</h5>
               <p>
                 初めてのゲレンデデビュー!でもスキー場はどこを選べばいいか分からない...<br>
@@ -92,7 +92,7 @@
         </div>
         <div class="col-md-4 mt-2">
           <%= link_to({controller: "ski_resorts", action: "search", q: { resort_feature_cont: '旅行におすすめ'}}, {class: "feature_link_btn"}) do %>
-            <div class="text-white">
+            <div class="resort_feture_box">
               <h5 class="text-center font-weight-bold">旅行におすすめ</h5>
               <p>
                 スキー場には宿泊用にホテルが併設されているところや近くにホテル
@@ -105,7 +105,7 @@
         </div>
         <div class="col-md-4 mt-2">
           <%= link_to({controller: "ski_resorts", action: "search", q: { resort_feature_cont: '日帰りにおすすめ'}}, {class: "feature_link_btn"}) do %>
-            <div class="text-white">
+            <div class="resort_feture_box">
               <h5 class="text-center font-weight-bold">日帰りにおすすめ</h5>
               <p>
                 連休はスキーに行きたい！でも週末は家でのんびりしたい...<br>
@@ -118,7 +118,7 @@
       <div class="row">
         <div class="col-md-4 mt-2">
           <%= link_to({controller: "ski_resorts", action: "search", q: { resort_feature_cont: '経験者におすすめ'}}, {class: "feature_link_btn"}) do %>
-            <div class="text-white">
+            <div class="resort_feture_box">
               <h5 class="text-center font-weight-bold">経験者におすすめ</h5>
               <p>
                 難しいコースにチャレンジしたい！脱初心者をめざしたい！
@@ -130,10 +130,10 @@
         </div>
         <div class="col-md-4 mt-2">
           <%= link_to({controller: "ski_resorts", action: "search", q: { resort_feature_cont: '室内スキー場'}}, {class: "feature_link_btn"}) do %>
-            <div class="text-white">
+            <div class="resort_feture_box">
               <h5 class="text-center font-weight-bold">室内スキー場</h5>
               <p>
-                ご存じでしたか❔スキーは室内でもできるんです。
+                ご存じでしたか?スキーは室内でもできるんです。
                 駅近でレンタルサービスもあるので、仕事帰りや学校帰り
                 にふらっと行けちゃうんです。デビュー前に練習して差をつけたい！
                 日帰り遠出も予算が、、、そんな方におすすめです！
@@ -143,7 +143,7 @@
         </div>
         <div class="col-md-4 mt-2">
           <%= link_to({controller: "ski_resorts", action: "search", q: { resort_feature_cont: 'サマーゲレンデ'}}, {class: "feature_link_btn"}) do %>
-            <div class="text-white">
+            <div class="resort_feture_box">
               <h5 class="text-center font-weight-bold">夏にできるスキー場</h5>
               <p>
                 さすがに夏にスキーは...できるんです！
@@ -154,6 +154,9 @@
           <% end %>
         </div>
       </div>
+    </div>
+    <div class="text-center mt-4">
+      <%= link_to "初心者Q&Aはこちら!", question_ski_resorts_path, class: "btn btn-info rounded-pill btn-lg" %>
     </div>
   </div>
   <div class="ski_youtube mt-4">
@@ -184,6 +187,29 @@
           <div class="embed-responsive embed-responsive-16by9">
             <iframe class="embed-responsive-item" src="https://youtube.com/embed/_jeoQEnF3Eo" allowfullscreen></iframe>
           </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="top_introduction d-flex align-items-center justify-content-center mt-5  pt-3">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="intro_image mt-5 mb-3">
+            <%= image_tag asset_path('top_image.webp'), alt: "ホーム画像", class: "img-fluid" %>
+          </div>
+        </div>
+        <div class="col-md-6 site_introduction">
+          <h3 class="introduction_title text-center">ゲレンデをより身近に</h3>
+          <p class="introduciton_article">
+            夏は海!、冬はスキー!とレジャースポーツでは定番のスキーとスノーボードですが
+            ゲレンデへ行く際は経験者の方が計画してくれることが多く、初心者の方が計画してゲレンデへ行くのはなかなかハードルが高いのではないでしょうか。<br>
+            行ってみたら楽しかったからまた行きたいけど準備は何をすればいいんだろう、興味あるけど周りでやってる人がいないからなにすればいいか分からない...
+            などなどたくさんあるとおもいます。<br>口コミサイトもありますが雪質や天気、最大傾斜など情報は多く掲載されていますが
+            少し分かりづらいですよね...。<br>当サイトではそんな方によりゲレンデを身近に感じていただくために
+            より見やすくシンプルに情報を掲載しております。<br>初心者の方はもちろん、経験者の方や冬休みの旅行を考えている方にもおすすめです。
+            当サイトがみなさんのお役に立てれば幸いです。
+          </p>
         </div>
       </div>
     </div>

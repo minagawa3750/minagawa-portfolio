@@ -34,3 +34,25 @@ footer {
   margin-bottom: auto !important;
   padding: 0 !important;
 }
+
+.pagination {
+  justify-content: center;
+}
+
+.pagination>li>a {          
+  border: none;     
+  color: #808080;   
+}
+
+.pagination>.active>a {     
+  background: #777bce;     
+  border-radius: 15px;     
+}
+
+.pagination>li>a:hover {        
+  border-radius: 15px;   
+}
+
+.root_btn {
+  color: #19448e;
+}

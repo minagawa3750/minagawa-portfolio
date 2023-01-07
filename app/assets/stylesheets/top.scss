@@ -4,6 +4,14 @@
   background-repeat: no-repeat;
   background-size: cover;
   height: 650px;
+}@media screen and (max-width:768px) {
+  .top_main {
+    display: none;
+    background-image: image-url("top_background_2.jpg");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+  }
 }
 
 .top_box {
@@ -25,14 +33,10 @@
   border: 1px solid #ccc;
   background-color: #fffafa;
   color: #19448e;
-}@media (max-width: 800px) {
-  .rank_box {
-    width: 75%;
-  }
 }
 
-.rank_title {
-  color: #f39800;
+.rank_title, .feature_title, .movie_title {
+  color: #666680;
   font-weight: bold;
   letter-spacing: 0.15em;
 }
@@ -48,12 +52,8 @@
   color: #fff;
 }
 
-.ski_feature_field {
-  background-color: #777bce;
-}
-
-.feature_title {
-  letter-spacing: 0.15em;
+.resort_feture_box {
+  color: #19448e;
 }
 
 .feature_link_btn:hover {
@@ -61,7 +61,17 @@
   text-decoration: none;
 }
 
-.movie_title {
+.top_introduction {
+  background-color: #008080;
+  color: #fffafa;
+}
+
+.introduction_title {
   letter-spacing: 0.15em;
-  color: #0a84ff;
+  font-weight: bold;
+}
+
+.introduciton_article {
+  letter-spacing: 0.15em;
+  line-height: 2;
 }

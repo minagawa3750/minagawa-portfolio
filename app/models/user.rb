@@ -16,4 +16,5 @@ class User < ApplicationRecord
   validates :name, presence: true
   has_many :ski_resorts
   has_many :reviews
+  has_many :interests
 end

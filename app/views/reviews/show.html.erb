@@ -3,30 +3,22 @@
   <div class="review_show_box">
     <div class="container">
       <div class= "row justify-content-end mb-3">
-        <div class="col-md-3 col-lg-2">
+        <div class="col-md-2">
           <i class="fa-solid fa-person-skiing"></i>
           <strong>スキー場</strong>
         </div>
-        <div class="col-md-7">
+        <div class="col-md-6">
           <%= @ski_resort.resort_name %>
         </div>
       </div>
       <div class= "row justify-content-end mb-3">
-        <div class="col-md-3 col-lg-2">
-          <i class="fa-solid fa-pen"></i>
-          <strong>タイトル</strong>
-        </div>
-        <div class="col-md-7">
-          <%= @review.title %>
-        </div>
-      </div>
-      <div class= "row justify-content-end mb-3">
-        <div class="col-md-3 col-lg-2">
+        <div class="col-md-2">
           <i class="fa-solid fa-magnifying-glass"></i>
           <strong>評価</strong>
         </div>
-        <div class="col-md-7">
-          <div id="star-rate-<%= @review.id %>"></div>
+        <div class="col-md-6">
+          <span id="star-rate-<%= @review.id %>"></span>
+          /<%= @review.rate %>点
         </div>
         <script>
           $('#star-rate-<%= @review.id %>').raty ({
@@ -40,32 +32,29 @@
           });
         </script>
       </div>   
-      <div class= "row justify-content-end mb-3">
-        <div class="col-md-3 col-lg-2">
-          <i class="fa-solid fa-comment"></i>
-          <strong>コメント</strong>
-        </div>
-        <div class="col-md-7">
-          <%= @review.comment %>
+      <div class= "row justify-content-center mb-3">
+        <div class="col-md-6 comment_box">
+          <p class="comment_title mb-2"><%= @review.title %></p>
+          <p><%= @review.comment %></p>
         </div>
       </div>      
-      <div class="mt-5 text-center">
-        <p>
-          <i class="fa-solid fa-user"></i>
-          <strong>投稿者</strong>
-        </p>
-        <% if @review.user.image.attached? %>
-          <%= image_tag @review.user.image, alt: 'ユーザー画像', :size => '100x100', class: "user_image" %>
-        <% else %>
-          <%= image_tag asset_path('user_icon.jpeg'), alt: 'ユーザー画像', :size => '100x100', class: "user_image" %>
-        <% end %>
-        <p class="text-secondary mt-1 mb-3"><strong><%= @review.user.name %></strong></p>
-        <p class="text-secondary"><strong>レビュー日：<%= @review.created_at.to_s(:date2_jp) %></strong></p>
-      </div>
+    </div>
+    <div class="mt-2 text-center">
+      <p>
+        <i class="fa-solid fa-user"></i>
+        <strong>投稿者</strong>
+      </p>
+      <% if @review.user.image.attached? %>
+        <%= image_tag @review.user.image, alt: 'ユーザー画像', :size => '100x100', class: "user_image" %>
+      <% else %>
+        <%= image_tag asset_path('user_icon.jpeg'), alt: 'ユーザー画像', :size => '100x100', class: "user_image" %>
+      <% end %>
+      <p class="text-secondary mt-1 mb-3"><strong><%= @review.user.name %></strong></p>
+      <p class="text-secondary"><strong>レビュー日：<%= @review.created_at.to_s(:date2_jp) %></strong></p>
     </div> 
   </div>
   <div class="text-center mt-5">
-    <%= link_to 'スキー場詳細ページに戻る', ski_resort_path(@ski_resort.id), class:"btn btn-info text-center" %>
+    <%= link_to 'スキー場詳細ページに戻る', ski_resort_path(@ski_resort.id), class:"btn btn-primary rounded-pill" %>
   </div>
   <% if @review.user == current_user %>
     <div class="text-center mt-3">

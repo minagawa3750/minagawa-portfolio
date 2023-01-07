@@ -2,10 +2,10 @@
   <h2 class="text-center mt-3">
     検索結果：<%= @results.count %>件
   </h2>
-  <div class="container-fluid">
+  <div class="container">
     <div class="row">
       <% @results.each do |result| %>
-        <div class="col-sm-6 col-md-3">
+        <div class="col-sm-6 col-md-4">
           <div class="search_box">
             <div class="search_img_field">
               <% if result.resort_image.attached? %>
@@ -43,5 +43,9 @@
         </div>
       <% end %>
     </div>
+  </div>
+  <%= paginate @results %>
+  <div class="text-center mt-3 mb-3">
+    <h4><%= link_to "トップページに戻る", root_path, class:"root_btn" %></h4>
   </div>
 </div>
