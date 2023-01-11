@@ -1,3 +1,10 @@
-<footer class= text-center>
-  <p><%= Time.current.year %> Copyright SKI.com</p>
+<footer class="text-center">
+  <div class= footer_logo>
+    <h4 class="hp_title">SKI.com</h4>
+  </div>
+  <div class="footer_menu mb-2">
+    <%= link_to "利用規約", page_path('terms'), class: "text-white" %>/
+    <%= link_to "プライバシーポリシー", page_path('privacy_policy'), class: "text-white" %>
+  </div>
+  <%= Time.current.year %> Copyright SKI.com
 </footer>

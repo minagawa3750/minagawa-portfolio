@@ -1,207 +1,209 @@
+<%= content_for(:title, 'トップ')%>
 <div class="top">
   <div class="top_main d-flex align-items-center justify-content-center">
     <div class="top_box text-center">
       <h1 class="top_title text-white">スキーがスキ</h1>
       <h1 class="top_title text-white">そのスキをシェアしよう</h1>
       <h4 class="hp_title text-white">
-        SKI.com
-        <i class="fa-solid fa-person-skiing"></i>
+      SKI.com
+      <i class="fa-solid fa-person-skiing"></i>
       </h4>
     </div>
   </div>
-  <div class="rank_field mt-4">
-    <h2 class="rank_title text-center mb-3">
+  <div class="top_main_contents">
+    <div class="rank_field pt-5">
+      <h2 class="rank_title text-center mb-3">
       <i class="fa-solid fa-ranking-star" style="color: #f39800;"></i>
       レビューランキング
-    </h2>
-    <div class="container">
-      <div class="row">
-        <% @ranks.each.with_index(1) do |rank, i| %>
-          <div class="col-md-4">
-            <% case i when 1 %>
-              <span class="position-absolute fa-stack fa-lg" style='color: #daa520;'>
-              <span class="fa-solid fa-crown fa-stack-2x"></span>
-              <span class="fa fa-stack-1x"><%= i %></span>
-              </span>
-            <% when 2 %>
-              <span class="position-absolute fa-stack fa-lg" style='color: #c0c0c0;'>
-              <span class="fa-solid fa-crown fa-stack-2x"></span>
-              <span class="fa fa-stack-1x"><%= i %></span>
-              </span>
-            <% when 3 %>
-              <span class="position-absolute fa-stack fa-lg" style='color: #b87333;'>
-              <span class="fa-solid fa-crown fa-stack-2x"></span>
-              <span class="fa fa-stack-1x"><%= i %></span>
-              </span>
-            <% end %>            
-            <div class="rank_box pb-5">
-              <div class="img_field">
-                <% if rank.resort_image.attached? %>
-                  <%= link_to image_tag(rank.resort_image.variant(resize:'400x400'), alt: 'ゲレンデ画像', class:"img-fluid"), ski_resort_path(rank) %>
-                <% else %>
-                  <%= link_to image_tag(asset_path('no_image.jpeg'), alt: 'ゲレンデ画像', :size => '300x300', class:"img-fluid"), ski_resort_path(rank) %>
-                <% end %>
-              </div>
-              <h4 class="mt-3 mb-3"><i class="fa-solid fa-mountain"></i><%= rank.resort_name %></h4>
-              <p>
+      </h2>
+      <div class="container">
+        <div class="row">
+          <% @ranks.each.with_index(1) do |rank, i| %>
+            <div class="col-md-4">
+              <% case i when 1 %>
+                <span class="position-absolute fa-stack fa-lg" style='color: #daa520;'>
+                <span class="fa-solid fa-crown fa-stack-2x"></span>
+                <span class="fa fa-stack-1x"><%= i %></span>
+                </span>
+              <% when 2 %>
+                <span class="position-absolute fa-stack fa-lg" style='color: #c0c0c0;'>
+                <span class="fa-solid fa-crown fa-stack-2x"></span>
+                <span class="fa fa-stack-1x"><%= i %></span>
+                </span>
+              <% when 3 %>
+                <span class="position-absolute fa-stack fa-lg" style='color: #b87333;'>
+                <span class="fa-solid fa-crown fa-stack-2x"></span>
+                <span class="fa fa-stack-1x"><%= i %></span>
+                </span>
+              <% end %>            
+              <div class="rank_box pb-5">
+                <div class="img_field">
+                  <% if rank.resort_image.attached? %>
+                    <%= link_to image_tag(rank.resort_image.variant(resize:'400x400'), alt: 'ゲレンデ画像', class:"img-fluid"), ski_resort_path(rank) %>
+                  <% else %>
+                    <%= link_to image_tag(asset_path('no_image.jpeg'), alt: 'ゲレンデ画像', :size => '300x300', class:"img-fluid"), ski_resort_path(rank) %>
+                  <% end %>
+                </div>
+                <h4 class="mt-3 mb-3"><i class="fa-solid fa-mountain"></i><%= rank.resort_name %></h4>
+                <p>
                 <i class="fa-solid fa-magnifying-glass"></i>
                 平均評価：<%= rank.reviews.average(:rate) %>点
                 <span id="star-average-<%= rank.id %>"></span>
-              </p>
-              <script>
-              $('#star-average-<%= rank.id %>').raty({
-                starOff: '<%= asset_path('star-off.png') %>',
-                starOn : '<%= asset_path('star-on.png') %>',
-                starHalf: '<%= asset_path('star-half.png') %>',
-                half: true,
-                readOnly: true,
-                score: <%= rank.reviews.average(:rate) %>,
-              });
-              </script>
-              <p>
+                </p>
+                <script>
+                $('#star-average-<%= rank.id %>').raty({
+                  starOff: '<%= asset_path('star-off.png') %>',
+                  starOn : '<%= asset_path('star-on.png') %>',
+                  starHalf: '<%= asset_path('star-half.png') %>',
+                  half: true,
+                  readOnly: true,
+                  score: <%= rank.reviews.average(:rate) %>,
+                });
+                </script>
+                <p>
                 <i class="fa-sharp fa-solid fa-location-dot"></i>
                 <%= rank.address %>
-              </p>
-              <P>
+                </p>
+                <P>
                 <i class="fa-solid fa-mobile"></i>
                 <%= link_to "#{rank.phone_number}", "tel:" + rank.phone_number %>
-              </P>
-            </div>
-          </div>
-        <% end %>
-      </div>
-    </div>
-  </div>
-  <div class="ski_feature_field pt-4 pb-5">
-    <h2 class="feature_title text-center mb-4">
-      <i class="fa-solid fa-snowflake" style="color: #a9ceec;"></i>
-      スキー場特集
-    </h2>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-4 mt-2">
-          <%= link_to({controller: "ski_resorts", action: "search", q: { resort_feature_cont: '初心者におすすめ' }}, {class: "feature_link_btn"}) do %>
-            <div class="resort_feture_box">        
-              <h5 class="text-center font-weight-bold">初心者におすすめ</h5>
-              <p>
-                初めてのゲレンデデビュー!でもスキー場はどこを選べばいいか分からない...<br>
-                そんなゲレンデデビューの方へおすすめのスキー場をまとめました！
-              </p>
+                </P>
+              </div>
             </div>
           <% end %>
         </div>
-        <div class="col-md-4 mt-2">
-          <%= link_to({controller: "ski_resorts", action: "search", q: { resort_feature_cont: '旅行におすすめ'}}, {class: "feature_link_btn"}) do %>
-            <div class="resort_feture_box">
-              <h5 class="text-center font-weight-bold">旅行におすすめ</h5>
-              <p>
+      </div>
+    </div>
+    <div class="ski_feature_field pt-4 pb-5">
+      <h2 class="feature_title text-center mb-4">
+      <i class="fa-solid fa-snowflake" style="color: #a9ceec;"></i>
+      スキー場特集
+      </h2>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 mt-2">
+            <%= link_to({controller: "ski_resorts", action: "search", q: { resort_feature_cont: '初心者におすすめ' }}, {class: "feature_link_btn"}) do %>
+              <div class="resort_feature_box">        
+                <h5 class="resort_feature_title">初心者におすすめ</h5>
+                <p class="resort_feature_article">
+                初めてのゲレンデデビュー!でもスキー場はどこを選べばいいか分からない...<br>
+                そんなゲレンデデビューの方へおすすめのスキー場をまとめました！
+                </p>
+              </div>
+            <% end %>
+          </div>
+          <div class="col-md-4 mt-2">
+            <%= link_to({controller: "ski_resorts", action: "search", q: { resort_feature_cont: '旅行におすすめ'}}, {class: "feature_link_btn"}) do %>
+              <div class="resort_feature_box">
+                <h5 class="resort_feature_title">旅行におすすめ</h5>
+                <p class="resort_feature_article">
                 スキー場には宿泊用にホテルが併設されているところや近くにホテル
                 があるスキー場もあります。<br>
                 ゲレンデがあるところに温泉あり！スキー終わりに温泉でひといき、、、
                 それもスキーの魅力のひとつです！
-              </p>
-            </div>
-          <% end %>
-        </div>
-        <div class="col-md-4 mt-2">
-          <%= link_to({controller: "ski_resorts", action: "search", q: { resort_feature_cont: '日帰りにおすすめ'}}, {class: "feature_link_btn"}) do %>
-            <div class="resort_feture_box">
-              <h5 class="text-center font-weight-bold">日帰りにおすすめ</h5>
-              <p>
+                </p>
+              </div>
+            <% end %>
+          </div>
+          <div class="col-md-4 mt-2">
+            <%= link_to({controller: "ski_resorts", action: "search", q: { resort_feature_cont: '日帰りにおすすめ'}}, {class: "feature_link_btn"}) do %>
+              <div class="resort_feature_box">
+                <h5 class="resort_feature_title">日帰りにおすすめ</h5>
+                <p class="resort_feature_article">
                 連休はスキーに行きたい！でも週末は家でのんびりしたい...<br>
                 そんな方へ日帰りで行けるスキー場をまとめました！
-              </p>
-            </div>
-          <% end %>
+                </p>
+              </div>
+            <% end %>
+          </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="col-md-4 mt-2">
-          <%= link_to({controller: "ski_resorts", action: "search", q: { resort_feature_cont: '経験者におすすめ'}}, {class: "feature_link_btn"}) do %>
-            <div class="resort_feture_box">
-              <h5 class="text-center font-weight-bold">経験者におすすめ</h5>
-              <p>
+        <div class="row">
+          <div class="col-md-4 mt-2">
+            <%= link_to({controller: "ski_resorts", action: "search", q: { resort_feature_cont: '経験者におすすめ'}}, {class: "feature_link_btn"}) do %>
+              <div class="resort_feature_box">
+                <h5 class="resort_feature_title">経験者におすすめ</h5>
+                <p class="resort_feature_article">
                 難しいコースにチャレンジしたい！脱初心者をめざしたい！
                 そんな方のために経験者におすすめのコースをまとめました！
                 油断は禁物...。
-              </p>
-            </div>
-          <% end %>
-        </div>
-        <div class="col-md-4 mt-2">
-          <%= link_to({controller: "ski_resorts", action: "search", q: { resort_feature_cont: '室内スキー場'}}, {class: "feature_link_btn"}) do %>
-            <div class="resort_feture_box">
-              <h5 class="text-center font-weight-bold">室内スキー場</h5>
-              <p>
+                </p>
+              </div>
+            <% end %>
+          </div>
+          <div class="col-md-4 mt-2">
+            <%= link_to({controller: "ski_resorts", action: "search", q: { resort_feature_cont: '室内スキー場'}}, {class: "feature_link_btn"}) do %>
+              <div class="resort_feature_box">
+                <h5 class="resort_feature_title">室内スキー場</h5>
+                <p class="resort_feature_article">
                 ご存じでしたか?スキーは室内でもできるんです。
                 駅近でレンタルサービスもあるので、仕事帰りや学校帰り
                 にふらっと行けちゃうんです。デビュー前に練習して差をつけたい！
                 日帰り遠出も予算が、、、そんな方におすすめです！
-              </p>
-            </div>
-          <% end %>
-        </div>
-        <div class="col-md-4 mt-2">
-          <%= link_to({controller: "ski_resorts", action: "search", q: { resort_feature_cont: 'サマーゲレンデ'}}, {class: "feature_link_btn"}) do %>
-            <div class="resort_feture_box">
-              <h5 class="text-center font-weight-bold">夏にできるスキー場</h5>
-              <p>
+                </p>
+              </div>
+            <% end %>
+          </div>
+          <div class="col-md-4 mt-2">
+            <%= link_to({controller: "ski_resorts", action: "search", q: { resort_feature_cont: 'サマーゲレンデ'}}, {class: "feature_link_btn"}) do %>
+              <div class="resort_feture_box">
+                <h5 class="resort_feature_title">夏にできるスキー場</h5>
+                <p class="resort_feature_article">
                 さすがに夏にスキーは...できるんです！
                 芝やカービングマットを使用し雪上に近い感覚でスキー・スノボを楽しめます！
                 夏の定番キャンプと一緒に楽しめば充実度アップ！
-              </p>
+                </p>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <div class="text-center mt-4">
+        <%= link_to "初心者Q&Aはこちら!", page_path('question'), class: "btn btn-info rounded-pill btn-lg" %>
+      </div>
+    </div>
+    <div class="ski_youtube mt-4">
+      <h2 class="movie_title text-center">
+        <i class="fa-brands fa-youtube" style='color: #ff0000;'></i>
+        おすすめ動画
+      </h2>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 mt-4">
+            <div class="embed-responsive embed-responsive-16by9">
+              <iframe class="embed-responsive-item" src="https://youtube.com/embed/B8kJEgPqogo" allowfullscreen></iframe>
             </div>
-          <% end %>
-        </div>
-      </div>
-    </div>
-    <div class="text-center mt-4">
-      <%= link_to "初心者Q&Aはこちら!", question_ski_resorts_path, class: "btn btn-info rounded-pill btn-lg" %>
-    </div>
-  </div>
-  <div class="ski_youtube mt-4">
-    <h2 class="movie_title text-center">
-      <i class="fa-brands fa-youtube" style='color: #ff0000;'></i>
-      おすすめ動画
-    </h2>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6 mt-4">
-          <div class="embed-responsive embed-responsive-16by9">
-            <iframe class="embed-responsive-item" src="https://youtube.com/embed/B8kJEgPqogo" allowfullscreen></iframe>
-          </div>
-        </div> 
-        <div class="col-md-6 mt-4"> 
-          <div class="embed-responsive embed-responsive-16by9">
-            <iframe class="embed-responsive-item" src="https://youtube.com/embed/WW35Ipe7Yic" allowfullscreen></iframe>
+          </div> 
+          <div class="col-md-6 mt-4"> 
+            <div class="embed-responsive embed-responsive-16by9">
+              <iframe class="embed-responsive-item" src="https://youtube.com/embed/WW35Ipe7Yic" allowfullscreen></iframe>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="col-md-6 mt-4"> 
-          <div class="embed-responsive embed-responsive-16by9">
-            <iframe class="embed-responsive-item" src="https://youtube.com/embed/eQFF6kkKXcw" allowfullscreen></iframe>
+        <div class="row">
+          <div class="col-md-6 mt-4"> 
+            <div class="embed-responsive embed-responsive-16by9">
+              <iframe class="embed-responsive-item" src="https://youtube.com/embed/eQFF6kkKXcw" allowfullscreen></iframe>
+            </div>
           </div>
-        </div>
-        <div class="col-md-6 mt-4"> 
-          <div class="embed-responsive embed-responsive-16by9">
-            <iframe class="embed-responsive-item" src="https://youtube.com/embed/_jeoQEnF3Eo" allowfullscreen></iframe>
+          <div class="col-md-6 mt-4"> 
+            <div class="embed-responsive embed-responsive-16by9">
+              <iframe class="embed-responsive-item" src="https://youtube.com/embed/_jeoQEnF3Eo" allowfullscreen></iframe>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-  <div class="top_introduction d-flex align-items-center justify-content-center mt-5  pt-3">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6">
-          <div class="intro_image mt-5 mb-3">
-            <%= image_tag asset_path('top_image.webp'), alt: "ホーム画像", class: "img-fluid" %>
+    <div class="top_introduction d-flex align-items-center justify-content-center mt-5  pt-3">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="intro_image mt-5 mb-3">
+              <%= image_tag asset_path('top_image.webp'), alt: "ホーム画像", class: "img-fluid" %>
+            </div>
           </div>
-        </div>
-        <div class="col-md-6 site_introduction">
-          <h3 class="introduction_title text-center">ゲレンデをより身近に</h3>
-          <p class="introduciton_article">
+          <div class="col-md-6 site_introduction">
+            <h3 class="introduction_title text-center">ゲレンデをより身近に</h3>
+            <p class="introduciton_article">
             夏は海!、冬はスキー!とレジャースポーツでは定番のスキーとスノーボードですが
             ゲレンデへ行く際は経験者の方が計画してくれることが多く、初心者の方が計画してゲレンデへ行くのはなかなかハードルが高いのではないでしょうか。<br>
             行ってみたら楽しかったからまた行きたいけど準備は何をすればいいんだろう、興味あるけど周りでやってる人がいないからなにすればいいか分からない...
@@ -209,7 +211,8 @@
             少し分かりづらいですよね...。<br>当サイトではそんな方によりゲレンデを身近に感じていただくために
             より見やすくシンプルに情報を掲載しております。<br>初心者の方はもちろん、経験者の方や冬休みの旅行を考えている方にもおすすめです。
             当サイトがみなさんのお役に立てれば幸いです。
-          </p>
+            </p>
+          </div>
         </div>
       </div>
     </div>

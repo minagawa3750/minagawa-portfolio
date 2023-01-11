@@ -1,4 +1,5 @@
-<div class="ski_resort_show_container pb-5">
+<%= content_for(:title, @ski_resort.resort_name) %>
+<div class="ski_resort_show_field">
   <h3 class="ski_resort_title">
     <i class="fa-solid fa-mountain"></i>
     <%= @ski_resort.resort_name %>
@@ -40,7 +41,7 @@
     </div>
 
     <div class="container mt-5">
-      <div class="row justify-content-end mb-2 resort_info">
+      <div class="row justify-content-end mb-4">
         <div class="col-md-3">
           <i class="fa-sharp fa-solid fa-location-dot"></i>
           <strong>住所</strong>
@@ -49,7 +50,7 @@
           <%= @ski_resort.address %>
         </div>
       </div>
-      <div class="row justify-content-end mb-2">
+      <div class="row justify-content-end mb-4">
         <div class="col-md-3">
           <i class="fa-solid fa-mobile"></i>
           <strong>電話番号</strong>
@@ -58,20 +59,7 @@
           <%= link_to @ski_resort.phone_number, "tel:" + @ski_resort.phone_number %>
         </div>
       </div> 
-      <div class="row justify-content-end mb-2">
-        <div class="col-md-3">
-          <i class="fa-solid fa-clock"></i>
-          <strong>営業時間</strong>
-        </div>
-        <div class="col-md-6">
-          <% if @ski_resort.start_time? || @ski_resort.end_time? %>
-            <%= @ski_resort.start_time.to_s(:time_jp) %>〜<%= @ski_resort.end_time.to_s(:time_jp) %>
-          <% else %>
-            詳細分かり次第記載します
-          <% end %>
-        </div>
-      </div>
-      <div class="row justify-content-end mb-2">
+      <div class="row justify-content-end mb-4">
         <div class="col-md-3">
           <i class="fa-solid fa-calendar-days"></i>
           <strong>営業期間</strong>
@@ -82,9 +70,22 @@
           <% else %>
             詳細分かり次第記載します
           <% end %>
-        </div>
+        </div>       
       </div>
-      <div class="row justify-content-end mb-2">
+      <div class="row justify-content-end mb-4">
+        <div class="col-md-3">
+          <i class="fa-solid fa-clock"></i>
+          <strong>営業時間</strong>
+        </div>
+        <div class="col-md-6">
+          <% if @ski_resort.start_time? || @ski_resort.end_time? %>
+            <%= @ski_resort.start_time.to_s(:time_jp) %>〜<%= @ski_resort.end_time.to_s(:time_jp) %>
+          <% else %>
+            詳細分かり次第記載します
+          <% end %>
+        </div>    
+      </div>
+      <div class="row justify-content-end mb-4">
         <div class="col-md-3">
           <i class="fa-solid fa-circle-info"></i>
           <strong>営業備考</strong>
@@ -97,7 +98,7 @@
           <% end %>
         </div>
       </div>
-      <div class="row justify-content-end mb-2">
+      <div class="row justify-content-end mb-4">
         <div class="col-md-3">
           <i class="fa-solid fa-yen-sign"></i>
           <strong>料金(1日券)</strong>
@@ -108,7 +109,7 @@
           <li>シニア：<%= @ski_resort.senior_price %></li>
         </ul>
       </div>
-      <div class="row justify-content-end mb-2">
+      <div class="row justify-content-end mb-4">
         <div class="col-md-3">
           <i class="fa-solid fa-person-snowboarding"></i>
           <strong>リフト数</strong>
@@ -117,7 +118,7 @@
           <%= @ski_resort.ski_lift %>台
         </div>
       </div>
-      <div class="row justify-content-end mb-2">
+      <div class="row justify-content-end mb-4">
         <div class="col-md-3">
           <i class="fa-solid fa-road"></i>
           <strong>コース数</strong>
@@ -126,7 +127,7 @@
           <%= @ski_resort.courses %>本
         </div>
       </div>
-      <div class="row justify-content-end mb-2">
+      <div class="row justify-content-end mb-4">
         <div class="col-md-3">
           <i class="fa-solid fa-angle-up"></i>
           <strong>最大傾斜</strong>
@@ -135,7 +136,7 @@
           <%= @ski_resort.maximum_tilt %>度
         </div>
       </div>
-      <div class="row justify-content-end mb-2">
+      <div class="row justify-content-end mb-4">
         <div class="col-sm-3">
           <i class="fa-solid fa-mountain-sun"></i>
           <strong>最大滑走距離</strong>
@@ -191,13 +192,18 @@
   </script>
   <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAP_API_KEY'] %>&callback=initMap" async defer></script>
   <%= render "ski_resorts/ski_resort_reviews_index", reviews: @reviews %>
-  <div class="review_box text-center">
+  <div class="review_new_box text-center">
     <%= link_to"レビュー投稿はこちら", new_ski_resort_review_path(@ski_resort), class: "comment_btn" %>
   </div>
   <div class="text-center mt-5 mb-3">
-    <%= link_to "初心者Q&Aはこちら!", question_ski_resorts_path, class: "btn btn-info rounded-pill" %>
+    <%= link_to "初心者Q&Aはこちら!", page_path('question'), class: "btn btn-info rounded-pill" %>
   </div>
   <div class="text-center">
     <%= link_to "トップページ", root_path, class:"root_btn" %> 
   </div>
+  <% if current_user.id == 1 %>
+    <div class="text-center mt-4">
+      <%= link_to "スキー場一覧", ski_resorts_path, class:"resort_index_btn" %> 
+    </div>
+  <% end %> 
 </div>

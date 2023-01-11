@@ -1,36 +1,69 @@
-.ski_resort_registration_container {
-  background-color: #eaf4fc;
+.ski_resort_registration_field, .ski_resort_edit_field {
+  background-color: #ededef;
+  padding-top: 50px;
 }
 
-.ski_resort_show_container {
-  padding-top: 40px;
-  background-color: #eaf4fc;
+.resort_index_btn, .resort_new_btn {
+	vertical-align: middle;
+	text-decoration: none;
+	width: 120px;
+	margin: auto;
+	padding: 0.3rem 2.5rem;
+	border: 2px solid #44617b;
+	background: #44617b;
+	color: #fff;
+	border-radius: 100vh;
+	transition: 0.5s;
 }
 
-.ski_resort_registration_menu {
+.resort_index_btn:hover, .resort_new_btn:hover {
+  background: #fff;
+  color: #44617b;
+  text-decoration: none;
+}
+
+.ski_resort_show_field {
+  padding: 40px 0 40px;
+  background-color: #ededef;
+}
+
+.ski_resort_registration_box {
   margin: 2em auto;
   padding: 1em;
   width: 60%;
   max-width: 100%;
   border: 1px solid #ccc;
-  background-color: #fffafa;
+  background-color: #fff;
 }@media screen and (max-width:800px) {
   .ski_resort_registration_menu{
     width: 90%;
   }
 }
-  
-td {
-  vertical-align: middle !important;
+
+.review_index_box, .review_new_box {
+  margin: auto;
+  padding: 1em;
+  width: 55%;
+  max-width: 100%;
+  border: 1px solid #ccc;
+  background-color: #fff;
+}@media (max-width: 800px) {
+  .review_index_box, .review_new_box {
+    width: 80%;
+  }
 }
 
 .ski_resort_show_main, .ski_resort_map {
   margin: auto;
   padding: 1em;
-  width: 80%;
+  width: 55%;
   max-width: 100%;
   border: 1px solid #ccc;
-  background-color: #fffafa;
+  background-color: #fff;
+}@media (max-width: 800px) {
+  .ski_resort_show_main, .ski_resort_map {
+    width: 80%;
+  }
 }
 
 .ski_resort_show_page {
@@ -39,12 +72,12 @@ td {
   width: 60%;
   max-width: 100%;
   border: 1px solid #ccc;
-  background-color: #fffafa;
+  background-color: #fff;
 }
 
-.ski_resort_title {
+.ski_resort_title, .interest_title{
   color: #19448e;
-  margin-bottom: 30px;
+  padding: 10px 0 20px;
   font-weight: bold;
   text-align: center;
 }
@@ -64,7 +97,8 @@ td {
 }
 
 .comment_btn:hover, .resort_hp_btn:hover {
-  opacity: 0.5;
+  color: #27acd9;
+  background: #fff;
   text-decoration: none;
 }
 
@@ -82,6 +116,17 @@ td {
   top: 0;
 }
 
+.search_field {
+  background-color: #ededef;
+  padding-bottom: 100px;
+}
+
+.search_title {
+  color: #19448e;
+  padding: 30px 0 20px;
+  font-weight: bold;
+  text-align: center;
+}
 .search_box {
   margin: 2em;
   padding: 1em;
@@ -89,7 +134,7 @@ td {
   max-width: 100%;
   height: 82%;
   border: 1px solid #ccc;
-  background-color: #ededef;
+  background-color: #fff;
   color: #19448e;
 }@media (max-width: 800px) {
   .search_box {
@@ -99,43 +144,4 @@ td {
 
 .interest_btn {
   float: right;
-}
-
-.question_title {
-  text-align: center;
-  margin-bottom: 1rem; 
-  color: #19448e;
-}
-
-dl {
-	border: 1px solid #ccc;
-}
-
-dt {
-  font-weight: bold;
-  color: #111;
-  background: #f4f4f4;
-  padding: 8px;
-  border-top: 1px solid #ccc;
-  border-bottom: 1px solid #ccc;
-}
-
-dt:before {
-	content: "Q.";
-	font-weight: bold;
-	margin-right: 8px;
-}
-
-dd {
-	padding: 16px 16px 24px 30px;
-	margin: 0;
-	line-height: 2;
-}
-
-dd:before {
-	content: "A.";
-  color: #bf0000;
-	font-weight: bold;
-	margin-right: 3px;
-	margin-left: -21px;
 }

@@ -1,13 +1,5 @@
-<div class="ski_resort_registration_container">
-  <h2 class="ski_resort_title text-center pt-3">スキー場編集</h2>
-  <div class="text-center mt-3 mb-3">
-    <% if @ski_resort.resort_image.attached? %>
-      <%= image_tag @ski_resort.resort_image.variant(resize:'400x400'), alt: 'ゲレンデ画像', class: "img-fluid" %>
-    <% else %>
-      <%= image_tag asset_path('no_image.jpeg'), alt: 'ゲレンデ画像', :size => '300x300', class: "img-fluid" %>
-    <% end %>
-    <h5 class="mt-2">現在のスキー場画像</h5>
-  </div>
-  <%= render "ski_resorts/form", ski_resort: @ski_resort %>
-  
+<%= content_for(:title, @ski_resort.resort_name)%>
+<div class="ski_resort_edit_field">
+  <h1 class="ski_resort_title">スキー場編集</h1>
+  <%= render "ski_resorts/form", ski_resort: @ski_resort %> 
 </div>

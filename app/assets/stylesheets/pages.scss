@@ -1,0 +1,52 @@
+.question_field {
+  padding: 30px 0 50px;
+}
+
+dl {
+  border: 1px solid #ccc;
+}
+
+dt {
+  font-weight: bold;
+  color: #111;
+  padding: 8px;
+  background-color: #fffafa;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+}
+
+dt:before {
+  content: "Q.";
+  font-weight: bold;
+  margin-right: 8px;
+}
+
+dd {
+  padding: 16px 16px 24px 30px;
+  margin: 0;
+  line-height: 2;
+}
+
+dd:before {
+  content: "A.";
+  color: #bf0000;
+  font-weight: bold;
+  margin-right: 3px;
+  margin-left: -21px;
+}
+
+.question_title {
+  color: #19448e;
+  padding: 30px 0 20px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.privacy_policy_field, .term_field {
+  background-color: #ededef;
+  padding-bottom: 50px;
+}
+
+.term_content, .privacy_policy_content {
+  color: #19448e;
+}

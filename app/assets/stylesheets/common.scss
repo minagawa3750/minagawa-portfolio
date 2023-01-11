@@ -12,7 +12,7 @@ body{
 }
 
 footer {
-  height: 80px;
+  height: 120px;
   color : #FFFFFF;
   padding-top: 25px;
   background-color: #19448e;
@@ -54,5 +54,25 @@ footer {
 }
 
 .root_btn {
-  color: #19448e;
+  text-align: center;
+	vertical-align: middle;
+	text-decoration: none;
+	width: 120px;
+	margin: auto;
+	padding: 0.3rem 2.5rem;
+	border: 2px solid #197070;
+	background: #197070;
+	color: #fff;
+	border-radius: 100vh;
+	transition: 0.5s;
+}
+
+.root_btn:hover {
+  background: #fff;
+  color: #197070;
+  text-decoration: none;
+}
+
+td {
+  vertical-align: middle !important;
 }

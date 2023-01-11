@@ -1,19 +1,29 @@
-.review_box, .review_show_box {
+.review_box {
   margin: auto;
   padding: 1em;
-  width: 80%;
+  width: 60%;
   max-width: 100%;
   border: 1px solid #ccc;
-  background-color: #fffafa;
+  background-color: #fff;
+}
+
+.review_show_box {
+  margin: auto;
+  padding: 1em;
+  width: 50%;
+  max-width: 100%;
+  border: 1px solid #ccc;
+  background-color: #fff;
 }
 
 .review_title {
   color: #19448e;
   text-align: center;
+  font-weight: bold;
 }
 
 .edit_review_field, .new_review_field, .review_show_field{
-  background-color: #eaf4fc;
+  background-color: #ededef;
   padding: 5em 0 8em;
 }
 

@@ -1,4 +1,5 @@
-<div class="question_field pt-3">
+<%= content_for(:title, '初心者Q&A')%>
+<div class="question_field">
   <h1 class="question_title">初心者Q&A</h1>
   <div class="container">
     <div class="row">
@@ -77,6 +78,6 @@
     </div>
   </div>
   <div class="text-center mt-3 mb-5">
-    <h4><%= link_to "トップページに戻る", root_path, class:"root_btn" %></h4>
+    <%= link_to "トップページに戻る", root_path, class:"root_btn" %>
   </div>
 </div>

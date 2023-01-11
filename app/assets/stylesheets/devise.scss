@@ -30,6 +30,7 @@
 .pass_edit_field {
   background-color: #ededef;
   height: 92vh;
+  padding-top: 100px;
 }
 
 .useredit_field {
@@ -40,11 +41,15 @@
   border-radius: 50%;
 }
 
-.devise_font_color{
+.devise_title {
   color: #19448e;
+  font-weight: bold;
+  letter-spacing: 0.15em;
+  text-align: center;
+  margin-bottom: 30px;
 }
 
-.profile_title, .devise_link_btn {
+.devise_font_color, .profile_title, .devise_link_btn {
   color: #19448e;
 }
 

@@ -11,6 +11,7 @@
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
+    height: 450px;
   }
 }
 
@@ -24,6 +25,10 @@
   }
 }
 
+.top_main_contents {
+  background-color: #ededef;
+}
+
 .rank_box {
   margin: 2em auto;
   padding: 1em;
@@ -35,8 +40,8 @@
   color: #19448e;
 }
 
-.rank_title, .feature_title, .movie_title {
-  color: #666680;
+.rank_title, .feature_title, .movie_title, .introduction_title {
+  color: #19448e;
   font-weight: bold;
   letter-spacing: 0.15em;
 }
@@ -52,18 +57,19 @@
   color: #fff;
 }
 
-.resort_feture_box {
+.resort_feature_title {
   color: #19448e;
+  text-align: center;
+  font-weight: bold;
+}
+
+.resort_feature_article {
+  color: #666666;
 }
 
 .feature_link_btn:hover {
   opacity: 0.5;
   text-decoration: none;
-}
-
-.top_introduction {
-  background-color: #008080;
-  color: #fffafa;
 }
 
 .introduction_title {
@@ -72,6 +78,7 @@
 }
 
 .introduciton_article {
+  color: #666666;
   letter-spacing: 0.15em;
   line-height: 2;
 }

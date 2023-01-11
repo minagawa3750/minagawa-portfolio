@@ -14,7 +14,6 @@ Rails.application.routes.draw do
     resources :reviews
     collection do
       get 'search'
-      get 'question'
     end
     resources :interests, only: [:create, :destroy]
   end

@@ -131,6 +131,7 @@ GEM
     globalid (1.0.0)
       activesupport (>= 5.0)
     gmaps4rails (2.1.2)
+    high_voltage (3.1.2)
     i18n (1.12.0)
       concurrent-ruby (~> 1.0)
     jbuilder (2.11.5)
@@ -368,6 +369,7 @@ DEPENDENCIES
   factory_bot_rails
   geocoder
   gmaps4rails
+  high_voltage
   jbuilder (~> 2.7)
   jquery-rails
   kaminari

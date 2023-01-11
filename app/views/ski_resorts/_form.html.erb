@@ -15,7 +15,7 @@
     <%= f.label :resort_image, style: "display: none;" %><br>
     <%= f.file_field :resort_image, id: "file-input" %>
   </div>
-  <div class="ski_resort_registration_menu">
+  <div class="ski_resort_registration_box">
     <div class="form-group">
       <%= f.label :resort_name %>
       <%= f.text_field :resort_name, class: 'form-control' %>
@@ -32,16 +32,6 @@
     </div>
 
     <div class="form-group">
-      <%= f.label :start_time %>
-      <%= f.time_field :start_time, class: 'form-control' %>
-    </div>
-
-    <div class="form-group">
-      <%= f.label :end_time %>
-      <%= f.time_field :end_time, class: 'form-control' %>
-    </div>
-
-    <div class="form-group">
       <%= f.label :start_day %>
       <%= f.date_field :start_day, class: 'form-control' %>
     </div>
@@ -49,6 +39,16 @@
     <div class="form-group">
       <%= f.label :end_day %>
       <%= f.date_field :end_day, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :start_time %>
+      <%= f.time_field :start_time, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :end_time %>
+      <%= f.time_field :end_time, class: 'form-control' %>
     </div>
     
     <div class="form-group">
@@ -111,7 +111,10 @@
     </div>
   </div>
 
-  <div class="ski_resort_registration_btn_menu text-center pb-4">
-    <h5><%= link_to 'ページに戻る', ski_resorts_path, class: 'ski_resort_back_btn' %></h5>
+  <div class="text-center pb-4">
+    <%= link_to 'スキー場一覧', ski_resorts_path, class: 'resort_index_btn' %>
+  </div>
+  <div class="text-center pb-5">
+    <%= link_to "トップページ", root_path, class:"root_btn" %> 
   </div>
 <% end %>

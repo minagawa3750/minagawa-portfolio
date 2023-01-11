@@ -37,6 +37,8 @@ gem 'gmaps4rails'
 gem 'dotenv-rails'
 gem 'geocoder'
 gem 'ransack'
+gem 'kaminari'
+gem 'high_voltage'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -72,6 +74,5 @@ group :production do
 end
 
 gem 'aws-sdk-s3', require: false
-gem 'kaminari'
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

@@ -1,5 +1,6 @@
+<%= content_for(:title, 'パスワード再設定')%>
 <div class="pass_edit_field">
-  <h1 class="text-center pt-5"><%= t('.forgot_your_password') %></h1>
+  <h1 class="devise_title"><%= t('.forgot_your_password') %></h1>
 
   <div class="sign_form">
     <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>

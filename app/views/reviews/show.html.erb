@@ -1,3 +1,4 @@
+<%= content_for(:title, @review.title) %>
 <div class="review_show_field">
   <h1 class="review_title mb-5">レビュー詳細</h1>
   <div class="review_show_box">
@@ -61,7 +62,7 @@
       <%= link_to 'レビューを編集する', edit_ski_resort_review_path(@review.ski_resort_id, @review.id), class:"review_edit_btn" %>
     </div>
     <div class="text-center mt-3">
-      <%= link_to 'レビューを削除する', ski_resort_review_url(@review.ski_resort_id, @review.id), method: :delete, data: { confirm: '削除します。よろしいですか。' }, class:"review_delete_btn" %>
+      <%= link_to 'レビューを削除する', ski_resort_review_path(@review.ski_resort_id, @review.id), method: :delete, data: { confirm: '削除します。よろしいですか。' }, class:"review_delete_btn" %>
     </div>
   <% end %>
 </div>

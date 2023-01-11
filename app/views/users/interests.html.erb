@@ -1,7 +1,10 @@
-<div class="ski_resort_index_container">
-  <h1 class="ski_resort_title my-3 ml-3">気になるリスト</h1>
+<%= content_for(:title, '気になるリスト')%>
+<div class="interest_field">
+  <h2 class="interest_title my-3 ml-3">
+  気になるリスト
+  </h2>
   <% if @interest_resort.present? %>
-    <div class="col-8  table-responsive" style="margin: auto;">
+    <div class="col-8 table-responsive" style="margin: auto;">
       <table class="table table-bordered table-striped" style="white-space: nowrap;">
         <thead>
           <tr class="table-primary">
@@ -12,19 +15,19 @@
           </tr>
         </thead>
 
-        <tbody>
-          <% @interest_resort.each do |ski_resort| %>
+        <tbody class="text-center">
+          <% @interest_resort.each do |interest_resort| %>
             <tr>
               <td>
-              <% if ski_resort.resort_image.attached? %>
-                <%= link_to image_tag(ski_resort.resort_image.variant(resize:'300x300'), alt: 'ゲレンデ画像', class:"img-fluid"), ski_resort_path(ski_resort) %>
+              <% if interest_resort.resort_image.attached? %>
+                <%= link_to image_tag(interest_resort.resort_image.variant(resize:'300x300'), alt: 'ゲレンデ画像', class:"img-fluid"), ski_resort_path(interest_resort) %>
               <% else %>
-                <%= link_to image_tag(asset_path('no_image.jpeg'), alt: 'ゲレンデ画像', :size => '300x300', class:"img-fluid"), ski_resort_path(ski_resort) %>
+                <%= link_to image_tag(asset_path('no_image.jpeg'), alt: 'ゲレンデ画像', :size => '300x300', class:"img-fluid"), ski_resort_path(interest_resort) %>
               <% end %>
               </td>
-              <td><%= ski_resort.resort_name %></td>
-              <td><%= ski_resort.address %></td>
-              <td><%= ski_resort.phone_number %></td>
+              <td><%= interest_resort.resort_name %></td>
+              <td><%= interest_resort.address %></td>
+              <td><%= link_to "#{interest_resort.phone_number}", "tel:" + interest_resort.phone_number %></td>
             </tr>
           <% end %>
         </tbody>
@@ -36,6 +39,6 @@
     </h5>
   <% end %>
   <div class="text-center mt-3 mb-3">
-    <h4><%= link_to "トップページに戻る", root_path, class:"root_btn" %></h4>
+    <%= link_to "トップページに戻る", root_path, class:"root_btn" %>
   </div>
 </div>
