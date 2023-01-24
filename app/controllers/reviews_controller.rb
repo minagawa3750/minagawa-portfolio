@@ -28,7 +28,7 @@ class ReviewsController < ApplicationController
 
     respond_to do |format|
       if @review.save
-        format.html { redirect_to ski_resort_review_url(@review.ski_resort_id, @review.id), notice: "レビューを投稿しました" }
+        format.html { redirect_to ski_resort_path(@ski_resort), notice: "レビューを投稿しました。" }
         format.json { render :show, status: :created, location: @review }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -41,7 +41,7 @@ class ReviewsController < ApplicationController
   def update
     respond_to do |format|
       if @review.update(review_params)
-        format.html { redirect_to ski_resort_review_url(@review.ski_resort_id, @review.id), notice: "レビューを更新しました" }
+        format.html { redirect_to ski_resort_review_path(@review.ski_resort_id, @review.id), notice: "レビューを更新しました。" }
         format.json { render :show, status: :ok, location: @review }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -55,7 +55,7 @@ class ReviewsController < ApplicationController
     @review.destroy
 
     respond_to do |format|
-      format.html { redirect_to ski_resort_url(@ski_resort), notice: "レビューを削除しました" }
+      format.html { redirect_to ski_resort_path(@ski_resort), notice: "レビューを削除しました。" }
       format.json { head :no_content }
     end
   end

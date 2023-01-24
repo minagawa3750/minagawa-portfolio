@@ -1,4 +1,4 @@
-<%= content_for(:title, 'ログイン')%>
+<% content_for(:title, 'ログイン')%>
 <div class="signin_container">
   <h2 class="devise_title"><%= t('.sign_in') %></h2>
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>

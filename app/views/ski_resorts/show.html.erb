@@ -1,4 +1,4 @@
-<%= content_for(:title, @ski_resort.resort_name) %>
+<% content_for(:title, @ski_resort.resort_name) %>
 <div class="ski_resort_show_field">
   <h3 class="ski_resort_title">
     <i class="fa-solid fa-mountain"></i>
@@ -201,7 +201,7 @@
   <div class="text-center">
     <%= link_to "トップページ", root_path, class:"root_btn" %> 
   </div>
-  <% if current_user.id == 1 %>
+  <% if user_signed_in? && current_user.admin == true %>
     <div class="text-center mt-4">
       <%= link_to "スキー場一覧", ski_resorts_path, class:"resort_index_btn" %> 
     </div>

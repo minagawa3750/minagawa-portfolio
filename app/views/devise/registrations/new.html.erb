@@ -1,4 +1,4 @@
-<%= content_for(:title, 'アカウント登録')%>
+<% content_for(:title, 'アカウント登録')%>
 <div class="signup_container">
   <h2 class="devise_title"><%= t('.sign_up') %></h2>
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>

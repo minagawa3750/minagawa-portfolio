@@ -23,7 +23,7 @@ class SkiResort < ApplicationRecord
 
   def time_before_finish
     return if end_time.blank? || start_time.blank?
-    errors.add(:end_time, "は開始日以降のものを選択してください") if end_time < start_time
+    errors.add(:end_time, "は開始時間以降のものを選択してください") if end_time < start_time
   end
 
   def day_before_finish

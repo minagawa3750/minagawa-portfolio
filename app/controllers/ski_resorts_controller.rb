@@ -1,6 +1,6 @@
 class SkiResortsController < ApplicationController
   before_action :set_ski_resort, only: %i[ show edit update destroy ]
-  before_action :admin_check, only: %i[ new edit update destroy ]
+  before_action :admin_check, only: %i[ index new edit update destroy ]
 
   # GET /ski_resorts or /ski_resorts.json
   def index
@@ -27,7 +27,7 @@ class SkiResortsController < ApplicationController
 
     respond_to do |format|
       if @ski_resort.save
-        format.html { redirect_to ski_resort_url(@ski_resort), notice: "ゲレンデの情報を登録しました" }
+        format.html { redirect_to ski_resorts_path, notice: "ゲレンデの情報を登録しました。" }
         format.json { render :show, status: :created, location: @ski_resort }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -40,7 +40,7 @@ class SkiResortsController < ApplicationController
   def update
     respond_to do |format|
       if @ski_resort.update(ski_resort_params)
-        format.html { redirect_to ski_resort_url(@ski_resort), notice: "ゲレンデの情報を更新しました" }
+        format.html { redirect_to ski_resort_path(@ski_resort), notice: "ゲレンデの情報を更新しました。" }
         format.json { render :show, status: :ok, location: @ski_resort }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -54,7 +54,7 @@ class SkiResortsController < ApplicationController
     @ski_resort.destroy
 
     respond_to do |format|
-      format.html { redirect_to ski_resorts_url, notice: "ゲレンデの情報を削除しました" }
+      format.html { redirect_to ski_resorts_path, notice: "ゲレンデの情報を削除しました。" }
       format.json { head :no_content }
     end
   end
@@ -74,9 +74,9 @@ class SkiResortsController < ApplicationController
     end
 
     def admin_check
-      if current_user != User.find(1)
+      if current_user.admin == false
         redirect_to root_path
-        flash[:alert] = "管理者のみアクセス可能です"
+        flash[:alert] = "このページは閲覧できません。"
       end
     end
 end
