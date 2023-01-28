@@ -1,8 +1,14 @@
 version: 2.1
+orbs:
+  ruby: circleci/ruby@0.1.2
+
 jobs:
   build:
     docker:
-      - image: circleci/ruby:2.7.6-node-browsers
+      - image: cimg/ruby:2.7.6-node-browsers
+        auth:
+          username: mydockerhub-user
+          password: $DOCKERHUB_PASSWORD
         environment:
           BUNDLE_JOBS: 3
           BUNDLE_RETRY: 3
@@ -12,7 +18,7 @@ jobs:
           MYSQL_HOST: 'db'
           MYSQL_PASSWORD: 'password'
           MYSQL_PORT: 3306
-      - image: circleci/mysql:8.0
+      - image: cimg/mysql:8.0
         environment:
           MYSQL_USER: 'test'
           MYSQL_ROOT_PASSWORD: 'password'
