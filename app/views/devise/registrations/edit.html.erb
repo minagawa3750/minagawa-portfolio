@@ -8,7 +8,7 @@
       <% if @user.image.attached? %>
         <%= image_tag @user.image, :size => '150x150', alt: 'ユーザー画像', class: "user_image" %>
       <% else %>
-        <%= image_tag ('/assets/user_icon.jpeg'), alt: 'ユーザー画像', :size => '150x150', class: "user_image" %>
+        <%= image_tag asset_path("user_icon.jpeg"), alt: 'ユーザー画像', :size => '150x150', class: "user_image" %>
       <% end %>
       <h5 class="text-center mt-2">現在のプロフィール画像</h5>
       <div class="form-group">

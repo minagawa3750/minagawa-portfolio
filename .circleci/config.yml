@@ -62,7 +62,7 @@ jobs:
       - run: bundle exec rails db:schema:load
 
       - run:
-          name: rspec
+          name: RSpec
           command: |
             mkdir /tmp/test-results
             TEST_FILES="$(circleci tests glob "spec/**/*_spec.rb" | \
