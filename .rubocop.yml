@@ -26,3 +26,6 @@ AllCops:
 
 Layout/BlockAlignment:
   Enabled: false
+
+Airbnb/SimpleModifierConditional:
+  Enabled: false

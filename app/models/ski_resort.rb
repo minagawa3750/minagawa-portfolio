@@ -22,10 +22,12 @@ class SkiResort < ApplicationRecord
   validate :day_before_finish
 
   def time_before_finish
+    return if end_time.blank? || start_time.blank?
     errors.add(:end_time, "は営業開始時間以降のものを選択してください") if end_time < start_time
   end
 
   def day_before_finish
+    return if end_day.blank? || start_day.blank?
     errors.add(:end_day, "は営業開始日以降のものを選択してください") if end_day < start_day
   end
 

@@ -17,6 +17,9 @@ development:
 test:
   <<: *default
   database: minagawa-portfolio_test
+  username: root
+  host: <%= ENV['DB_HOST'] %>
+  password: password
 
 production:
   <<: *default

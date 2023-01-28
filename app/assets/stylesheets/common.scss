@@ -40,18 +40,20 @@ footer {
 }
 
 .pagination>li>a {          
-  border: none;     
-  color: #808080;   
+  border: none; 
+  color: #777bce; 
 }
 
-.pagination>.active>a {     
-  background: #777bce;     
-  border-radius: 15px;     
+.pagination>.active>a {         
+  background-color: #777bce !important;     
 }
 
 .pagination>li>a:hover {        
-  border-radius: 15px;   
+  color: #fff;  
+  background-color: #777bce;
 }
+
+
 
 .root_btn {
   text-align: center;
