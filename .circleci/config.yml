@@ -6,7 +6,7 @@ orbs:
 jobs:
   build:
     docker:
-      - image: cimg/ruby:2.7.6-node-browsers
+      - image: cimg/ruby:2.7.6-node
         auth:
           username: mydockerhub-user
           password: $DOCKERHUB_PASSWORD
