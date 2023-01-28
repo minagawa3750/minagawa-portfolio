@@ -1,9 +1,9 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:interests]
+  before_action :set_user, only: [:likes]
 
-  def interests
-    @interests = Interest.where(user_id: @user.id).pluck(:ski_resort_id)
-    @interest_resort = SkiResort.find(@interests)
+  def likes
+    @likes = Like.where(user_id: @user.id).pluck(:ski_resort_id)
+    @like_resort = SkiResort.find(@likes)
   end
     
   private

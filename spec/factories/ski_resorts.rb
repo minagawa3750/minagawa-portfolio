@@ -1,6 +1,5 @@
 FactoryBot.define do
   factory :ski_resort do
-    resort_image { Rack::Test::UploadedFile.new(File.join(Rails.root, "spec/fixtures/test.jpeg"))}
     resort_name { "resort_name" }
     address { "栃木県那須塩原市湯本塩原字前黒" }     
     phone_number { "123-456-789" }
@@ -9,15 +8,18 @@ FactoryBot.define do
     start_time { "09:00"}
     end_time { "16:00" }
     business_remarks { "営業時間変動あり" }
-    adult_price { "adult_price" }
-    kid_price { "kid_price" }
-    senior_price { "senior_price" }
+    adult_price { "¥5,000" }
+    kid_price { "¥4,000" }
+    senior_price { "¥3,000" }
     ski_lift { 1 }
     courses { 2 }
     maximum_tilt { 3 }
     maximum_distance { 4 }
-    resort_feature { "特徴" }
-    introduction { "おすすめ" }
-    hp_url { "hp_url" }
+    resort_feature { "初心者におすすめ" }
+    introduction { "レンタル用品が充実" }
+    hp_url { "https://www.mtjeans.com/winter/" }
+    after(:build) do |ski_resort|
+      ski_resort.resort_image.attach(io: File.open('spec/fixtures/test.jpeg'), filename: 'test.jpeg', content_type: 'image/jpeg')
+    end
   end
 end

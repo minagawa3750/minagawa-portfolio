@@ -3,7 +3,7 @@ class SkiResort < ApplicationRecord
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
   has_many :reviews
-  has_many :interests
+  has_many :likes
 
   validates :resort_name, presence: true
   validates :address, presence: true
@@ -23,15 +23,15 @@ class SkiResort < ApplicationRecord
 
   def time_before_finish
     return if end_time.blank? || start_time.blank?
-    errors.add(:end_time, "は開始時間以降のものを選択してください") if end_time < start_time
+    errors.add(:end_time, "は営業開始時間以降のものを選択してください") if end_time < start_time
   end
 
   def day_before_finish
     return if end_day.blank? || start_day.blank?
-    errors.add(:end_day, "は開始日以降のものを選択してください") if end_day < start_day
+    errors.add(:end_day, "は営業開始日以降のものを選択してください") if end_day < start_day
   end
 
-  def interested?(user)
-    interests.where(user_id: user.id).exists?
+  def liked?(user)
+    likes.where(user_id: user.id).exists?
   end
 end

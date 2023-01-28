@@ -4,20 +4,20 @@
   <div class="review_show_box">
     <div class="container">
       <div class= "row justify-content-end mb-3">
-        <div class="col-md-2">
+        <div class="col-md-2 title_color">
           <i class="fa-solid fa-person-skiing"></i>
           <strong>スキー場</strong>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-6 sentence_color">
           <%= @ski_resort.resort_name %>
         </div>
       </div>
       <div class= "row justify-content-end mb-3">
-        <div class="col-md-2">
+        <div class="col-md-2 title_color">
           <i class="fa-solid fa-magnifying-glass"></i>
           <strong>評価</strong>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-6 sentence_color">
           <span id="star-rate-<%= @review.id %>"></span>
           /<%= @review.rate %>点
         </div>
@@ -36,12 +36,12 @@
       <div class= "row justify-content-center mb-3">
         <div class="col-md-6 comment_box">
           <p class="comment_title mb-2"><%= @review.title %></p>
-          <p><%= @review.comment %></p>
+          <p class="review_comment"><%= @review.comment %></p>
         </div>
       </div>      
     </div>
     <div class="mt-2 text-center">
-      <p>
+      <p class="sentence_color">
         <i class="fa-solid fa-user"></i>
         <strong>投稿者</strong>
       </p>
@@ -50,8 +50,8 @@
       <% else %>
         <%= image_tag asset_path('user_icon.jpeg'), alt: 'ユーザー画像', :size => '100x100', class: "user_image" %>
       <% end %>
-      <p class="text-secondary mt-1 mb-3"><strong><%= @review.user.name %></strong></p>
-      <p class="text-secondary"><strong>レビュー日：<%= @review.created_at.to_s(:date2_jp) %></strong></p>
+      <p class="sentence_color mt-1 mb-3"><strong><%= @review.user.name %></strong></p>
+      <p class="sentence_color"><strong>レビュー日：<%= @review.created_at.to_s(:date2_jp) %></strong></p>
     </div> 
   </div>
   <div class="text-center mt-5">

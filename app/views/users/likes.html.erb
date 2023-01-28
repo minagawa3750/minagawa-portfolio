@@ -1,9 +1,9 @@
-<%= content_for(:title, '気になるリスト')%>
-<div class="interest_field">
-  <h2 class="interest_title my-3 ml-3">
-  気になるリスト
+<%= content_for(:title, 'いいね一覧')%>
+<div class="like_field">
+  <h2 class="like_title my-3 ml-3">
+  いいね一覧
   </h2>
-  <% if @interest_resort.present? %>
+  <% if @like_resort.present? %>
     <div class="col-8 table-responsive" style="margin: auto;">
       <table class="table table-bordered table-striped" style="white-space: nowrap;">
         <thead>
@@ -16,18 +16,18 @@
         </thead>
 
         <tbody class="text-center">
-          <% @interest_resort.each do |interest_resort| %>
+          <% @like_resort.each do |like_resort| %>
             <tr>
               <td>
-              <% if interest_resort.resort_image.attached? %>
-                <%= link_to image_tag(interest_resort.resort_image.variant(resize:'300x300'), alt: 'ゲレンデ画像', class:"img-fluid"), ski_resort_path(interest_resort) %>
+              <% if like_resort.resort_image.attached? %>
+                <%= link_to image_tag(like_resort.resort_image.variant(resize:'300x300'), alt: 'ゲレンデ画像', class:"img-fluid"), ski_resort_path(like_resort) %>
               <% else %>
-                <%= link_to image_tag(asset_path('no_image.jpeg'), alt: 'ゲレンデ画像', :size => '300x300', class:"img-fluid"), ski_resort_path(interest_resort) %>
+                <%= link_to image_tag(asset_path('no_image.jpeg'), alt: 'ゲレンデ画像', :size => '300x300', class:"img-fluid"), ski_resort_path(like_resort) %>
               <% end %>
               </td>
-              <td><%= interest_resort.resort_name %></td>
-              <td><%= interest_resort.address %></td>
-              <td><%= link_to "#{interest_resort.phone_number}", "tel:" + interest_resort.phone_number %></td>
+              <td><%= like_resort.resort_name %></td>
+              <td><%= like_resort.address %></td>
+              <td><%= link_to "#{like_resort.phone_number}", "tel:" + like_resort.phone_number %></td>
             </tr>
           <% end %>
         </tbody>

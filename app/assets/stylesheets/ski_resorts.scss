@@ -34,22 +34,22 @@
   max-width: 100%;
   border: 1px solid #ccc;
   background-color: #fff;
-}@media screen and (max-width:800px) {
+}@media screen and (max-width:768px) {
   .ski_resort_registration_menu{
-    width: 90%;
+    width: 85%;
   }
 }
 
-.review_index_box, .review_new_box {
+.review_index_box, .review_btn_box, .review_box {
   margin: auto;
   padding: 1em;
   width: 55%;
   max-width: 100%;
   border: 1px solid #ccc;
   background-color: #fff;
-}@media (max-width: 800px) {
-  .review_index_box, .review_new_box {
-    width: 80%;
+}@media (max-width: 768px) {
+  .review_index_box, .review_btn_box, .review_box {
+    width: 85%;
   }
 }
 
@@ -62,7 +62,7 @@
   background-color: #fff;
 }@media (max-width: 800px) {
   .ski_resort_show_main, .ski_resort_map {
-    width: 80%;
+    width: 85%;
   }
 }
 
@@ -75,11 +75,15 @@
   background-color: #fff;
 }
 
-.ski_resort_title, .interest_title{
+.ski_resort_title, .like_title{
   color: #19448e;
   padding: 10px 0 20px;
   font-weight: bold;
   text-align: center;
+}
+
+.review_user_name, .post_info {
+  color: #666666;
 }
 
 .comment_btn, .resort_hp_btn {
@@ -136,12 +140,12 @@
   border: 1px solid #ccc;
   background-color: #fff;
   color: #19448e;
-}@media (max-width: 800px) {
+}@media (max-width: 768px) {
   .search_box {
     width: 75%;
   }
 }
 
-.interest_btn {
+.like_btn_field {
   float: right;
 }

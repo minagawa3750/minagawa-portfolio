@@ -68,10 +68,13 @@ RSpec.configure do |config|
   config.include Devise::Test::ControllerHelpers, type: :controller
   config.extend ControllerMacros, :type => :controller
   config.include LoginModule
+  config.after(:all) do
+    FileUtils.rm_rf(ActiveStorage::Blob.service.root) if Rails.env.test?
+  end
   config.before(:each) do |example|
     if example.metadata[:type] == :system
       if example.metadata[:js]
-        driven_by :selenium_chrome_headless
+        driven_by :selenium_chrome_headless, screen_size: [1400, 1400]
       else
         driven_by :rack_test
       end

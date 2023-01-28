@@ -8,12 +8,14 @@ RSpec.describe User, type: :model do
       expect(new_user).to be_valid 
     end
   end
-    
-  it 'ユーザー名がなければ無効な状態であること' do
-    user = User.new(name: nil)
-    user.valid?
-    expect(user.errors[:name]).to include('を入力してください')
-  end
+
+  describe 'ユーザー名' do
+    it 'ユーザー名がなければ無効な状態であること' do
+      user = User.new(name: nil)
+      user.valid?
+      expect(user.errors[:name]).to include('を入力してください')
+    end
+  end 
   
   describe 'メールアドレス' do
     let!(:user) { create(:user, email: 'test@example.com') }

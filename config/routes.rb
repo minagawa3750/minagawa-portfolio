@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   root 'top#index'
   resources :users do
     member do
-      get :interests
+      get :likes
     end
   end
   resources :ski_resorts do
@@ -15,6 +15,6 @@ Rails.application.routes.draw do
     collection do
       get 'search'
     end
-    resources :interests, only: [:create, :destroy]
+    resources :likes, only: [:create, :destroy]
   end
 end
