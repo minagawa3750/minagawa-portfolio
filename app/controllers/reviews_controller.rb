@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-  before_action :set_review, only: %i[ show edit update destroy ]
+  before_action :set_review, only: %i[show edit update destroy]
   before_action :authenticate_user!, only: %i[new index]
   before_action :ensure_user, only: %i[edit update]
 
@@ -62,21 +62,21 @@ class ReviewsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_review
-      @review = Review.find(params[:id])
-      @ski_resort = SkiResort.find(params[:ski_resort_id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def review_params
-      params.require(:review).permit(:user_id, :ski_resort_id, :title, :comment, :rate)
-    end
+  def set_review
+    @review = Review.find(params[:id])
+    @ski_resort = SkiResort.find(params[:ski_resort_id])
+  end
 
-    def ensure_user
-      if @review.user != current_user
-        redirect_to ski_resort_path(@review.ski_resort_id)
-        flash[:alert] = "このページは閲覧できません。"
-      end
+  # Only allow a list of trusted parameters through.
+  def review_params
+    params.require(:review).permit(:user_id, :ski_resort_id, :title, :comment, :rate)
+  end
+
+  def ensure_user
+    if @review.user != current_user
+      redirect_to ski_resort_path(@review.ski_resort_id)
+      flash[:alert] = "このページは閲覧できません。"
     end
+  end
 end

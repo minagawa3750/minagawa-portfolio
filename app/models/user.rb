@@ -11,7 +11,7 @@ class User < ApplicationRecord
       user.name = 'ゲストユーザー'
     end
   end
-  
+
   has_one_attached :image
   validates :name, presence: true
   validates :password_confirmation, presence: true

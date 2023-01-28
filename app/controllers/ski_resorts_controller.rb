@@ -1,6 +1,6 @@
 class SkiResortsController < ApplicationController
-  before_action :set_ski_resort, only: %i[ show edit update destroy ]
-  before_action :admin_check, only: %i[ index new edit update destroy ]
+  before_action :set_ski_resort, only: %i[show edit update destroy]
+  before_action :admin_check, only: %i[index new edit update destroy]
 
   # GET /ski_resorts or /ski_resorts.json
   def index
@@ -63,20 +63,21 @@ class SkiResortsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_ski_resort
-      @ski_resort = SkiResort.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def ski_resort_params
-      params.require(:ski_resort).permit(:resort_name, :address, :longitude, :latitude, :hp_url, :phone_number, :start_time, :end_time, :start_day, :end_day, :business_remarks, :resort_feature, :ski_lift, :courses, :maximum_tilt, :maximum_distance, :image, :adult_price, :kid_price, :senior_price, :introduction)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_ski_resort
+    @ski_resort = SkiResort.find(params[:id])
+  end
 
-    def admin_check
-      if current_user.admin == false
-        redirect_to root_path
-        flash[:alert] = "このページは閲覧できません。"
-      end
+  # Only allow a list of trusted parameters through.
+  def ski_resort_params
+    params.require(:ski_resort).permit(:resort_name, :address, :longitude, :latitude, :hp_url, :phone_number, :start_time, :end_time, :start_day, :end_day, :business_remarks, :resort_feature, :ski_lift, :courses, :maximum_tilt, :maximum_distance, :image, :adult_price, :kid_price, :senior_price, :introduction)
+  end
+
+  def admin_check
+    if current_user.admin == false
+      redirect_to root_path
+      flash[:alert] = "このページは閲覧できません。"
     end
+  end
 end

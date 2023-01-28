@@ -5,7 +5,7 @@ RSpec.describe User, type: :model do
     let(:new_user) { build(:user) }
 
     it 'ユーザー名、メールアドレス、パスワード、パスワード(確認用)が存在すれば登録できること' do
-      expect(new_user).to be_valid 
+      expect(new_user).to be_valid
     end
   end
 
@@ -15,8 +15,8 @@ RSpec.describe User, type: :model do
       user.valid?
       expect(user.errors[:name]).to include('を入力してください')
     end
-  end 
-  
+  end
+
   describe 'メールアドレス' do
     let!(:user) { create(:user, email: 'test@example.com') }
 
@@ -25,7 +25,7 @@ RSpec.describe User, type: :model do
       user.valid?
       expect(user.errors[:email]).to include('を入力してください')
     end
-    
+
     it 'メールアドレスがすでに登録されている場合は登録できないこと' do
       user_2 = User.new(email: 'test@example.com')
       user_2.valid?

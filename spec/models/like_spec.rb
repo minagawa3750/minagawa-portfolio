@@ -4,11 +4,11 @@ RSpec.describe Like, type: :model do
   describe '気になる機能' do
     context 'いいねできる場合' do
       let!(:like) { build(:like) }
-      
+
       it "user_idとski_resort_idがあれば保存できる" do
         expect(like).to be_valid
       end
-      
+
       context "user_idが違う場合" do
         let!(:other_like) { create(:like) }
 
@@ -16,7 +16,7 @@ RSpec.describe Like, type: :model do
           expect(FactoryBot.create(:like, user_id: other_like.user_id)).to be_valid
         end
       end
-      
+
       context "ski_resort_idが違う場合" do
         let!(:other_like_2) { create(:like) }
 
