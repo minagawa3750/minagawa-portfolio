@@ -5,50 +5,79 @@ orbs:
 jobs:
   build:
     docker:
-      - image: cimg/ruby:2.7.6-node-browsers
+      - image: cimg/ruby:2.7.6
         environment:
-          - RAILS_ENV: 'test'
+          BUNDLE_JOBS: 3
+          BUNDLE_RETRY: 3
+          BUNDLE_PATH: vendor/bundle
+          BUNDLER_VERSION: 2.3.24
+          RAILS_ENV: 'test'
+          MYSQL_HOST: 'db'
+          MYSQL_PASSWORD: 'password'
+          MYSQL_PORT: 3306
       - image: cimg/mysql:8.0
         environment:
-          - MYSQL_ROOT_PASSWORD: password
-    environment:
-      # circleci/mysql:5.6がポート3306を EXPOSE しているので、一つ目のコンテナで127.0.0.1 からフォワードできる様になっている
-      # `127.0.0.1:3306` で circleci/mysql:5.6に接続可能
-      #portはdatabase.ymlで3306を指定
-      DB_HOST: 127.0.0.1
+          MYSQL_USER: 'test'
+          MYSQL_ROOT_PASSWORD: 'password'
+          MYSQL_PASSWORD: 'password'
+          MYSQL_DATABASE: 'minagawa-portfolio_test'
+          MYSQL_HOST: 'db'
+        name: db
+    parallelism: 1
     steps:
-      - run:
-          command: chromedriver
-          background: true
       - checkout
-      - run: sudo apt update
-      - run: sudo apt upgrade
       - ruby/install-deps:
           bundler-version: 2.3.24
       - restore_cache:
-          key: gem-cache-v1-{{ arch }}-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
+          keys:
+            - v1-dependencies-{{ checksum "Gemfile.lock" }}
+            - v1-dependencies-
       - run:
           name: install dependencies
-          #自分のアプリで使っているbundler のバージョンを設定
           command: |
             gem install bundler -v 2.3.24
-            bundle install --path vendor/bundle
+            bundle install --jobs=4 --retry=3 --path vendor/bundle
       - save_cache:
-          key: gem-cache-v1-{{ arch }}-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
           paths:
-            - vendor/bundle
+            - ./vendor/bundle
+          key: v1-dependencies-{{ checksum "Gemfile.lock" }}
+
+      - restore_cache:
+          keys:
+            - rails-demo-yarn-{{ checksum "yarn.lock" }}
+            - rails-demo-yarn-
+
       - run:
-          name: データベースの起動を待機
-          command: dockerize -wait tcp://127.0.0.1:3306 -timeout 1m
-      - run:
-          name: データベースのセットアップ1
-          command: bundle exec rake db:create
-      - run:
-          name: データベースのセットアップ2
-          command: bundle exec rake db:migrate
+          name: install yarn
+          command: yarn install --cache-folder ~/.cache/yarn
+
+      - save_cache:
+          key: rails-demo-yarn-{{ checksum "yarn.lock" }}
+          paths:
+            - ~/.cache/yarn
+
+      - run: bundle exec rails db:create
+      - run: bundle exec rails db:schema:load
+
       - run:
           name: run tests
-          command: bin/rspec
+          command: |
+            mkdir /tmp/test-results
+            TEST_FILES="$(circleci tests glob "spec/**/*_spec.rb" | \
+              circleci tests split --split-by=timings)"
+            bundle exec rspec \
+              --format progress \
+              --format RspecJunitFormatter \
+              --out /tmp/test-results/rspec.xml \
+              --format progress \
+              $TEST_FILES
+
+      - store_test_results:
+          path: /tmp/test-results
+      - store_artifacts:
+          path: /tmp/test-results
+          destination: test-results
+
       - run:
           name: RuboCop
           command: bundle exec rubocop
