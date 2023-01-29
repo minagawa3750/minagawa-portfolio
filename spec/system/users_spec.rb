@@ -2,6 +2,7 @@ require "rails_helper"
 
 RSpec.describe User, type: :system do
   let!(:user) { create(:user) }
+  let!(:admin_user) { create(:user, :admin) }
 
   describe "User CRUD" do
     describe "ログイン前" do
@@ -101,6 +102,24 @@ RSpec.describe User, type: :system do
       login_as(guest)
       find(".navbar-toggler-icon").click
       expect(page).to have_no_content "アカウント編集"
+    end
+  end
+
+  describe "スキー場一覧" do
+    context "管理者ユーザーがログインした場合" do
+      it "ヘッダーメニューにスキー場一覧が表示されていること" do
+        login_as(admin_user)
+        find(".navbar-toggler-icon").click
+        expect(page).to have_content "スキー場一覧"
+      end
+    end
+
+    context "一般ユーザーがログインした場合" do
+      it "ヘッダーメニューにスキー場一覧が表示されていないこと" do
+        login_as(user)
+        find(".navbar-toggler-icon").click
+        expect(page).to have_no_content "スキー場一覧"
+      end
     end
   end
 end

@@ -1,9 +1,16 @@
 html, body { 
   height: 100%;
+  font-family: 'Noto Sans JP', sans-serif !important;
 }
 
-body{
-  font-family: 'Noto Sans JP', sans-serif !important;
+.header-link {
+  color: #fff;
+  padding: 0.5rem 0 0.5rem 1.5rem;
+}
+
+.header-link:hover {
+  color: #bfbed3;
+  text-decoration: none;
 }
 
 .hp_title {

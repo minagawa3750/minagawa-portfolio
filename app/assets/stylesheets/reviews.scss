@@ -17,9 +17,10 @@
   font-weight: bold;
 }
 
-.edit_review_field, .new_review_field, .review_show_field{
+.review_edit_field, .review_new_field, .review_show_field{
   background-color: #ededef;
-  padding: 5em 0 8em;
+  padding: 100px 0 30px;
+  min-height: 100vh;
 }
 
 .comment_box {

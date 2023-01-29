@@ -84,11 +84,12 @@ RSpec.describe Like, type: :system do
         expect(page).to have_content like.ski_resort.resort_name
         expect(page).to have_content like.ski_resort.address
         expect(page).to have_content like.ski_resort.phone_number
+        expect(page).to have_content "詳細"
       end
 
-      it "画像をクリックしたらスキー場詳細ページに遷移すること" do
+      it "詳細をクリックしたらスキー場詳細ページに遷移すること" do
         visit likes_user_path(like.user_id)
-        click_link "ゲレンデ画像"
+        click_link "詳細"
         expect(current_path).to eq ski_resort_path(like.ski_resort_id)
       end
     end

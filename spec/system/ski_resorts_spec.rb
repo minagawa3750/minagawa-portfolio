@@ -161,7 +161,42 @@ RSpec.describe SkiResort, type: :system do
       end
     end
   end
+  
+  describe "スキー場一覧ページ" do
+    before do
+      login_as(admin_user)
+      visit ski_resorts_path
+    end
 
+    it "登録したスキー場が表示されていること" do
+      expect(page).to have_selector "img[alt='ゲレンデ画像']"
+      expect(page).to have_content ski_resort.resort_name
+      expect(page).to have_content ski_resort.address
+      expect(page).to have_content ski_resort.resort_name
+      expect(page).to have_content "詳細"
+      expect(page).to have_content "編集"
+      expect(page).to have_content "削除"
+    end
+
+    it "詳細をクリックしたらスキー場詳細に遷移すること" do
+      click_link "詳細"
+      expect(current_path).to eq ski_resort_path(ski_resort.id)
+    end
+
+    it "編集をクリックしたらスキー場編集ページに遷移すること" do
+      click_link "編集"
+      expect(current_path).to eq edit_ski_resort_path(ski_resort.id)
+    end
+
+    it "削除をクリックしたらスキー場を削除できること", js:true do
+      click_link "削除"
+      expect do
+        expect(page.accept_confirm).to eq "削除します。よろしいですか。"
+        expect(current_path).to eq ski_resorts_path
+        expect(page).to have_content "ゲレンデの情報を削除しました。"
+      end.to change(SkiResort, :count).by(-1)  
+    end
+  end
   describe "スキー場詳細ページ" do
     before do
       visit ski_resort_path(ski_resort.id)

@@ -1,12 +1,11 @@
 <% content_for(:title, @review.title) %>
-<div class="edit_review_field">
+<div class="review_edit_field">
   <h1 class="review_title mb-5">レビュー編集</h1>
 
   <%= render 'reviews/form', {ski_resort: @ski_resort, review: @review } %>
 
   <script>
   $('#star').raty({
-    size     : 36,
     starOff:  '<%= asset_path('star-off.png') %>',
     starOn : '<%= asset_path('star-on.png') %>',
     starHalf: '<%= asset_path('star-half.png') %>',
