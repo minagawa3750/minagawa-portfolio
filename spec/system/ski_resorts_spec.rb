@@ -239,8 +239,8 @@ RSpec.describe SkiResort, type: :system do
       expect(page).to have_content ski_resort.introduction
     end
 
-    it "ホームページはこちらをクリック！が表示されていること" do
-      expect(page).to have_content "ホームページはこちらをクリック！"
+    it "ホームページはこちら！が表示されていること" do
+      expect(page).to have_content "ホームページはこちら！"
     end
   end
 

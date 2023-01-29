@@ -1,45 +1,47 @@
-<nav class="navbar navbar-expand-sm navbar-dark sticky-top" style="background-color: #19448e;">  
-  <h1 class="hp_title"><%= link_to "SKI.com", root_path, class: "navbar-brand" %></h1>
-  <%= search_form_for @q, url: search_ski_resorts_path do |f| %>
-    <div class="input-group">
-      <%= f.search_field :resort_name_or_address_or_resort_feature_or_introduction_cont, placeholder:"スキー場を検索", class:"form-control input-group-prepend" %>
-      <div class="input-group-append">
-        <%= f.submit '検索', class:"btn btn-info" %>
+<header>
+  <nav class="navbar navbar-expand-sm navbar-dark sticky-top" style="background-color: #19448e;">
+    <h1 class="hp_title"><%= link_to "SKI.com", root_path, class: "navbar-brand" %></h1>
+    <%= search_form_for @q, url: search_ski_resorts_path do |f| %>
+      <div class="input-group input-group-sm">
+        <%= f.search_field :resort_name_or_address_or_resort_feature_or_introduction_cont, placeholder:"スキー場を検索", class:"form-control input-group-append" %>
+        <div class="input-group-append">
+          <%= f.submit '検索', class:"btn btn-info" %>
+        </div>
       </div>
+    <% end %>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav4" aria-controls="navbarNav4" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav4">
+      <ul class="navbar-nav">
+        <% if user_signed_in? %>
+          <% if current_user.id == 3 %>
+            <li class="nav-item">
+              <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "nav-link" %>
+            </li> 
+          <% else %>  
+            <li class="nav-item">
+              <%= link_to 'アカウント編集', edit_user_registration_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "いいね一覧", likes_user_path(current_user), class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "nav-link" %>
+            </li>  
+          <% end %>  
+        <% else %>
+          <li class="nav-item">
+            <%= link_to 'ゲストログイン', users_guest_sign_in_path, method: :post, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "アカウント登録", new_user_registration_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "ログイン", new_user_session_path, class: "nav-link" %>
+          </li>
+        <% end %>
+      </ul>
     </div>
-  <% end %>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav4" aria-controls="navbarNav4" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse justify-content-end" id="navbarNav4">
-    <ul class="navbar-nav">
-      <% if user_signed_in? %>
-        <% if current_user.id == 3 %>
-          <li class="nav-item">
-            <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "nav-link" %>
-          </li> 
-        <% else %>  
-          <li class="nav-item">
-            <%= link_to 'アカウント編集', edit_user_registration_path, class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "いいね一覧", likes_user_path(current_user), class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "nav-link" %>
-          </li>  
-        <% end %>  
-      <% else %>
-        <li class="nav-item">
-          <%= link_to 'ゲストログイン', users_guest_sign_in_path, method: :post, class: "nav-link" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "アカウント登録", new_user_registration_path, class: "nav-link" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "ログイン", new_user_session_path, class: "nav-link" %>
-        </li>
-      <% end %>
-    </ul>
-  </div>
-</nav>
+  </nav>
+</header>
