@@ -92,7 +92,11 @@ jobs:
       - add_ssh_keys:
           fingerprints:
             - ${FINGER_PRINTS}
+
       - run: ssh ${USER_NAME}@${HOST_NAME} "/var/www/minagawa-portfolio/deploy.sh"
+
+      - ruby/install-deps:
+          bundler-version: 2.3.24
       
 workflows:
   version: 2

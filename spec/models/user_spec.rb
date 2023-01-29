@@ -40,6 +40,12 @@ RSpec.describe User, type: :model do
       expect(user.errors[:password]).to include('を入力してください')
     end
 
+    it 'パスワード(確認用)がなければ無効な状態であること' do
+      user = User.new(password_confirmation: nil)
+      user.valid?
+      expect(user.errors[:password_confirmation]).to include('を入力してください')
+    end
+
     it 'パスワードが5文字以下であれば登録できないこと' do
       user = User.new(password: 'test1')
       user.valid?

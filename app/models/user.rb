@@ -14,7 +14,7 @@ class User < ApplicationRecord
 
   has_one_attached :image
   validates :name, presence: true
-  validates :password_confirmation, presence: true
+  validates :password_confirmation, presence: true, on: :create
   has_many :ski_resorts
   has_many :reviews
   has_many :likes
