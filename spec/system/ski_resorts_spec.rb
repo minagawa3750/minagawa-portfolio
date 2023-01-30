@@ -394,10 +394,18 @@ RSpec.describe SkiResort, type: :system do
     end
 
     describe "スキー場検索結果ページ" do
-      it "検索結果の画像にアクセスするとゲレンデ詳細画面に遷移すること" do
+      before do
         visit search_ski_resorts_path
+      end
+
+      it "検索結果の画像にアクセスするとゲレンデ詳細画面に遷移すること" do
         click_link "ゲレンデ画像"
         expect(current_path).to eq ski_resort_path(ski_resort.id)
+      end
+
+      it "トップページに戻るをクリックしたらトップページに遷移すること" do
+        click_link "トップページに戻る" 
+        expect(current_path). to eq root_path
       end
     end
   end
