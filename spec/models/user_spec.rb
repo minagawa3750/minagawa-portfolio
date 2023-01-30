@@ -29,7 +29,7 @@ RSpec.describe User, type: :model do
     it 'メールアドレスの値が不正な場合は登録できないこと' do
       user = User.new(email: 'test@example')
       user.valid?
-      expect(user_2.errors[:email]).to include('は不正な値です')
+      expect(user.errors[:email]).to include('は不正な値です')
     end
 
     it 'メールアドレスがすでに登録されている場合は登録できないこと' do
