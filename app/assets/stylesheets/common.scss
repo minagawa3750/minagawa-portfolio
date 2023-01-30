@@ -1,5 +1,5 @@
-html, body { 
-  height: 100%;
+body { 
+  min-height: 100vh;
   font-family: 'Noto Sans JP', sans-serif !important;
 }
 
@@ -8,7 +8,7 @@ html, body {
   padding: 0.5rem 0 0.5rem 1.5rem;
 }
 
-.header-link:hover {
+.header-link:hover, .footer_logo:hover, .footer_menu:hover {
   color: #bfbed3;
   text-decoration: none;
 }
@@ -20,12 +20,17 @@ html, body {
 
 footer {
   height: 120px;
-  color : #FFFFFF;
+  text-align: center;
   padding-top: 25px;
+  color: #fff;
   background-color: #19448e;
   width: 100%;
   position: sticky;
   top: 100vh;
+}
+
+.footer_logo, .footer_menu {
+  color: #fff;
 }
 
 .notice {
@@ -59,8 +64,6 @@ footer {
   color: #fff;  
   background-color: #777bce;
 }
-
-
 
 .root_btn {
   text-align: center;

@@ -26,6 +26,12 @@ RSpec.describe User, type: :model do
       expect(user.errors[:email]).to include('を入力してください')
     end
 
+    it 'メールアドレスの値が不正な場合は登録できないこと' do
+      user = User.new(email: 'test@example')
+      user.valid?
+      expect(user_2.errors[:email]).to include('は不正な値です')
+    end
+
     it 'メールアドレスがすでに登録されている場合は登録できないこと' do
       user_2 = User.new(email: 'test@example.com')
       user_2.valid?
@@ -55,7 +61,7 @@ RSpec.describe User, type: :model do
     it 'パスワードとパスワード(確認用)が一致していなければ登録できないこと' do
       user = User.new(password: 'test11', password_confirmation: 'test21')
       user.valid?
-      expect(user.errors.full_messages).to include('パスワード（確認用）とパスワードの入力が一致しません')
+      expect(user.errors[:password_confirmation]).to include('とパスワードの入力が一致しません')
     end
   end
 end

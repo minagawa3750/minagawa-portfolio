@@ -2,7 +2,7 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable
 
   def self.guest
     find_or_create_by!(email: 'aaa@aaa.com') do |user|
@@ -14,6 +14,11 @@ class User < ApplicationRecord
 
   has_one_attached :image
   validates :name, presence: true
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  validates :email, presence: true, uniqueness: true, format: { with: VALID_EMAIL_REGEX, allow_blank: true }
+  validates :password, presence: true, on: :create
+  validates :password, length: { minimum: 6, allow_blank: true }
+  validates :password, confirmation: true
   validates :password_confirmation, presence: true, on: :create
   has_many :ski_resorts
   has_many :reviews
