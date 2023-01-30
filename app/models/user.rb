@@ -14,8 +14,7 @@ class User < ApplicationRecord
 
   has_one_attached :image
   validates :name, presence: true
-  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-  validates :email, presence: true, uniqueness: true, format: { with: VALID_EMAIL_REGEX, allow_blank: true }
+  validates :email, presence: true, uniqueness: true, format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i, allow_blank: true }
   validates :password, presence: true, on: :create
   validates :password, length: { minimum: 6, allow_blank: true }
   validates :password, confirmation: true

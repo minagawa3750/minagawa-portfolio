@@ -1,11 +1,10 @@
 class ReviewsController < ApplicationController
   before_action :set_review, only: %i[show edit update destroy]
-  before_action :authenticate_user!, only: %i[new index]
-  before_action :ensure_user, only: %i[edit update]
+  before_action :authenticate_user!, only: %i[new]
+  before_action :ensure_user, only: %i[edit update destroy]
 
   # GET /reviews or /reviews.json
   def index
-    @reviews = Review.where(user_id: current_user.id)
   end
 
   # GET /reviews/1 or /reviews/1.json

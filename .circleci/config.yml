@@ -4,7 +4,7 @@ orbs:
   browser-tools: circleci/browser-tools@1.4.1
 
 jobs:
-  build:
+  test:
     docker:
       - image: cimg/ruby:2.7.6-node
         environment:
@@ -92,7 +92,7 @@ jobs:
           fingerprints:
             - ${FINGER_PRINTS}
 
-      - run: ssh ${USER_NAME}@${HOST_NAME} "/var/www/minagawa-portfolio/deploy.sh"
+      - run: ssh ${USER_NAME}@${HOST_NAME} "cd /var/www/minagawa-portfolio && git pull"
       
 workflows:
   version: 2
@@ -101,4 +101,7 @@ workflows:
         - build
         - deploy:
             requires:
-                  - build
+                - build
+            filters:
+                branches:
+                    only: main
