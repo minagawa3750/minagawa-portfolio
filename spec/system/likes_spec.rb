@@ -92,6 +92,12 @@ RSpec.describe Like, type: :system do
         click_link "詳細"
         expect(current_path).to eq ski_resort_path(like.ski_resort_id)
       end
+
+      it "トップページに戻るをクリックしたらトップページに遷移すること" do
+        visit likes_user_path(like.user_id)
+        click_link "トップページに戻る"
+        expect(current_path).to eq root_path
+      end
     end
 
     context "ゲストユーザーがログインした場合" do

@@ -196,6 +196,11 @@ RSpec.describe SkiResort, type: :system do
         expect(page).to have_content "ゲレンデの情報を削除しました。"
       end.to change(SkiResort, :count).by(-1)  
     end
+
+    it "トップページに戻るをクリックしたらトップページに遷移すること" do
+      click_link "トップページに戻る"
+      expect(current_path).to eq root_path
+    end
   end
   describe "スキー場詳細ページ" do
     before do

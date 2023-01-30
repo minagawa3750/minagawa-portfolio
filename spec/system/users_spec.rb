@@ -107,10 +107,19 @@ RSpec.describe User, type: :system do
 
   describe "スキー場一覧" do
     context "管理者ユーザーがログインした場合" do
-      it "ヘッダーメニューにスキー場一覧が表示されていること" do
+      before do
         login_as(admin_user)
+      end
+
+      it "ヘッダーメニューにスキー場一覧が表示されていること" do
         find(".navbar-toggler-icon").click
         expect(page).to have_content "スキー場一覧"
+      end
+
+      it "クリックしたらスキー場一覧に遷移すること" do
+        find(".navbar-toggler-icon").click
+        click_link "スキー場一覧"
+        expect(current_path).to eq ski_resorts_path        
       end
     end
 
@@ -120,6 +129,16 @@ RSpec.describe User, type: :system do
         find(".navbar-toggler-icon").click
         expect(page).to have_no_content "スキー場一覧"
       end
+    end
+  end
+  
+  describe "ログアウト" do
+    it "ヘッダーメニューのログアウトをクリックしたらログアウトできること" do
+      login_as(user)
+      find(".navbar-toggler-icon").click
+      click_link "ログアウト"
+      expect(current_path).to eq root_path
+      expect(page).to have_content "ログアウトしました。"
     end
   end
 end

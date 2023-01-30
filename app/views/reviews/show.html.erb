@@ -50,7 +50,7 @@
       <% else %>
         <%= image_tag asset_path('user_icon.jpeg'), alt: 'ユーザー画像', :size => '100x100', class: "user_image" %>
       <% end %>
-      <p class="sentence_color mt-1 mb-3"><strong><%= @review.user.name %></strong></p>
+      <p class="sentence_color mt-1 mb-3"><strong><%= @review.user.name %>さん</strong></p>
       <p class="sentence_color"><strong>レビュー日：<%= @review.created_at.to_s(:date2_jp) %></strong></p>
     </div> 
   </div>
