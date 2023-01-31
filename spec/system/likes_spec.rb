@@ -3,6 +3,8 @@ require 'rails_helper'
 RSpec.describe Like, type: :system do
   let!(:user) { create(:user) }
   let!(:ski_resort) { create(:ski_resort) }
+  let!(:like) { create(:like) }
+  let(:guest) { create(:user, :guest) }
 
   describe "Likes #create,#destroy", js:true do
     describe "#create" do
@@ -21,8 +23,6 @@ RSpec.describe Like, type: :system do
     end
 
     describe "#destroy" do
-      let!(:like) { create(:like) }
-
       before do
         login_as(like.user)
         visit ski_resort_path(like.ski_resort_id)
@@ -48,8 +48,6 @@ RSpec.describe Like, type: :system do
     end
     
     context "ゲストログインの場合" do
-      let!(:guest) { create(:user, :guest) }
-
       it "スキー場詳細ページにいいねボタンを表示しないこと" do
         login_as(guest)
         visit ski_resort_path(ski_resort.id)
@@ -61,8 +59,6 @@ RSpec.describe Like, type: :system do
 
   describe "いいね一覧" do
     context "ログインした場合" do
-      let!(:like) { create(:like) }
-
       before do
         login_as(like.user)
       end
@@ -101,8 +97,6 @@ RSpec.describe Like, type: :system do
     end
 
     context "ゲストユーザーがログインした場合" do
-      let(:guest) { create(:user, :guest) }
-
       it "ゲストユーザーでログインした際はヘッダーにいいね一覧は表示しないこと" do
         login_as(guest)
         find(".navbar-toggler-icon").click

@@ -318,7 +318,7 @@ RSpec.describe SkiResort, type: :system do
 
     describe "スキー場詳細のレビュー一覧" do
       let!(:review) { create(:review) }
-      
+
       before do
         visit ski_resort_path(review.ski_resort_id)
       end
@@ -377,9 +377,9 @@ RSpec.describe SkiResort, type: :system do
   end
   
   describe "#search" do
-    describe "スキー場検索" do
-      let!(:result) { create(:review) }
+    let!(:result) { create(:review) }
 
+    describe "スキー場検索" do
       it "トップページの検索フォームからスキー場検索ができること" do
         visit root_path
         fill_in 'q[resort_name_or_address_or_resort_feature_or_introduction_cont]', with: '栃木県'
@@ -399,7 +399,7 @@ RSpec.describe SkiResort, type: :system do
       end
 
       it "検索結果の画像にアクセスするとゲレンデ詳細画面に遷移すること" do
-        click_link "ゲレンデ画像"
+        click_link "ゲレンデ画像", match: :first
         expect(current_path).to eq ski_resort_path(ski_resort.id)
       end
 
@@ -417,17 +417,17 @@ RSpec.describe SkiResort, type: :system do
       login_as(like.user)
     end
 
-    context "ログインしたユーザーがいいねしていないスキー場詳細ページに遷移した場合" do
-      it "#not-like-btnが表示されていること" do
-        visit ski_resort_path(ski_resort.id)
-        expect(page).to have_selector '#not-like-btn'
-      end
-    end
-
     context "ログインしたユーザーがいいねしたスキー場詳細ページに遷移した場合" do
       it "#like-btnが表示されていること" do
         visit ski_resort_path(like.ski_resort_id)
         expect(page).to have_selector '#like-btn'
+      end
+    end
+
+    context "ログインしたユーザーがいいねしていないスキー場詳細ページに遷移した場合" do
+      it "#not-like-btnが表示されていること" do
+        visit ski_resort_path(ski_resort.id)
+        expect(page).to have_selector '#not-like-btn'
       end
     end
   end

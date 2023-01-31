@@ -3,25 +3,20 @@ class ReviewsController < ApplicationController
   before_action :authenticate_user!, only: %i[new]
   before_action :ensure_user, only: %i[edit update destroy]
 
-  # GET /reviews or /reviews.json
   def index
   end
 
-  # GET /reviews/1 or /reviews/1.json
   def show
   end
 
-  # GET /reviews/new
   def new
     @review = Review.new
     @ski_resort = SkiResort.find(params[:ski_resort_id])
   end
 
-  # GET /reviews/1/edit
   def edit
   end
 
-  # POST /reviews or /reviews.json
   def create
     @review = Review.new(review_params)
     @ski_resort = SkiResort.find(params[:ski_resort_id])
@@ -37,7 +32,6 @@ class ReviewsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /reviews/1 or /reviews/1.json
   def update
     respond_to do |format|
       if @review.update(review_params)
@@ -50,7 +44,6 @@ class ReviewsController < ApplicationController
     end
   end
 
-  # DELETE /reviews/1 or /reviews/1.json
   def destroy
     @review.destroy
 
@@ -67,7 +60,6 @@ class ReviewsController < ApplicationController
     @ski_resort = SkiResort.find(params[:ski_resort_id])
   end
 
-  # Only allow a list of trusted parameters through.
   def review_params
     params.require(:review).permit(:user_id, :ski_resort_id, :title, :comment, :rate)
   end
