@@ -19,7 +19,6 @@ class User < ApplicationRecord
   validates :password, length: { minimum: 6, allow_blank: true }
   validates :password, confirmation: true
   validates :password_confirmation, presence: true, on: :create
-  has_many :ski_resorts
   has_many :reviews
   has_many :likes
 end
