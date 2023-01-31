@@ -1,24 +1,27 @@
-# README
+# SKI.com
+### 1.SKI.comとは
+スキー場の情報を気軽に閲覧でき、興味があるスキー場にはいいねをつけて保存ができます。  
+レビュー投稿をしたり、見たりすることでユーザー同士の情報共有や情報の信頼性向上につながります。  
+他にもレビューの平均評価ランキングや、初心者の方や旅行におすすめなどのスキー場特集や、  
+YOUTUBE動画、Q&Aなど初心者の方はもちろん経験者の方まで気軽にスキー場情報を閲覧できるサービスです。  
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### 2.サービスを作成した目的
+私は趣味がスノーボードで小学生からスキーを始め、高校生からはスノーボードを始めました。冬の定番スポーツではありますが、  
+道具の知識やテクニックなど一通り覚えるのは難しいです。私も初心者の方と旅行しレクチャーしたことがありますが、1日でよく見かけるような軽やかに滑走できる技術は身につきません。  
+道具やウェアも身近で見るものではないので、どんなものを揃えれば良いかいまいちピンとこないと思います。  
+スキー場の情報サイトも見かけますが、最大傾斜や天気などの情報は掲載されているもののアピールポイントや初心者に必要な道具などの情報が掲載されてなかったり、サイト自体が経験者向けに作られているなと個人的に感じておりました。  
+見やすい情報を閲覧でき、気軽に口コミができるサービスをスキーでも作りたい、旅行感覚でもっと気軽にスキー・スノボを楽しんでもらいたい、そんな目的で作成しました。
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### 3.使用技術
+- Ruby 2.7.6
+- Ruby on Rails 6.1.7
+- MySQL 8.0
+- Nginx
+- unicorn
+- AWS
+  - EC2
+  - S3
+- Docker/Docker-compose
+- CircleCi CI/CD
+- RSpec
+- Google Maps API
