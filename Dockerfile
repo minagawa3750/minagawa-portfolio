@@ -5,6 +5,7 @@ RUN apt-get update -qq && apt-get install -y build-essential libpq-dev nodejs ya
 
 RUN ["apt-get", "update"]
 RUN ["apt-get", "install", "-y", "vim"]
+RUN ["apt-get", "install", "-y", "graphviz"]
 
 RUN apt-get update && apt-get install -y unzip && \
     CHROME_DRIVER_VERSION=`curl -sS chromedriver.storage.googleapis.com/LATEST_RELEASE` && \
