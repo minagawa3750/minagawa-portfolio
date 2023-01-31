@@ -11,10 +11,10 @@ class SkiResort < ApplicationRecord
   validates :adult_price, presence: true
   validates :kid_price, presence: true
   validates :senior_price, presence: true
-  validates :ski_lift, presence: true
-  validates :courses, presence: true
-  validates :maximum_tilt, presence: true
-  validates :maximum_distance, presence: true
+  validates :ski_lift, presence: true, numericality: {greater_than_or_equal_to: 0, allow_blank: true}
+  validates :courses, presence: true, numericality: {greater_than_or_equal_to: 0, allow_blank: true}
+  validates :maximum_tilt, presence: true, numericality: {greater_than_or_equal_to: 0, allow_blank: true}
+  validates :maximum_distance, presence: true, numericality: {greater_than_or_equal_to: 0, allow_blank: true}
   validates :resort_feature, presence: true
   validates :introduction, presence: true
   validates :hp_url, presence: true

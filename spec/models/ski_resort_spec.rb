@@ -52,6 +52,18 @@ RSpec.describe SkiResort, type: :model do
       ski_resort.valid?
       expect(ski_resort.errors[:ski_lift]).to include("を入力してください")
     end
+
+    it "リフト数は数値でなければ無効な状態であること" do
+      ski_resort = SkiResort.new(ski_lift: "あ")
+      ski_resort.valid?
+      expect(ski_resort.errors[:ski_lift]).to include("は数値で入力してください")
+    end
+
+    it "リフト数がマイナスであれば無効な状態であること" do
+      ski_resort = SkiResort.new(ski_lift: -1)
+      ski_resort.valid?
+      expect(ski_resort.errors[:ski_lift]).to include("は0以上の値にしてください")
+    end
   end
 
   describe "コース数" do
@@ -59,6 +71,18 @@ RSpec.describe SkiResort, type: :model do
       ski_resort = SkiResort.new(courses: nil)
       ski_resort.valid?
       expect(ski_resort.errors[:courses]).to include("を入力してください")
+    end
+
+    it "コース数が数値でなければ無効な状態であること" do
+      ski_resort = SkiResort.new(courses: "あ")
+      ski_resort.valid?
+      expect(ski_resort.errors[:courses]).to include("は数値で入力してください")
+    end
+
+    it "コース数がマイナスであれば無効な状態であること" do
+      ski_resort = SkiResort.new(courses: -1)
+      ski_resort.valid?
+      expect(ski_resort.errors[:courses]).to include("は0以上の値にしてください")
     end
   end
 
@@ -68,6 +92,18 @@ RSpec.describe SkiResort, type: :model do
       ski_resort.valid?
       expect(ski_resort.errors[:maximum_tilt]).to include("を入力してください")
     end
+
+    it "最大傾斜が数値でなければ無効な状態であること" do
+      ski_resort = SkiResort.new(maximum_tilt: "あ")
+      ski_resort.valid?
+      expect(ski_resort.errors[:maximum_tilt]).to include("は数値で入力してください")
+    end
+
+    it "最大傾斜がマイナスであれば無効な状態であること" do
+      ski_resort = SkiResort.new(maximum_tilt: -1)
+      ski_resort.valid?
+      expect(ski_resort.errors[:maximum_tilt]).to include("は0以上の値にしてください")
+    end
   end
 
   describe "最大滑走距離" do
@@ -75,6 +111,18 @@ RSpec.describe SkiResort, type: :model do
       ski_resort = SkiResort.new(maximum_distance: nil)
       ski_resort.valid?
       expect(ski_resort.errors[:maximum_distance]).to include("を入力してください")
+    end
+
+    it "最大滑走距離が数値でなければ無効な状態であること" do
+      ski_resort = SkiResort.new(ski_lift: "あ")
+      ski_resort.valid?
+      expect(ski_resort.errors[:ski_lift]).to include("は数値で入力してください")
+    end
+
+    it "最大滑走距離がマイナスであれば無効な状態であること" do
+      ski_resort = SkiResort.new(ski_lift: -1)
+      ski_resort.valid?
+      expect(ski_resort.errors[:ski_lift]).to include("は0以上の値にしてください")
     end
   end
 
