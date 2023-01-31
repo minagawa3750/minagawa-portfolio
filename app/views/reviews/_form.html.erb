@@ -1,0 +1,49 @@
+<%= form_with(model: [ski_resort, review]) do |f| %>
+  <% if review.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(review.errors.count, "件") %> の入力が不正です。</h2>
+      <ul>
+        <% review.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="review_box mt-4">
+    <div class="container">
+      <%= f.hidden_field :ski_resort_id, value: ski_resort['id'] %>
+      <%= f.hidden_field :user_id, value: current_user.id %>
+      <div class="row mb-3">
+        <div class="col-md-3 title_color">
+          スキー場
+        </div>
+        <div class= "col-md-9 sentence_color">
+          <%= ski_resort['resort_name'] %>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <%= f.label :title, class:'col-md-3 col-form-label title_color' %>
+        <div class="col-md-9">
+          <%= f.text_field :title, class: "form-control" %>
+        </div>
+      </div>
+  
+      <div class="form-group row" id="star">
+        <%= f.label :rate, class:'col-md-3 col-form-label title_color' %>
+        <%= f.hidden_field :rate, id: :review_star %>
+      </div>
+
+      <div class="form-group row">
+        <%= f.label :comment, class:'col-md-3 col-form-label title_color' %>
+        <div class="col-md-9">
+          <%= f.text_area :comment, class: "form-control", rows: "8" %>
+        </div>
+      </div>
+  
+      <div class="text-center">
+        <%= f.submit '投稿する', class:"btn btn-info rounded-pill round-pill" %>
+      </div>
+    </div>
+  </div>
+<% end %>

@@ -1,0 +1,41 @@
+<h3 class="ski_resort_title mt-4">
+  <i class="fa-solid fa-magnifying-glass"></i>
+    レビュー
+</h3>
+<div class="review_index_box">
+  <% if reviews.present? %>
+    <% reviews.each do |review| %>
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-3 text-center">
+            <% if review.user.image.attached? %>
+              <%= image_tag review.user.image, alt: 'ユーザー画像', :size => '100x100', class: "user_image" %>
+            <% else %>
+              <%= image_tag asset_path('user_icon.jpeg'), alt: 'ユーザー画像', :size => '100x100', class: "user_image" %>
+            <% end %>
+            <p class="review_user_name"><%= review.user.name %>さん</p>
+          </div>
+          <div class="col-md-7 mb-3">
+            <div class="post_info">
+              <h5>レビュー日：<%= review.created_at.to_s(:date2_jp) %></h5>
+              <p class="mb-3">評価：<%= review.rate %>点 | <span id="star-rate-<%= review.id %>"></span></p>   
+              <%= link_to "#{review.title}", ski_resort_review_path(review.ski_resort_id, review.id) %>
+            </div> 
+          </div>
+          <script>
+          $('#star-rate-<%= review.id %>').raty({
+            starOff: '<%= asset_path('star-off.png') %>',
+            starOn : '<%= asset_path('star-on.png') %>',
+            starHalf: '<%= asset_path('star-half.png') %>',
+            half: true,
+            readOnly: true,
+            score: <%= review.rate %>
+          });  
+          </script>  
+        </div>  
+      </div>
+    <% end %>
+  <% else %>
+    <p class="text-center sentence_color">レビューは投稿されていません</p>
+  <% end %>
+</div>

@@ -1,0 +1,41 @@
+<% content_for(:title, 'スキー場一覧')%>
+<div class="ski_resort_index_field">
+  <h1 class="ski_resort_title my-3 ml-3">スキー場一覧</h1>
+  <div class="col-md-8 table-responsive" style="margin: auto;">
+    <table class="table table-bordered table-hover" style="color: #666666; white-space: nowrap;">
+      <thead>
+        <tr class="table-primary text-center">
+          <th>ゲレンデ画像</th>
+          <th>ゲレンデ名</th>
+          <th>住所</th>
+          <th>詳細</th>
+          <th>編集</th>
+          <th>削除</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @ski_resorts.each do |ski_resort| %>
+          <tr class="text-center">
+            <% if ski_resort.resort_image.attached? %>
+              <td><%= image_tag ski_resort.resort_image.variant(resize:'300x300'), alt: 'ゲレンデ画像', class:"img-fluid" %></td>
+            <% else %>
+              <td><%= image_tag asset_path('no_image.jpeg'), alt: 'ゲレンデ画像', :size => '300x300', class:"img-fluid" %></td>
+            <% end %>
+            <td><%= ski_resort.resort_name %></td>
+            <td><%= ski_resort.address %></td>
+            <td><%= link_to "詳細", ski_resort_path(ski_resort) %></td>
+            <td><%= link_to "編集", edit_ski_resort_path(ski_resort) %></td>
+            <td><%= link_to "削除", ski_resort_path(ski_resort), method: :delete, data: { confirm: '削除します。よろしいですか。' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <div class="text-center pt-3 pb-3">
+    <%= link_to 'スキー場登録', new_ski_resort_path, class: "resort_new_btn" %>
+  </div>
+  <div class="text-center pt-3 pb-5">
+    <%= link_to "トップページに戻る", root_path, class:"root_btn" %>
+  </div>
+</div>

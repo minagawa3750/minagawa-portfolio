@@ -1,0 +1,26 @@
+<% content_for(:title, @review.title) %>
+<div class="review_edit_field">
+  <h1 class="review_title mb-5">レビュー編集</h1>
+
+  <%= render 'reviews/form', {ski_resort: @ski_resort, review: @review } %>
+
+  <script>
+  $('#star').raty({
+    starOff:  '<%= asset_path('star-off.png') %>',
+    starOn : '<%= asset_path('star-on.png') %>',
+    starHalf: '<%= asset_path('star-half.png') %>',
+    score: <%= @review.rate %>,
+    scoreName: 'review[rate]',
+    half: true,
+  });
+  </script>
+
+  <div class="ski_resort_show_btn text-center mt-5">
+    <%= link_to 'スキー場詳細ページに戻る', ski_resort_path(@ski_resort.id), class:"btn btn-primary rounded-pill" %>
+  </div>
+  <% if @review.user == current_user %>
+    <div class="text-center mt-3">
+      <%= link_to 'レビューを削除する', ski_resort_review_url(@review.ski_resort_id, @review.id), method: :delete, data: { confirm: '削除します。よろしいですか。' }, class:"review_delete_btn" %>
+    </div>
+  <% end %>
+</div>

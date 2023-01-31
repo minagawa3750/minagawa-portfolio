@@ -1,0 +1,20 @@
+<% content_for(:title, 'レビューを投稿')%>
+<div class="review_new_field">
+  <h1 class="review_title">レビューを投稿</h1>
+
+  <%= render 'reviews/form', {ski_resort: @ski_resort, review: @review} %>
+  
+  <script>
+    $('#star').raty({
+      starOff: '<%= asset_path('star-off.png') %>',
+      starOn : '<%= asset_path('star-on.png') %>',
+      starHalf: '<%= asset_path('star-half.png') %>',
+      scoreName: 'review[rate]',
+      half: true,
+    });
+  </script>  
+
+  <div class="ski_resort_show_btn text-center mt-5">
+    <%= link_to 'スキー場詳細ページに戻る', ski_resort_path(@ski_resort.id), class:"btn btn-primary rounded-pill" %>
+  </div>
+</div>

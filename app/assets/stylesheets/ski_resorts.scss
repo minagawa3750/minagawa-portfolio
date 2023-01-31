@@ -1,0 +1,152 @@
+.ski_resort_registration_field, .ski_resort_edit_field {
+  background-color: #ededef;
+  padding-top: 50px;
+}
+
+.resort_index_btn, .resort_new_btn {
+	vertical-align: middle;
+	text-decoration: none;
+	width: 120px;
+	margin: auto;
+	padding: 0.3rem 2.5rem;
+	border: 2px solid #44617b;
+	background: #44617b;
+	color: #fff;
+	border-radius: 100vh;
+	transition: 0.5s;
+}
+
+.resort_index_btn:hover, .resort_new_btn:hover {
+  background: #fff;
+  color: #44617b;
+  text-decoration: none;
+}
+
+.ski_resort_show_field {
+  padding: 40px 0 40px;
+  background-color: #ededef;
+}
+
+.ski_resort_registration_box {
+  margin: 2em auto;
+  padding: 1em;
+  width: 40%;
+  max-width: 100%;
+  border: 1px solid #ccc;
+  background-color: #fff;
+}@media screen and (max-width:768px) {
+  .ski_resort_registration_box{
+    width: 90%;
+  }
+}
+
+.review_index_box, .review_btn_box, .review_box {
+  margin: auto;
+  padding: 1em;
+  width: 55%;
+  max-width: 100%;
+  border: 1px solid #ccc;
+  background-color: #fff;
+}@media (max-width: 768px) {
+  .review_index_box, .review_btn_box, .review_box {
+    width: 90%;
+  }
+}
+
+.ski_resort_show_main, .ski_resort_map {
+  margin: auto;
+  padding: 1em;
+  width: 55%;
+  max-width: 100%;
+  border: 1px solid #ccc;
+  background-color: #fff;
+}@media (max-width: 800px) {
+  .ski_resort_show_main, .ski_resort_map {
+    width: 90%;
+  }
+}
+
+.ski_resort_show_page {
+  margin: 2em auto;
+  padding: 1em;
+  width: 60%;
+  max-width: 100%;
+  border: 1px solid #ccc;
+  background-color: #fff;
+}
+
+.ski_resort_title, .like_title{
+  color: #19448e;
+  padding: 10px 0 20px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.review_user_name, .post_info {
+  color: #666666;
+}
+
+.comment_btn, .resort_hp_btn {
+	text-align: center;
+	vertical-align: middle;
+	text-decoration: none;
+	width: 120px;
+	margin: auto;
+	padding: 0.3rem 3rem;
+	border: 2px solid #27acd9;
+	background: #27acd9;
+	color: #fff;
+	border-radius: 100vh;
+	transition: 0.5s;
+}
+
+.comment_btn:hover, .resort_hp_btn:hover {
+  color: #27acd9;
+  background: #fff;
+  text-decoration: none;
+}
+
+.gmap_wrapper {
+  margin: auto;
+  width: 100%;
+  padding-top: 50%;
+  position: relative;
+}
+
+#map {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+}
+
+.search_field {
+  background-color: #ededef;
+  padding-top:30px;
+  min-height: 82vh;
+}
+
+.search_title {
+  color: #19448e;
+  padding: 30px 0 20px;
+  font-weight: bold;
+  text-align: center;
+}
+.search_box {
+  margin: 2em;
+  padding: 1em;
+  width: 95%;
+  max-width: 100%;
+  height: 85%;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  color: #19448e;
+}@media (max-width: 768px) {
+  .search_box {
+    width: 90%;
+  }
+}
+
+.like_btn_field {
+  float: right;
+}

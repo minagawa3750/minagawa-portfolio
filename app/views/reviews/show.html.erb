@@ -1,0 +1,68 @@
+<% content_for(:title, @review.title) %>
+<div class="review_show_field">
+  <h1 class="review_title mb-5">レビュー詳細</h1>
+  <div class="review_show_box">
+    <div class="container">
+      <div class= "row justify-content-end mb-3">
+        <div class="col-md-3 title_color">
+          <i class="fa-solid fa-person-skiing"></i>
+          <strong>スキー場</strong>
+        </div>
+        <div class="col-md-6 sentence_color">
+          <%= @ski_resort.resort_name %>
+        </div>
+      </div>
+      <div class= "row justify-content-end mb-3">
+        <div class="col-md-3 title_color">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <strong>評価</strong>
+        </div>
+        <div class="col-md-6 sentence_color">
+          <span id="star-rate-<%= @review.id %>"></span>
+          /<%= @review.rate %>点
+        </div>
+        <script>
+          $('#star-rate-<%= @review.id %>').raty ({
+            size: 36,
+            starOff: '<%= asset_path('star-off.png') %>',
+            starOn : '<%= asset_path('star-on.png') %>',
+            starHalf: '<%= asset_path('star-half.png') %>',
+            half: true,
+            readOnly: true,
+            score: <%= @review.rate %>,
+          });
+        </script>
+      </div>   
+      <div class= "row justify-content-center mb-3">
+        <div class="col-md-6 comment_box">
+          <p class="comment_title mb-2"><%= @review.title %></p>
+          <p class="review_comment"><%= @review.comment %></p>
+        </div>
+      </div>      
+    </div>
+    <div class="mt-2 text-center">
+      <p class="sentence_color">
+        <i class="fa-solid fa-user"></i>
+        <strong>投稿者</strong>
+      </p>
+      <% if @review.user.image.attached? %>
+        <%= image_tag @review.user.image, alt: 'ユーザー画像', :size => '100x100', class: "user_image" %>
+      <% else %>
+        <%= image_tag asset_path('user_icon.jpeg'), alt: 'ユーザー画像', :size => '100x100', class: "user_image" %>
+      <% end %>
+      <p class="sentence_color mt-1 mb-3"><strong><%= @review.user.name %>さん</strong></p>
+      <p class="sentence_color"><strong>レビュー日：<%= @review.created_at.to_s(:date2_jp) %></strong></p>
+    </div> 
+  </div>
+  <div class="text-center mt-5">
+    <%= link_to 'スキー場詳細ページに戻る', ski_resort_path(@ski_resort.id), class:"btn btn-primary rounded-pill" %>
+  </div>
+  <% if @review.user == current_user %>
+    <div class="text-center mt-3">
+      <%= link_to 'レビューを編集する', edit_ski_resort_review_path(@review.ski_resort_id, @review.id), class:"review_edit_btn" %>
+    </div>
+    <div class="text-center mt-3">
+      <%= link_to 'レビューを削除する', ski_resort_review_path(@review.ski_resort_id, @review.id), method: :delete, data: { confirm: '削除します。よろしいですか。' }, class:"review_delete_btn" %>
+    </div>
+  <% end %>
+</div>

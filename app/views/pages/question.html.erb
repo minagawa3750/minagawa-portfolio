@@ -1,0 +1,83 @@
+<% content_for(:title, '初心者Q＆A')%>
+<div class="question_field">
+  <h1 class="question_title">初心者Q&A</h1>
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <dl>
+          <dt>ゲレンデに行く時には何を持っていけばいいのでしょう?</dt>
+          <dd>
+            下記を準備しましょう。
+            <ul class="mt-3 mb-3">
+              <li>スノーボード、またはスキー板とストック</li>
+              <li>スキーウェア(上着とズボン)</li>
+              <li>帽子(ニット帽など)</li>
+              <li>ゴーグル</li>
+              <li>グローブ</li>
+              <li>ブーツ</li>
+              <li>リーシュコード(ブーツと板を固定する紐)</li>
+            </ul>
+            上記はゲレンデへ行く際に必ず必要なものです。よく帽子やゴーグルを身に付けていない方もいらっしゃいますが
+            雪が降ると視界が悪くなったり、寒くなり耳が冷えるとこともありますので必ず装着しましょう。特にゴーグルは
+            視界を良好にするだけでなく、もしもの事故のときに目を守ってくれます。<br>
+            リーシュコードはブーツと板を固定する紐でリフトに乗っている際に板が外れた時に落下するのを防いだり、転んで板が外れた際
+            に板だけが滑っていってしまうのを防いでくれます。体の末端は冷えやすいのでグローブも装着しましょう。ゲレンデは氷点下を下回る時もありますのでしもやけや凍傷
+            のリスクはもちろん、休憩の時に手を雪上につけるときに役立ちます。板を持つ際に素手で持つと切ってしまう危険もあるので
+            必需品です。他にはズボンの下に履くレギンスや、財布やスマホを入れるバッグなどあるとより良いでしょう。<br>
+            上記を揃えるとトータルで約10万円ほどかかります。かなり高額ですよね...。そこでおすすめなのはレンタル
+            を活用することです。スキー場は基本上記をレンタルすることができます。例えばウェアやグローブなど身につけるもの
+            は購入し、板やブーツをレンタルするなど必要なものや重要なものから最初は買い始めて徐々に揃えていくのがおすすめです！
+          </dd>
+          <dt>おすすめのブランドはありますか?</dt>
+          <dd>
+            デザインや相性もあるのでお店の人などの聞くのが最も良い選択肢ではありますが、下記が人気のブランドです。<br>
+            (クリックするとサイトにいけます。)
+            <h5 class="mt-3">スノボード</h5>
+            <ul>
+              <li><%= link_to "BURTON(バートン)", "https://www.burton.com/jp/ja/home", target: :_blank, rel: "noopener noreferrer" %></li>
+              <li><%= link_to "SALOMON(サロモン)", "https://www.salomon.com/ja-jp", target: :_blank, rel: "noopener noreferrer" %></li>
+              <li><%= link_to "K2(ケーツー)", "http://www.k2japan.shop/", target: :_blank, rel: "noopener noreferrer" %></li>
+              <li><%= link_to "RIDE(ライド)", "https://sbn.japaho.com/catalog/ride/", target: :_blank, rel: "noopener noreferrer" %></li>
+              <li><%= link_to "YONEX（ヨネックス）", "https://www.yonex.co.jp/snowboards/", target: :_blank, rel: "noopener noreferrer" %></li>
+            </ul>
+            <h5 class="mt-3">スキー</h5>
+            <ul>
+              <li><%= link_to "ROSSIGNOL(ロシニョール)", "https://rossignol.co.jp/", target: :_blank, rel: "noopener noreferrer" %></li>
+              <li><%= link_to "ATOMIC(アトミック)", "https://atomicsnow.jp/", target: :_blank, rel: "noopener noreferrer" %></li>
+              <li><%= link_to "SALOMON(サロモン)", "https://www.salomon.com/ja-jp", target: :_blank, rel: "noopener noreferrer" %></li>
+              <li><%= link_to "HEAD(ヘッド)", "https://www.head.com/ja_JP/", target: :_blank, rel: "noopener noreferrer" %></li>
+              <li><%= link_to "OGASAKA(オガサカ)", "https://www.ogasaka-ski.co.jp/", target: :_blank, rel: "noopener noreferrer" %></li>
+            </ul>
+            紹介したブランドはスキー場のレンタル用品でもよく見かけたりオリンピック選手も使っているブランドで、デザインや機能もバッチリです！
+            ですが相性や好みは人それぞれ、お店の方や詳しい人に聞いてデザインや相性などを考えて決めるのがベストですので、上記ブランドはあくまで事前知識として抑えておきましょう。
+          </dd>
+          <dt>周りはスノーボードをやってますが、実はスキーの方が興味があります。やはりスノーボードをやる人の方が多いのでしょうか?</dt>
+          <dd>
+            たしかに学校や会社ですとみなさんスノーボードの方が多いですよね。しかし下記を見てみますと...
+            <div class="text-center mt-3 mb-3">
+              <%= image_tag asset_path('ski&snow_board.gif'), alt: '統計棒グラフ', :size => '600x600', class: "img-fluid" %>
+            </div>  
+            昨今はキャンプなどレジャーの多様化で減少傾向にありますがグラフの通りスキー人口の方が多いです。実際ゲレンデに行ってみますとスキーを
+            やっている方が多いと感じます。しかし周りがスノーボードをやっていて自分だけスキーデビューするのはかなりハードルが高いです。そんな時はスキー場の
+            スクール受講がおすすめです！スキー場には資格を持ったインストラクターの方が丁寧に教えてくださるので独学よりも効率よく短期間で技術向上が見込めます。
+          </dd>
+          <dt>よくスキー場で最大傾斜など掲載されていますが、初心者なので目安がよく分かりません...</dt>
+          <dd>
+            コースの形状などにもよりますが下記が目安です。
+            <ul class="mt-3 mb-3">
+              <li>【初心者】 10度前後</li>
+              <li>【中級者】 15度から25度</li>
+              <li>【上級者】 25度以上</li>
+            </ul>
+            ゲレンデのホームページにコースごとに難易度や傾斜角度が記載されていますので確認してみましょう。また天候の良し悪しで視界が変わったり、雪質などで
+            も難易度が変わります。(雪質は柔らかいほど滑りやすいです。パウダースノーと呼ばれます。)山の天気は変わりやすいです。ホームページでゲレンデ状況
+            を確認してみましょう。
+          </dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+  <div class="text-center mt-3 mb-5">
+    <%= link_to "トップページに戻る", root_path, class:"root_btn" %>
+  </div>
+</div>

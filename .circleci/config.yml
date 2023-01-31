@@ -1,0 +1,107 @@
+version: 2.1
+orbs:
+  node: circleci/node@5.0.3
+  browser-tools: circleci/browser-tools@1.4.1
+
+jobs:
+  test:
+    docker:
+      - image: cimg/ruby:2.7.6-node
+        environment:
+          BUNDLE_JOBS: 3
+          BUNDLE_RETRY: 3
+          BUNDLE_PATH: vendor/bundle
+          BUNDLER_VERSION: 2.3.24
+          RAILS_ENV: 'test'
+          MYSQL_HOST: 'db'
+          MYSQL_PASSWORD: 'password'
+          MYSQL_PORT: 3306
+      - image: cimg/mysql:8.0
+        environment:
+          MYSQL_USER: 'test'
+          MYSQL_ROOT_PASSWORD: 'password'
+          MYSQL_PASSWORD: 'password'
+          MYSQL_DATABASE: 'minagawa-portfolio_test'
+          MYSQL_HOST: 'db'
+        name: db
+    parallelism: 1
+    steps:
+      - checkout
+      - browser-tools/install-chrome
+      - browser-tools/install-chromedriver
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "Gemfile.lock" }}
+            - v1-dependencies-
+      - run:
+          name: install dependencies
+          command: |
+            gem install bundler -v 2.3.24
+            bundle install --jobs=4 --retry=3 --path vendor/bundle
+      - save_cache:
+          paths:
+            - ./vendor/bundle
+          key: v1-dependencies-{{ checksum "Gemfile.lock" }}
+
+      - restore_cache:
+          keys:
+            - rails-demo-yarn-{{ checksum "yarn.lock" }}
+            - rails-demo-yarn-
+
+      - run:
+          name: install yarn
+          command: yarn install --cache-folder ~/.cache/yarn
+
+      - save_cache:
+          key: rails-demo-yarn-{{ checksum "yarn.lock" }}
+          paths:
+            - ~/.cache/yarn
+
+      - run: bundle exec rails db:create
+      - run: bundle exec rails db:schema:load
+
+      - run:
+          name: RSpec
+          command: |
+            mkdir /tmp/test-results
+            TEST_FILES="$(circleci tests glob "spec/**/*_spec.rb" | \
+              circleci tests split --split-by=timings)"
+            bundle exec rspec \
+              --format progress \
+              --format RspecJunitFormatter \
+              --out /tmp/test-results/rspec.xml \
+              --format progress \
+              $TEST_FILES
+
+      - store_test_results:
+          path: /tmp/test-results
+      - store_artifacts:
+          path: /tmp/test-results
+          destination: test-results
+
+      - run:
+          name: RuboCop
+          command: bundle exec rubocop
+
+  deploy:
+    machine:
+        image: ubuntu-2004:202201-02
+    steps:
+      - checkout
+      - add_ssh_keys:
+          fingerprints:
+            - ${FINGER_PRINTS}
+
+      - run: ssh ${USER_NAME}@${HOST_NAME} "cd /var/www/minagawa-portfolio && git pull"
+      
+workflows:
+  version: 2
+  test_and_deploy:
+      jobs:
+        - test
+        - deploy:
+            requires:
+                - test
+            filters:
+                branches:
+                    only: main

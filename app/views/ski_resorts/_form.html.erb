@@ -1,0 +1,120 @@
+<%= form_with(model: ski_resort) do |f| %>
+  <% if ski_resort.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(ski_resort.errors.count, "件") %> の入力が不正です。</h2>
+
+      <ul>
+        <% ski_resort.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="form-group text-center">
+    <i class="fa-solid fa-mountain fa-5x mb-1" style="color: #0088a2;"></i>
+    <%= f.label :resort_image, style: "display: none;" %><br>
+    <%= f.file_field :resort_image, id: "file-input" %>
+  </div>
+  <div class="ski_resort_registration_box">
+    <div class="form-group">
+      <%= f.label :resort_name %>
+      <%= f.text_field :resort_name, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :address %>
+      <%= f.text_field :address, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :phone_number %>
+      <%= f.text_field :phone_number, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :start_day %>
+      <%= f.date_field :start_day, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :end_day %>
+      <%= f.date_field :end_day, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :start_time %>
+      <%= f.time_field :start_time, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :end_time %>
+      <%= f.time_field :end_time, class: 'form-control' %>
+    </div>
+    
+    <div class="form-group">
+      <%= f.label :business_remarks %>
+      <%= f.text_field :business_remarks, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :adult_price %>
+      <%= f.text_field :adult_price, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :kid_price %>
+      <%= f.text_field :kid_price, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :senior_price %>
+      <%= f.text_field :senior_price, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :ski_lift %>
+      <%= f.text_field :ski_lift, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :courses %>
+      <%= f.text_field :courses, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :maximum_tilt %>
+      <%= f.text_field :maximum_tilt, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :maximum_distance %>
+      <%= f.text_field :maximum_distance, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :resort_feature %>
+      <%= f.text_area :resort_feature, class: 'form-control', rows:"4" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :introduction %>
+      <%= f.text_area :introduction, class: 'form-control', rows: "8" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :hp_url %>
+      <%= f.text_area :hp_url, class: 'form-control' %>
+    </div>
+
+    <div class="form-group text-center">
+      <%= f.submit nil, class: 'btn btn-info' %>
+    </div>
+  </div>
+
+  <div class="text-center pb-4">
+    <%= link_to 'スキー場一覧', ski_resorts_path, class: 'resort_index_btn' %>
+  </div>
+  <div class="text-center pb-5">
+    <%= link_to "トップページ", root_path, class:"root_btn" %> 
+  </div>
+<% end %>

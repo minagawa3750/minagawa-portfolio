@@ -1,0 +1,84 @@
+.top_main{
+  background-image: image-url("top_background.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 650px;
+}@media screen and (max-width:768px) {
+  .top_main {
+    display: none;
+    background-image: image-url("top_background_2.jpg");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    height: 450px;
+  }
+}
+
+.top_box {
+  background-color: rgba(175,238,238,0.5);
+  width: 70%;
+  padding: 20px 20px;
+}@media screen and (max-width:768px) {
+  .top_box {
+    width: 100%;
+  }
+}
+
+.top_main_contents {
+  background-color: #ededef;
+}
+
+.rank_box {
+  margin: 2em auto;
+  padding: 1em;
+  width: 95%;
+  max-width: 100%;
+  height: 81%;
+  border: 1px solid #ccc;
+  background-color: #fffafa;
+  color: #19448e;
+}
+
+.rank_title, .feature_title, .movie_title, .introduction_title {
+  color: #19448e;
+  font-weight: bold;
+  letter-spacing: 0.15em;
+}
+
+.fa-stack {
+  font-size: 3em;
+  position: absolute;
+}
+.fa-stack-1x {
+  font-size: 0.8em;
+  font-family: monospace;
+  margin-top: 8px;
+  color: #fff;
+}
+
+.resort_feature_title {
+  color: #19448e;
+  text-align: center;
+  font-weight: bold;
+}
+
+.resort_feature_article {
+  color: #666666;
+}
+
+.feature_link_btn:hover {
+  opacity: 0.5;
+  text-decoration: none;
+}
+
+.introduction_title {
+  letter-spacing: 0.15em;
+  font-weight: bold;
+}
+
+.introduciton_article {
+  color: #666666;
+  letter-spacing: 0.15em;
+  line-height: 2;
+}
