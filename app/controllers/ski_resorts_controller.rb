@@ -3,7 +3,7 @@ class SkiResortsController < ApplicationController
   before_action :admin_check, only: %i[index new edit update destroy]
 
   def index
-    @ski_resorts = SkiResort.all
+    @ski_resorts = SkiResort.all.page(params[:page])
   end
 
   def show
