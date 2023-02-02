@@ -1,6 +1,5 @@
 <p align="right">
   <img src="https://img.shields.io/circleci/build/github/minagawa3750/minagawa-portfolio/main" />
-  <img src="https://img.shields.io/gem/dv/rails/6.1.7">
 </p>
 
 # SKI.com 
@@ -81,7 +80,6 @@ YOUTUBE動画、Q&Aなど初心者の方はもちろん経験者の方まで気�
   
 <img width="1440" alt="スクリーンショット 2023-02-02 23 23 30" src="https://user-images.githubusercontent.com/107171561/216351546-392ce577-6fee-43cd-b9a9-4dcd861daa00.png">
 
-
 ### いいね機能
 - 平均評価ランキング、検索結果、スキー場特集内のスキー場画像をクリックすると詳細ページに遷移します。
 
@@ -89,20 +87,16 @@ YOUTUBE動画、Q&Aなど初心者の方はもちろん経験者の方まで気�
 
 <img width="1440" alt="スクリーンショット 2023-02-02 22 51 28" src="https://user-images.githubusercontent.com/107171561/216345949-ff675619-7551-49c9-b4a5-d23e5a742b03.png">
 
-
 - 右上のハートをクリックするといいねができます。
 
 <img width="1440" alt="スクリーンショット 2023-02-02 23 15 51" src="https://user-images.githubusercontent.com/107171561/216348827-05099a63-75fe-4dc0-a02f-576e95dc8e9a.png">
 
-
-
 - ゲストユーザー、未ログインユーザーはいいねボタンが表示されません。
 
-![スクリーンショット 2023-02-02 14 58 49](https://user-images.githubusercontent.com/107171561/216243951-08dc1b1f-3808-4347-a6a2-78a9e85278b5.png)
+<img width="1440" alt="スクリーンショット 2023-02-02 23 32 57" src="https://user-images.githubusercontent.com/107171561/216353223-44855309-b750-48af-ba5c-f135eaadc5ec.png">
 
 - ヘッダーメニューのいいね一覧をクリックするといいねしたスキー場が登録されています。
 <img width="1440" alt="スクリーンショット 2023-02-02 22 52 21" src="https://user-images.githubusercontent.com/107171561/216346047-2548b44c-26b2-4f0e-b077-d3faba759685.png">
-
 
 ### レビュー投稿
 - スキー場詳細ページからレビュー投稿はこちらをクリックします。(未ログインユーザーがクリックするとログイン画面に遷移します。)
@@ -110,8 +104,6 @@ YOUTUBE動画、Q&Aなど初心者の方はもちろん経験者の方まで気�
 <img width="1440" alt="スクリーンショット 2023-02-02 22 52 53" src="https://user-images.githubusercontent.com/107171561/216346152-100032a9-1ac5-4477-857e-7d1a1fc676be.png">
 
 <img width="1440" alt="スクリーンショット 2023-02-02 22 54 38" src="https://user-images.githubusercontent.com/107171561/216346245-ac8e1ae7-77a2-4c9c-a0ab-452898e32656.png">
-
-
 
 - レビュー投稿すると詳細ページに遷移しレビューが投稿されています。
 - タイトルをクリックするとレビュー詳細に遷移します。
@@ -121,4 +113,3 @@ YOUTUBE動画、Q&Aなど初心者の方はもちろん経験者の方まで気�
 - 投稿ユーザーとログインユーザーが一致しているとレビューを編集するとレビューが削除するが表示されます。
 - クリックすると編集と削除ができます。
 <img width="1440" alt="スクリーンショット 2023-02-02 22 55 25" src="https://user-images.githubusercontent.com/107171561/216346381-ebb84759-1037-4ce5-8f7a-3e55e85313c9.png">
-
