@@ -1,5 +1,6 @@
 <p align="right">
   <img src="https://img.shields.io/circleci/build/github/minagawa3750/minagawa-portfolio/main" />
+  <img src="https://img.shields.io/gem/dv/rails/6.1.7">
 </p>
 
 # SKI.com 
@@ -61,24 +62,25 @@ YOUTUBE動画、Q&Aなど初心者の方はもちろん経験者の方まで気�
   
 ## 6.デモ画面
 ### トップ画面
-![スクリーンショット 2023-02-02 14 20 11](https://user-images.githubusercontent.com/107171561/216241324-c636f949-5ab3-4140-8a17-7646e1689953.png)
+
+<img width="1440" alt="スクリーンショット 2023-02-02 23 23 06" src="https://user-images.githubusercontent.com/107171561/216351237-e84813b7-8969-4521-bf93-668601c56121.png">
 
 ログインしたユーザーによってヘッダーメニューの表示を変えています。
 - 一般ユーザー
-
-![スクリーンショット 2023-02-02 14 21 54](https://user-images.githubusercontent.com/107171561/216241446-a5a09379-e06c-46a2-bfe5-6ec6e2a5f62d.png)
+<img width="1440" alt="スクリーンショット 2023-02-02 23 24 24" src="https://user-images.githubusercontent.com/107171561/216351327-a40815b6-004d-4470-a7d3-3d6751a8fbff.png">
 
 - 管理者ユーザー
   - 管理者ユーザーはスキー場一覧からスキー場の登録、編集、削除ができるようになっています。
   - 管理者ユーザー以外が上記ページへ遷移しようとするとトップページに遷移するようbefore_actionで閲覧制限しています。
-
-![スクリーンショット 2023-02-02 14 20 43](https://user-images.githubusercontent.com/107171561/216241746-1df7c95d-d3d2-4bc3-a78e-18b60e56636e.png)
+  
+<img width="1440" alt="スクリーンショット 2023-02-02 23 22 41" src="https://user-images.githubusercontent.com/107171561/216351412-4cee61ad-3949-41a9-b914-173b06336ad1.png">
 
 - ゲストユーザー
   - ゲストユーザーはアカウント編集といいね一覧が表示されません。
   - ゲストユーザーはレビュー投稿ができますが、いいねはできないようになっています。
+  
+<img width="1440" alt="スクリーンショット 2023-02-02 23 23 30" src="https://user-images.githubusercontent.com/107171561/216351546-392ce577-6fee-43cd-b9a9-4dcd861daa00.png">
 
-![スクリーンショット 2023-02-02 14 21 19](https://user-images.githubusercontent.com/107171561/216241975-4ef79028-56af-4b94-b1e8-342d4dd4558e.png)
 
 ### いいね機能
 - 平均評価ランキング、検索結果、スキー場特集内のスキー場画像をクリックすると詳細ページに遷移します。
