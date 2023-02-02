@@ -37,7 +37,7 @@ YOUTUBE動画、Q&Aなど初心者の方はもちろん経験者の方まで気�
 ![スクリーンショット 2023-02-02 13 51 25](https://user-images.githubusercontent.com/107171561/216240256-fa174f09-d781-43d7-90d7-7f004ca843b4.png)
 ### circleCi CI/CD
 - Githubへpush後、RSpecとRuboCopが自動で実行されます。
-- mainブランチへのpush、またはmerge後は上記テストが成功した場合、EC2への自動デプロイが実行されます。
+- mainブランチへのpush後は上記テストが成功した場合、EC2への自動デプロイが実行されます。
 
 ## 4.機能一覧
 - アカウント登録、ログイン機能、ゲストログイン機能(devise)
