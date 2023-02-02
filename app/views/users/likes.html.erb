@@ -20,11 +20,11 @@
           <% @like_resort.each do |like_resort| %>
             <tr class="text-center">
               <td>
-              <% if like_resort.resort_image.attached? %>
-                <%= image_tag like_resort.resort_image.variant(resize:'300x300'), alt: 'ゲレンデ画像', class:"img-fluid" %>
-              <% else %>
-                <%= image_tag asset_path('no_image.jpeg'), alt: 'ゲレンデ画像', :size => '300x300', class:"img-fluid" %>
-              <% end %>
+                <% if like_resort.resort_image.attached? %>
+                  <%= image_tag like_resort.resort_image.variant(resize:'300x300'), alt: 'ゲレンデ画像', class:"img-fluid" %>
+                <% else %>
+                  <%= image_tag asset_path('no_image.jpeg'), alt: 'ゲレンデ画像', :size => '300x300', class:"img-fluid" %>
+                <% end %>
               </td>
               <td><%= like_resort.resort_name %></td>
               <td><%= like_resort.address %></td>
@@ -34,6 +34,7 @@
           <% end %>
         </tbody>
       </table>
+      <%= paginate @like_resort %>
     </div>
   <% else %>
     <h5 class="text-center mt-5">

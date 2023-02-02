@@ -31,6 +31,7 @@
         <% end %>
       </tbody>
     </table>
+    <%= paginate @ski_resorts %>
   </div>
   <div class="text-center pt-3 pb-3">
     <%= link_to 'スキー場登録', new_ski_resort_path, class: "resort_new_btn" %>
