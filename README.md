@@ -1,6 +1,5 @@
 <p align="right">
   <img src="https://img.shields.io/circleci/build/github/minagawa3750/minagawa-portfolio/main" />
-  <img src="https://img.shields.io/gem/dv/rails/6.1.7" />
 </p>
 
 # SKI.com 
@@ -83,33 +82,41 @@ YOUTUBE動画、Q&Aなど初心者の方はもちろん経験者の方まで気�
 
 ### いいね機能
 - 平均評価ランキング、検索結果、スキー場特集内のスキー場画像をクリックすると詳細ページに遷移します。
-![スクリーンショット 2023-02-02 14 47 11](https://user-images.githubusercontent.com/107171561/216242253-370c6a50-cce1-4cdc-b87e-5c26366098a3.png)
 
-![スクリーンショット 2023-02-02 14 49 39](https://user-images.githubusercontent.com/107171561/216242558-727ed56e-217b-4757-bf73-9415e3fef8e6.png)
+<img width="1440" alt="スクリーンショット 2023-02-02 22 50 03" src="https://user-images.githubusercontent.com/107171561/216345879-dfa08b66-529e-47b5-b061-805d2a26516a.png">
+
+<img width="1440" alt="スクリーンショット 2023-02-02 22 51 28" src="https://user-images.githubusercontent.com/107171561/216345949-ff675619-7551-49c9-b4a5-d23e5a742b03.png">
+
 
 - 右上のハートをクリックするといいねができます。
 
-![スクリーンショット 2023-02-02 14 54 32](https://user-images.githubusercontent.com/107171561/216243270-46676076-af86-42d7-8181-61916bed31fd.png)
+<img width="1440" alt="スクリーンショット 2023-02-02 23 15 51" src="https://user-images.githubusercontent.com/107171561/216348827-05099a63-75fe-4dc0-a02f-576e95dc8e9a.png">
+
+
 
 - ゲストユーザー、未ログインユーザーはいいねボタンが表示されません。
 
 ![スクリーンショット 2023-02-02 14 58 49](https://user-images.githubusercontent.com/107171561/216243951-08dc1b1f-3808-4347-a6a2-78a9e85278b5.png)
 
 - ヘッダーメニューのいいね一覧をクリックするといいねしたスキー場が登録されています。
-![スクリーンショット 2023-02-02 14 55 04](https://user-images.githubusercontent.com/107171561/216243354-3c5c3f68-56db-47c7-839a-dbe2bd115ae6.png)
+<img width="1440" alt="スクリーンショット 2023-02-02 22 52 21" src="https://user-images.githubusercontent.com/107171561/216346047-2548b44c-26b2-4f0e-b077-d3faba759685.png">
+
 
 ### レビュー投稿
-- スキー場詳細ページからレビューはこちらをクリックします。(未ログインユーザーがクリックするとログイン画面に遷移します。)
+- スキー場詳細ページからレビュー投稿はこちらをクリックします。(未ログインユーザーがクリックするとログイン画面に遷移します。)
 
-![スクリーンショット 2023-02-02 15 00 54](https://user-images.githubusercontent.com/107171561/216244232-78675b24-5ca0-4b35-bb89-25b78eea30c3.png)
+<img width="1440" alt="スクリーンショット 2023-02-02 22 52 53" src="https://user-images.githubusercontent.com/107171561/216346152-100032a9-1ac5-4477-857e-7d1a1fc676be.png">
+
+<img width="1440" alt="スクリーンショット 2023-02-02 22 54 38" src="https://user-images.githubusercontent.com/107171561/216346245-ac8e1ae7-77a2-4c9c-a0ab-452898e32656.png">
+
+
 
 - レビュー投稿すると詳細ページに遷移しレビューが投稿されています。
-![スクリーンショット 2023-02-02 15 04 15](https://user-images.githubusercontent.com/107171561/216245670-5a9cacb9-9409-4c4f-878e-9b4d6a45fa45.png)
-
-![スクリーンショット 2023-02-02 15 06 17](https://user-images.githubusercontent.com/107171561/216244979-f50ad592-563e-41c3-83bc-5d284a07370f.png)
-
 - タイトルをクリックするとレビュー詳細に遷移します。
+
+<img width="1429" alt="スクリーンショット 2023-02-02 22 55 01" src="https://user-images.githubusercontent.com/107171561/216346320-d4ff941d-8f6a-413a-bc3a-71d48aad71a1.png">
+
 - 投稿ユーザーとログインユーザーが一致しているとレビューを編集するとレビューが削除するが表示されます。
 - クリックすると編集と削除ができます。
+<img width="1440" alt="スクリーンショット 2023-02-02 22 55 25" src="https://user-images.githubusercontent.com/107171561/216346381-ebb84759-1037-4ce5-8f7a-3e55e85313c9.png">
 
-![スクリーンショット 2023-02-02 15 06 32](https://user-images.githubusercontent.com/107171561/216245134-bb21c4cb-c62b-433f-b6d5-fef72e6f64ea.png)
