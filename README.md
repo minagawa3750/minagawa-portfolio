@@ -1,5 +1,8 @@
 <p align="right">
   <img src="https://img.shields.io/circleci/build/github/minagawa3750/minagawa-portfolio/main" />
+  <img src="https://img.shields.io/badge/license-MIT-blue" />
+  <img alt="Gem" src="https://img.shields.io/gem/dt/rails">
+  <img src="https://img.shields.io/badge/ gem version-3.1.6-success" />
 </p>
 
 # SKI.com 
