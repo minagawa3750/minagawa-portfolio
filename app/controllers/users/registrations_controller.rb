@@ -3,6 +3,7 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
+  before_action :guest_check, only: %i[edit update destroy]
 
   # GET /resource/sign_up
   # def new
@@ -59,4 +60,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
+
+  private
+
+  def guest_check
+    if current_user.id == 3
+      redirect_to root_path
+      flash[:alert] = "ゲストユーザーはアクセスできません。"
+    end
+  end
 end

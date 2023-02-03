@@ -2,7 +2,8 @@ require "rails_helper"
 
 RSpec.describe User, type: :system do
   let!(:user) { create(:user) }
-  let!(:admin_user) { create(:user, :admin) }
+  let(:admin_user) { create(:user, :admin) }
+  let(:guest) { create(:user, :guest) }
 
   describe "User CRUD" do
     describe "ログイン前" do
@@ -88,8 +89,6 @@ RSpec.describe User, type: :system do
   end
 
   describe "#self.guest" do
-    let!(:guest) { create(:user, :guest) }
-
     it "ゲストユーザーとしてログインできること" do
       visit root_path
       find(".navbar-toggler-icon").click
@@ -97,11 +96,15 @@ RSpec.describe User, type: :system do
       expect(current_path).to eq root_path
       expect(page).to have_content "ゲストユーザーとしてログインしました。"
     end
+  end
 
-    it "ゲストユーザーとしてログインした際はヘッダーにアカウント編集が表示されていないこと" do
+  describe "ゲストユーザーアカウント編集" do
+    it "ゲストユーザーはアカウント編集にアクセスできないこと" do
       login_as(guest)
       find(".navbar-toggler-icon").click
-      expect(page).to have_no_content "アカウント編集"
+      click_link "アカウント編集"
+      expect(current_path).to eq root_path
+      expect(page).to have_content "ゲストユーザーはアクセスできません。"
     end
   end
 

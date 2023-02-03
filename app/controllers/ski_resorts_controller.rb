@@ -7,7 +7,7 @@ class SkiResortsController < ApplicationController
   end
 
   def show
-    @reviews = Review.where(ski_resort_id: params[:id])
+    @reviews = Kaminari.paginate_array(Review.where(ski_resort_id: params[:id]).order(id: 'desc')).page(params[:page]).per(5)
   end
 
   def new
