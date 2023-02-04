@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 
   def likes
     @likes = Like.where(user_id: @user.id).pluck(:ski_resort_id)
-    @like_resort = Kaminari.paginate_array(SkiResort.find(@likes)).page(params[:page])
+    @like_resorts = Kaminari.paginate_array(SkiResort.find(@likes)).page(params[:page])
   end
 
   private

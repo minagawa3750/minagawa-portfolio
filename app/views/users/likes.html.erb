@@ -3,45 +3,55 @@
   <h2 class="like_title my-3 ml-3">
   いいね一覧
   </h2>
-  <% if @like_resort.present? %>
-    <div class="col-md-8 table-responsive" style="margin: auto;">
-      <table class="table table-bordered table-hover" style="color: #666666; white-space: nowrap;">
-        <thead>
-          <tr class="table-primary text-center">
-            <th>ゲレンデ画像</th>
-            <th>ゲレンデ名</th>
-            <th >住所</th>
-            <th>電話番号</th>
-            <th>詳細</th>
-          </tr>
-        </thead>
-
-        <tbody>
-          <% @like_resort.each do |like_resort| %>
-            <tr class="text-center">
-              <td>
+  <% if @like_resorts.present? %>
+    <div class="container">
+      <div class="row">
+        <% @like_resorts.each do |like_resort| %>
+          <div class="col-sm-4">
+            <div class="like_box">
+              <div class="like_img_field">
                 <% if like_resort.resort_image.attached? %>
-                  <%= image_tag like_resort.resort_image.variant(resize:'300x300'), alt: 'ゲレンデ画像', class:"img-fluid" %>
+                  <%= link_to image_tag(like_resort.resort_image.variant(resize:'400x400'), alt: 'ゲレンデ画像', class:"img-fluid"), ski_resort_path(like_resort) %>
                 <% else %>
-                  <%= image_tag asset_path('no_image.jpeg'), alt: 'ゲレンデ画像', :size => '300x300', class:"img-fluid" %>
+                  <%= link_to image_tag(asset_path('no_image.jpeg'), alt: 'ゲレンデ画像', :size => '250x250', class:"img-fluid"), ski_resort_path(like_resort) %>
                 <% end %>
-              </td>
-              <td><%= like_resort.resort_name %></td>
-              <td><%= like_resort.address %></td>
-              <td><%= link_to "#{like_resort.phone_number}", "tel:" + like_resort.phone_number %></td>
-              <td><%= link_to "詳細", ski_resort_path(like_resort) %></td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
-      <%= paginate @like_resort %>
+              </div>
+              <h5 class="mt-3 mb-3"><i class="fa-solid fa-mountain"></i><%= like_resort.resort_name %></h5>
+              <p>
+                <i class="fa-solid fa-magnifying-glass"></i>
+                平均評価：<%= like_resort.reviews.average(:rate) %>点
+                <span id="star-average-<%= like_resort.id %>"></span>
+              </p>
+              <script>
+              $('#star-average-<%= like_resort.id %>').raty({ 
+                starOff: '<%= asset_path('star-off.png') %>',
+                starOn : '<%= asset_path('star-on.png') %>',
+                starHalf: '<%= asset_path('star-half.png') %>',
+                half: true,
+                readOnly: true,
+                score: <%= like_resort.reviews.average(:rate) %>,
+              });
+              </script>
+              <p>
+                <i class="fa-sharp fa-solid fa-location-dot"></i>
+                <%= like_resort.address %>
+              </p>
+              <p>
+                <i class="fa-solid fa-mobile"></i>
+                <%= link_to "#{like_resort.phone_number}", "tel:" + like_resort.phone_number %>
+              </p>
+            </div>
+          </div>
+        <% end %>
+      </div>
     </div>
+    <%= paginate @like_resorts %>
   <% else %>
-    <h5 class="text-center mt-5">
+    <h5 class="text-center mt-5" style="color: #19448e;">
       気になるリストにまだスキー場はありません。
     </h5>
   <% end %>
-  <div class="text-center mt-3 mb-3">
+  <div class="text-center mt-5 pb-5">
     <%= link_to "トップページに戻る", root_path, class:"root_btn" %>
   </div>
 </div>

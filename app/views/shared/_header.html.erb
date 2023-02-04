@@ -8,26 +8,20 @@
     <div class="collapse navbar-collapse justify-content-start" id="navbarNav4">
       <ul class="navbar-nav">
         <% if user_signed_in? %>
-          <% if current_user.id == 3 %>
+          <li class="nav-item">
+            <%= link_to 'アカウント編集', edit_user_registration_path, class: "header-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "いいね一覧", likes_user_path(current_user), class: "header-link" %>
+          </li>
+          <% if current_user.admin == true %>
             <li class="nav-item">
-              <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "header-link" %>
-            </li> 
-          <% else %>  
-            <li class="nav-item">
-              <%= link_to 'アカウント編集', edit_user_registration_path, class: "header-link" %>
+              <%= link_to "スキー場一覧", ski_resorts_path, class: "header-link" %>
             </li>
-            <li class="nav-item">
-              <%= link_to "いいね一覧", likes_user_path(current_user), class: "header-link" %>
-            </li>
-            <% if current_user.admin == true %>
-              <li class="nav-item">
-                <%= link_to "スキー場一覧", ski_resorts_path, class: "header-link" %>
-              </li>
-            <% end %>
-            <li class="nav-item">
-              <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "header-link" %>
-            </li>  
-          <% end %>  
+          <% end %>
+          <li class="nav-item">
+            <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "header-link" %>
+          </li>  
         <% else %>
           <li class="nav-item">
             <%= link_to "ログイン", new_user_session_path, class: "header-link" %>

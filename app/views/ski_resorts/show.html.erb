@@ -5,7 +5,7 @@
     <%= @ski_resort.resort_name %>
   </h3>
   <div class="ski_resort_show_main">
-    <% if user_signed_in? && current_user.id != 3 %>
+    <% if user_signed_in? %>
       <div class="like_btn_field">
         <% if @ski_resort.liked?(current_user) %>
           <%= link_to ski_resort_like_path(@ski_resort.id), method: :delete do %>

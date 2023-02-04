@@ -387,7 +387,7 @@ RSpec.describe SkiResort, type: :system do
         expect(current_path).to eq search_ski_resorts_path
         expect(page).to have_selector "img[alt='ゲレンデ画像']"
         expect(page).to have_content result.ski_resort.resort_name
-        expect(page).to have_content result.rate
+        expect(page).to have_content result.ski_resort.reviews.average(:rate)
         expect(page).to have_content result.ski_resort.address
         expect(page).to have_content result.ski_resort.phone_number
       end
