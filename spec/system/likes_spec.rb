@@ -4,7 +4,7 @@ RSpec.describe Like, type: :system do
   let!(:user) { create(:user) }
   let!(:ski_resort) { create(:ski_resort) }
   let!(:like) { create(:like) }
-
+  
   describe "Likes #create,#destroy", js:true do
     describe "#create" do
       before do
@@ -60,26 +60,29 @@ RSpec.describe Like, type: :system do
       click_link "いいね一覧"
       expect(current_path).to eq likes_user_path(like.user_id)
     end
+    
+    describe "いいね一覧ページ" do
+      before do
+        visit likes_user_path(like.user_id)
+      end
 
-    it "いいね一覧にゲレンデが追加されていること" do
-      visit likes_user_path(like.user_id)
-      expect(page).to have_selector "img[alt='ゲレンデ画像']"
-      expect(page).to have_content like.ski_resort.resort_name
-      expect(page).to have_content like.ski_resort.address
-      expect(page).to have_content like.ski_resort.phone_number
-      expect(page).to have_content "詳細"
-    end
-
-    it "詳細をクリックしたらスキー場詳細ページに遷移すること" do
-      visit likes_user_path(like.user_id)
-      click_link "詳細"
-      expect(current_path).to eq ski_resort_path(like.ski_resort_id)
-    end
-
-    it "トップページに戻るをクリックしたらトップページに遷移すること" do
-      visit likes_user_path(like.user_id)
-      click_link "トップページに戻る"
-      expect(current_path).to eq root_path
+      it "いいね一覧にゲレンデが追加されていること" do
+        expect(page).to have_selector "img[alt='ゲレンデ画像']"
+        expect(page).to have_content like.ski_resort.resort_name
+        expect(page).to have_content like.ski_resort.reviews.average(:rate)
+        expect(page).to have_content like.ski_resort.address
+        expect(page).to have_content like.ski_resort.phone_number
+      end
+  
+      it "画像をクリックしたらスキー場詳細ページに遷移すること" do
+        click_link "ゲレンデ画像"
+        expect(current_path).to eq ski_resort_path(like.ski_resort_id)
+      end
+  
+      it "トップページに戻るをクリックしたらトップページに遷移すること" do
+        click_link "トップページに戻る"
+        expect(current_path).to eq root_path
+      end
     end
   end
 end

@@ -120,7 +120,7 @@
   top: 0;
 }
 
-.search_field {
+.search_field, .like_field {
   background-color: #ededef;
   padding-top:30px;
   min-height: 82vh;
@@ -132,7 +132,7 @@
   font-weight: bold;
   text-align: center;
 }
-.search_box {
+.search_box, .like_box {
   margin: 2em;
   padding: 1em;
   width: 95%;

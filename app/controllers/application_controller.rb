@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
 
   def set_q
     @q = SkiResort.ransack(params[:q])
-    @results = @q.result.page(params[:page]).per(15)
+    @results = @q.result.page(params[:page])
   end
 
   protected
