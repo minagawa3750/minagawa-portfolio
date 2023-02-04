@@ -92,10 +92,9 @@ YOUTUBE動画、Q&Aなど初心者の方はもちろん経験者の方まで気�
 
 <img width="1438" alt="スクリーンショット 2023-02-04 0 12 40" src="https://user-images.githubusercontent.com/107171561/216638550-31a06a7e-1a30-436e-8b0e-55758f405d22.png">
 
-
 - ヘッダーメニューのいいね一覧をクリックするといいねしたスキー場が登録されています。
 
-<img width="1440" alt="スクリーンショット 2023-02-02 22 52 21" src="https://user-images.githubusercontent.com/107171561/216346047-2548b44c-26b2-4f0e-b077-d3faba759685.png">
+<img width="1440" alt="スクリーンショット 2023-02-04 18 29 45" src="https://user-images.githubusercontent.com/107171561/216760948-481be145-976e-4edc-a97e-a55f7bb96bc5.png">
 
 ### レビュー投稿
 - スキー場詳細ページからレビュー投稿はこちらをクリックします。(未ログインユーザーがクリックするとログイン画面に遷移します。)
@@ -107,7 +106,7 @@ YOUTUBE動画、Q&Aなど初心者の方はもちろん経験者の方まで気�
 - レビュー投稿すると詳細ページに遷移しレビューが投稿されています。
 - タイトルをクリックするとレビュー詳細に遷移します。
 
-<img width="1429" alt="スクリーンショット 2023-02-02 22 55 01" src="https://user-images.githubusercontent.com/107171561/216346320-d4ff941d-8f6a-413a-bc3a-71d48aad71a1.png">
+<img width="1438" alt="スクリーンショット 2023-02-04 19 00 03" src="https://user-images.githubusercontent.com/107171561/216761035-a9f4a75e-d2ac-448e-beff-b8575a6914a6.png">
 
 - 投稿ユーザーとログインユーザーが一致しているとレビューを編集するとレビューが削除するが表示されます。
 - クリックすると編集と削除ができます。
