@@ -1,6 +1,7 @@
 .ski_resort_registration_field, .ski_resort_edit_field, .ski_resort_index_field {
   background-color: #ededef;
   padding-top: 50px;
+  min-height: 82vh;
 }
 
 .resort_index_btn, .resort_new_btn {
@@ -133,7 +134,7 @@
   text-align: center;
 }
 .search_box, .like_box {
-  margin: 2em;
+  margin: 2em auto;
   padding: 1em;
   width: 95%;
   max-width: 100%;
@@ -141,10 +142,6 @@
   border: 1px solid #ccc;
   background-color: #fff;
   color: #19448e;
-}@media (max-width: 768px) {
-  .search_box {
-    width: 90%;
-  }
 }
 
 .like_btn_field {
