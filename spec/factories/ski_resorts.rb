@@ -11,6 +11,7 @@ FactoryBot.define do
     adult_price { "¥5,000" }
     kid_price { "¥4,000" }
     senior_price { "¥3,000" }
+    price_remarks { "未就学児は無料" }
     ski_lift { 1 }
     courses { 2 }
     maximum_tilt { 3 }

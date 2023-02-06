@@ -62,7 +62,7 @@ class SkiResortsController < ApplicationController
   end
 
   def ski_resort_params
-    params.require(:ski_resort).permit(:resort_image, :resort_name, :address, :longitude, :latitude, :hp_url, :phone_number, :start_time, :end_time, :start_day, :end_day, :business_remarks, :resort_feature, :ski_lift, :courses, :maximum_tilt, :maximum_distance, :image, :adult_price, :kid_price, :senior_price, :introduction)
+    params.require(:ski_resort).permit(:resort_image, :resort_name, :address, :longitude, :latitude, :hp_url, :phone_number, :start_time, :end_time, :start_day, :end_day, :business_remarks, :resort_feature, :ski_lift, :courses, :maximum_tilt, :maximum_distance, :image, :adult_price, :kid_price, :senior_price, :introduction, :price_remarks)
   end
 
   def admin_check

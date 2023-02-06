@@ -255,6 +255,10 @@ RSpec.describe SkiResort, type: :system do
       expect(page).to have_content ski_resort.senior_price
     end
 
+    it "料金備考が表示されていること" do
+      expect(page).to have_content ski_resort.price_remarks
+    end
+
     it "リフト数が表示されていること" do
       expect(page).to have_content ski_resort.ski_lift
     end

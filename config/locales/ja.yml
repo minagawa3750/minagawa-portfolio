@@ -20,6 +20,7 @@ ja:
         adult_price: おとな料金
         kid_price: こども料金
         senior_price: シニア料金
+        price_remarks: 料金備考
         introduction: ここがおすすめ
       review:
         title: タイトル

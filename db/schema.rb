@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_01_27_125401) do
+ActiveRecord::Schema.define(version: 2023_02_06_105154) do
 
   create_table "active_storage_attachments", charset: "utf8mb3", force: :cascade do |t|
     t.string "name", null: false
@@ -84,6 +84,7 @@ ActiveRecord::Schema.define(version: 2023_01_27_125401) do
     t.date "end_day"
     t.time "start_time"
     t.time "end_time"
+    t.string "price_remarks"
   end
 
   create_table "users", charset: "utf8mb3", force: :cascade do |t|
