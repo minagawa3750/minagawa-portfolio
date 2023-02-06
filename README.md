@@ -55,7 +55,8 @@ YOUTUBE動画、Q&Aなど初心者の方はもちろん経験者の方まで気�
   - スキー場特集
 
 ### SKI.com ER図
-![スクリーンショット 2023-02-06 20 30 41](https://user-images.githubusercontent.com/107171561/216966478-aea02266-7569-4b1b-8f7c-e6ebe099feeb.png)
+<img width="1077" alt="スクリーンショット 2023-02-07 0 13 10" src="https://user-images.githubusercontent.com/107171561/217009722-05d171cc-9b66-4bf7-8eba-345ce17208b2.png">
+
 
 ## 5.テスト
 - RSpec
