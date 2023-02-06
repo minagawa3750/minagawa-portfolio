@@ -2,8 +2,8 @@ class SkiResort < ApplicationRecord
   has_one_attached :resort_image
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
-  has_many :reviews
-  has_many :likes
+  has_many :reviews, dependent: :destroy
+  has_many :likes, dependent: :destroy
 
   validates :resort_name, presence: true
   validates :address, presence: true
