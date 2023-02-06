@@ -92,7 +92,7 @@
         </div>
         <div class="col-md-6 sentence_color">
           <% if @ski_resort.business_remarks? %>
-            <%= @ski_resort.business_remarks %>
+            <%= safe_join(@ski_resort.business_remarks.split("\n"), tag(:br)) %>
           <% else %>
             -
           <% end %>
@@ -104,9 +104,9 @@
           <strong>料金(1日券)</strong>
         </div>
         <ul class="list-unstyled col-md-6 sentence_color">
-          <li class="mb-1">おとな：<%= @ski_resort.adult_price %></li>
-          <li class="mb-1">こども：<%= @ski_resort.kid_price %></li>
-          <li>シニア：<%= @ski_resort.senior_price %></li>
+          <li class="mb-1">おとな：¥<%= @ski_resort.adult_price %></li>
+          <li class="mb-1">こども：¥<%= @ski_resort.kid_price %></li>
+          <li>シニア：¥<%= @ski_resort.senior_price %></li>
         </ul>
       </div>
       <div class="row justify-content-end mb-4">
@@ -116,7 +116,7 @@
         </div>
         <div class="col-md-6 sentence_color">
           <% if @ski_resort.price_remarks? %>
-            <%= @ski_resort.price_remarks %>
+            <%= safe_join(@ski_resort.price_remarks.split("\n"), tag(:br)) %>
           <% else %>
             -
           <% end %>
