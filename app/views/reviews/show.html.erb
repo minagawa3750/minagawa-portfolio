@@ -34,9 +34,11 @@
         </script>
       </div>   
       <div class= "row justify-content-center mb-3">
-        <div class="col-md-6 comment_box">
+        <div class="col-md-8 comment_box">
           <p class="comment_title mb-2"><%= @review.title %></p>
-          <p class="review_comment"><%= @review.comment %></p>
+          <p class="review_comment">
+          <%= safe_join(@review.comment.split("\n"), tag(:br)) %>
+          </p>
         </div>
       </div>      
     </div>

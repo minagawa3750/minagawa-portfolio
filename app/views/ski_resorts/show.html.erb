@@ -104,9 +104,9 @@
           <strong>料金(1日券)</strong>
         </div>
         <ul class="list-unstyled col-md-6 sentence_color">
-          <li class="mb-1">おとな：<%= @ski_resort.adult_price %></li>
-          <li class="mb-1">こども：<%= @ski_resort.kid_price %></li>
-          <li>シニア：<%= @ski_resort.senior_price %></li>
+          <li class="mb-1">おとな：<%= safe_join(@ski_resort.adult_price.split("\n"), tag(:br)) %></li>
+          <li class="mb-1">こども：<%= safe_join(@ski_resort.kid_price.split("\n"), tag(:br)) %></li>
+          <li>シニア：<%= safe_join(@ski_resort.senior_price.split("\n"), tag(:br)) %></li>
         </ul>
       </div>
       <div class="row justify-content-end mb-4">
