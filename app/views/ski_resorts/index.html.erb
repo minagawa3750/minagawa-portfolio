@@ -24,7 +24,7 @@
             <% end %>
             <td><%= ski_resort.resort_name %></td>
             <td><%= ski_resort.address %></td>
-            <td><%= link_to "詳細", ski_resort_path(ski_resort) %></td>
+            <td><%= link_to "詳細", ski_resort_path(ski_resort), data: {"turbolinks" => false} %></td>
             <td><%= link_to "編集", edit_ski_resort_path(ski_resort) %></td>
             <td><%= link_to "削除", ski_resort_path(ski_resort), method: :delete, data: { confirm: '削除します。よろしいですか。' } %></td>
           </tr>
@@ -37,6 +37,6 @@
     <%= link_to 'スキー場登録', new_ski_resort_path, class: "resort_new_btn" %>
   </div>
   <div class="text-center pt-3 pb-5">
-    <%= link_to "トップページに戻る", root_path, class:"root_btn" %>
+    <%= link_to "トップページに戻る", root_path, class:"root_btn", data: {"turbolinks" => false} %>
   </div>
 </div>

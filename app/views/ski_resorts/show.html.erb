@@ -206,13 +206,13 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAP_API_KEY'] %>&callback=initMap" async defer></script>
   <%= render "ski_resorts/ski_resort_reviews_index", reviews: @reviews %>
   <div class="review_btn_box text-center">
-    <%= link_to"レビュー投稿はこちら", new_ski_resort_review_path(@ski_resort), class: "comment_btn" %>
+    <%= link_to"レビュー投稿はこちら", new_ski_resort_review_path(@ski_resort), class: "comment_btn", data: {"turbolinks" => false} %>
   </div>
   <div class="text-center mt-5 mb-3">
     <%= link_to "初心者Q&Aはこちら!", page_path('question'), class: "btn btn-info rounded-pill" %>
   </div>
   <div class="text-center">
-    <%= link_to "トップページ", root_path, class:"root_btn" %> 
+    <%= link_to "トップページ", root_path, class:"root_btn", data: {"turbolinks" => false} %> 
   </div>
   <% if user_signed_in? && current_user.admin == true %>
     <div class="text-center mt-4">
