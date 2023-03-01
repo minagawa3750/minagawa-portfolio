@@ -19,7 +19,7 @@
             <div class="post_info">
               <h5>レビュー日：<%= review.created_at.to_s(:date2_jp) %></h5>
               <p class="mb-3">評価：<%= review.rate %>点 | <span id="star-rate-<%= review.id %>"></span></p>   
-              <%= link_to "#{review.title}", ski_resort_review_path(review.ski_resort_id, review.id) %>
+              <%= link_to "#{review.title}", ski_resort_review_path(review.ski_resort_id, review.id), data: {"turbolinks" => false} %>
             </div> 
           </div>
           <script>

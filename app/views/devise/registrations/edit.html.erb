@@ -52,7 +52,7 @@
         <%= f.submit t('.update'), class: 'btn btn-primary' %>
       </div>
       <p><%= link_to t('.cancel_my_account'), registration_path(resource_name), data: { confirm: t('.are_you_sure') }, method: :delete, class: 'devise_link_btn' %></p>
-      <%= link_to 'トップページに戻る', root_path, class: 'devise_link_btn' %>
+      <%= link_to 'トップページに戻る', root_path, class: 'devise_link_btn', data: {"turbolinks" => false} %>
     </div>
   <% end %>
 </div>
